@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>世紀港湾株式会社｜Century Bay Co., Ltd.</title>
+  <meta name="description" content="世紀港湾株式会社（Century Bay Co., Ltd.）公式サイト。ESPORTSCAFE 5G／eスポーツ装備屋／Furry Kids を展開。" />
+  <meta property="og:title" content="世紀港湾株式会社｜Century Bay" />
+  <meta property="og:description" content="エンタメ×ライフスタイルのコーポレートサイト。" />
+  <meta property="og:image" content="assets/og.svg" />
+  <link rel="icon" href="assets/favicon.svg">
+  <meta name="theme-color" content="#0b66c3">
+  <style>
+    :root{--bg:#0b1020;--surface:#0f1424;--ink:#e8edf6;--muted:#a8b2c3;--line:#1b2338;--brand:#0b66c3;--brand2:#0aa5a2;--radius:18px;--shadow:0 16px 48px rgba(0,0,0,.35)}
+    @media (prefers-color-scheme: light){:root{--bg:#f6f8fb;--surface:#ffffff;--ink:#0f172a;--muted:#475569;--line:#e6eaf0;--shadow:0 12px 36px rgba(2,6,23,.08)}}
+    *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--muted);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;line-height:1.65}
+    h1,h2,h3{color:var(--ink)} a{color:var(--ink);text-decoration:none}
+    .container{width:min(1200px,92%);margin-inline:auto}
+    .progress{position:fixed;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,var(--brand),var(--brand2));transform-origin:left;transform:scaleX(0);z-index:120}
+    header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.04);backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+    @media (prefers-color-scheme: light){header{background:rgba(255,255,255,.75)}}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:10px 2px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img.cb{width:40px;height:40px;border-radius:10px;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+    .title{font-weight:800;color:var(--ink);letter-spacing:.2px}
+    .nav-links{display:flex;gap:22px}
+    .nav-links a{position:relative;color:var(--muted);padding:6px 2px;transition:color .2s}
+    .nav-links a:hover{color:var(--ink)}
+    .nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:linear-gradient(90deg,var(--brand),var(--brand2));transform:scaleX(0);transform-origin:left;transition:transform .25s}
+    .nav-links a:hover::after,.nav-links a[aria-current="page"]::after{transform:scaleX(1)}
+    .lang{display:flex;gap:8px}
+    .pill{border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:transparent;color:var(--muted);cursor:pointer;transition:transform .12s, color .2s}
+    .pill:active{transform:scale(.96)} .pill.active{background:linear-gradient(135deg,rgba(11,102,195,.18),rgba(10,165,162,.18));color:var(--ink);border-color:transparent}
+
+    .hero{position:relative;overflow:hidden}
+    .mesh{position:absolute;inset:0;background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(11,102,195,.25), transparent 60%),
+      radial-gradient(900px 480px at 90% 10%, rgba(10,165,162,.22), transparent 60%),
+      radial-gradient(700px 380px at 50% 110%, rgba(147,197,253,.20), transparent 60%);
+      filter:blur(20px);animation:meshMove 16s linear infinite;pointer-events:none}
+    @keyframes meshMove{0%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-20px,0)}100%{transform:translate3d(0,0,0)}}
+    #stars{position:absolute;inset:0;opacity:.35;mix-blend-mode:screen;pointer-events:none}
+    .hero-inner{position:relative;padding:90px 0 56px}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+    .headline{font-size:clamp(30px,4.6vw,54px);line-height:1.1;margin:0 0 14px}
+    .lead{font-size:clamp(16px,2vw,18px);margin:0 0 26px;color:var(--muted)}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{position:relative;display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);box-shadow:var(--shadow);overflow:hidden;will-change:transform}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border:0;font-weight:700}
+    .btn .ripple{position:absolute;border-radius:50%;transform:scale(0);opacity:.22;pointer-events:none;background:#fff;animation:ripple .6s ease-out}
+    @keyframes ripple{to{transform:scale(12);opacity:0}}
+    .hero-card{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+
+    section{padding:60px 0}
+    .section-title{font-size:22px;margin:0 0 12px;color:var(--ink)}
+
+    .quick{display:flex;gap:12px;flex-wrap:wrap;margin:8px 0 18px}
+    .chip{position:relative;display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);transition:transform .15s, box-shadow .15s}
+    .chip::after{content:"↗";transition:transform .2s}
+    .chip:hover{transform:translateY(-1px);box-shadow:var(--shadow)} .chip:hover::after{transform:translateX(2px) translateY(-2px)}
+
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{position:relative;border:1px solid var(--line);border-radius:18px;background:var(--surface);box-shadow:var(--shadow);padding:16px;transform-style:preserve-3d;transition:transform .2s ease}
+    .card:hover{transform:translateY(-4px)}
+    .card a.card-link{position:absolute;inset:0;border-radius:18px;z-index:1}
+    .content{position:relative;z-index:2}
+    .media{position:relative;border-radius:14px;overflow:hidden;background:#0d1222}
+    .media img{display:block;width:100%;height:220px;object-fit:contain;background:transparent;padding:12px}
+    .media::before{content:"";position:absolute;inset:0;opacity:.35;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.12) 1px, transparent 1px);background-size:18px 18px}
+    .tone-5g .media{background:linear-gradient(135deg,#1a1a1a,#3a0d0d)} .tone-5g h3{color:#e11d2e}
+    .tone-sb .media{background:linear-gradient(135deg,#0b1a3a,#2b1059)} .tone-sb h3{background:linear-gradient(90deg,#60a5fa,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .tone-fk .media{background:linear-gradient(135deg,#0f2d20,#16423c)} .tone-fk h3{color:#34d399}
+
+    .statement{position:relative;border-radius:22px;padding:1px;background:conic-gradient(from 180deg,var(--brand),var(--brand2),var(--brand));box-shadow:var(--shadow);overflow:hidden}
+    .statement .in{background:var(--surface);border-radius:21px;padding:22px 20px;position:relative}
+    .statement .in::after{content:"";position:absolute;inset:-2px;background:conic-gradient(from 0deg,var(--brand),transparent 40%);filter:blur(18px);opacity:.12;animation:spin 10s linear infinite;pointer-events:none}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .accent{display:inline-block;position:relative;padding-bottom:2px}
+    .accent::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:100%;background:linear-gradient(90deg,var(--brand),var(--brand2));transform:scaleX(0);transform-origin:left;animation:underline .9s .2s ease forwards}
+    @keyframes underline{to{transform:scaleX(1)}}
+    .stagger>*{opacity:0;transform:translateY(8px);animation:rise .6s ease forwards}
+    .stagger>*:nth-child(1){animation-delay:.05s} .stagger>*:nth-child(2){animation-delay:.1s} .stagger>*:nth-child(3){animation-delay:.15s} .stagger>*:nth-child(4){animation-delay:.2s} .stagger>*:nth-child(5){animation-delay:.25s} .stagger>*:nth-child(6){animation-delay:.3s}
+    @keyframes rise{to{opacity:1;transform:translateY(0)}}
+    .quote{font-size:64px;line-height:.6;background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 20px rgba(11,102,195,.25))}
+
+    .cols{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+    .list{display:grid;gap:10px}
+    .item{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid var(--line);padding:12px;border-radius:12px;opacity:0;transform:translateY(10px);transition:opacity .5s, transform .5s}
+    .item.in{opacity:1;transform:translateY(0)}
+    .badge{font-size:12px;color:#fff;background:linear-gradient(135deg,var(--brand),var(--brand2));border-radius:999px;padding:2px 10px;font-weight:700}
+
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .kpi{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow);text-align:center}
+    .kpi .num{font-size:28px;font-weight:800;color:var(--ink)}
+    .kpi .cap{color:var(--muted)}
+
+    footer{padding:36px 0;border-top:1px solid var(--line)}
+    .fab{position:fixed;right:16px;bottom:16px;width:52px;height:52px;border-radius:999px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;box-shadow:var(--shadow);border:0;cursor:pointer;opacity:0;transform:translateY(10px);transition:opacity .3s, transform .3s}
+    .fab.show{opacity:1;transform:translateY(0)}
+
+    .en{display:none} body[data-lang="en"] .jp{display:none} body[data-lang="en"] .en{display:initial}
+    @media (prefers-reduced-motion: reduce){.mesh,#stars,.stagger>*{animation:none} .nav-links a::after{display:none}}
+    @media (max-width:980px){.grid3{grid-template-columns:1fr}.cols,.hero-grid{grid-template-columns:1fr}.nav-links{display:none}}
+  </style>
+</head>
+<body data-lang="jp">
+  <div class="progress" id="progress"></div>
+  <header>
+    <div class="container nav">
+      <div class="brand"><img class="cb" src="assets/century-bay-logo.jpg" alt="Century Bay ロゴ"><span class="title">世紀港湾株式会社 <span class="muted">/ Century Bay</span></span></div>
+      <nav class="nav-links" id="navlinks"><a href="#about">会社情報</a><a href="#brands">事業紹介</a><a href="#news">ニュース</a><a href="#careers">採用</a><a href="#contact">お問い合わせ</a></nav>
+      <div class="lang" role="group"><button class="pill active" data-lang="jp">日本語</button><button class="pill" data-lang="en">EN</button></div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <canvas id="stars"></canvas>
+    <div class="mesh"></div>
+    <div class="hero-inner container">
+      <div class="hero-grid">
+        <div>
+          <h1 class="headline jp">信頼でつなぐ。未来を創る。<br>世紀港湾株式会社</h1>
+          <h1 class="headline en">Built on trust. Creating the future.<br>Century Bay Co., Ltd.</h1>
+          <p class="lead jp">世紀港湾株式会社は、エンターテインメントとライフスタイルの分野で、多彩なブランドを展開し、信頼と感動をお届けします。日本と世界、人と人、人と動物をつなぐ架け橋として、新しい価値を創造します。</p>
+          <p class="lead en">Century Harbor Co., Ltd. develops a diverse range of brands in the fields of entertainment and lifestyle, delivering trust and inspiration. Serving as a bridge connecting Japan and the world, people to people, and people to animals, we create new value.</p>
+          <div class="cta">
+            <a class="btn primary rippleable" href="#brands"><span class="jp">事業を見る</span><span class="en">Explore Brands</span></a>
+            <a class="btn rippleable" href="#about"><span class="jp">会社概要</span><span class="en">Company Profile</span></a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3 class="jp">コーポレート・ハイライト</h3><h3 class="en">Corporate Highlights</h3>
+          <div class="list">
+            <div class="item"><span class="badge">2009</span><div><div class="jp">日本法人設立（グループ創業：2006・中国天津）</div><div class="en">Japan entity est. 2009 (Group founded 2006, Tianjin)</div></div></div>
+            <div class="item"><span class="badge">登録</span><div>適格請求書発行事業者番号：T8011101058365</div></div>
+            <div class="item"><span class="badge">拠点</span><div><span class="jp">〒169-0073 東京都新宿区百人町2-4-2</span><span class="en">2-4-2 Hyakunincho, Shinjuku-ku, Tokyo</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="brands">
+    <div class="container">
+      <h2 class="section-title jp">事業紹介</h2><h2 class="section-title en">Brands</h2>
+      <div class="quick">
+        <a class="chip" href="https://esportscafe5g.com" target="_blank" rel="noopener noreferrer">ESPORTSCAFE 5G 公式サイトへ</a>
+        <a class="chip" href="https://esports-soubiya.com" target="_blank" rel="noopener noreferrer">eスポーツ装備屋 公式サイトへ</a>
+        <a class="chip" href="https://furrykids.co.jp" target="_blank" rel="noopener noreferrer">Furry Kids 公式サイトへ</a>
+      </div>
+      <div class="grid3">
+        <div class="card tone-5g tilt"><a class="card-link" href="https://esportscafe5g.com" target="_blank" rel="noopener noreferrer"></a>
+          <div class="content"><div class="media"><img src="assets/esportscafe5g.png" alt="ESPORTSCAFE 5G"></div>
+            <h3>ESPORTSCAFE 5G</h3>
+            <p class="jp">高性能設備×安定ネットワーク。イベント・貸切に対応。</p><p class="en">High-spec rigs and reliable network. Events & private bookings.</p>
+            <a class="btn rippleable" href="https://esportscafe5g.com" target="_blank" rel="noopener noreferrer">公式サイトへ</a>
+          </div>
+        </div>
+        <div class="card tone-sb tilt"><a class="card-link" href="https://esports-soubiya.com" target="_blank" rel="noopener noreferrer"></a>
+          <div class="content"><div class="media"><img src="assets/esports-soubiya.jpg" alt="eスポーツ装備屋"></div>
+            <h3>eスポーツ装備屋</h3>
+            <p class="jp">販売・修理・カスタム。用途別に最適な1台をご提案。</p><p class="en">Sales, repairs, and custom builds—tailored to your use case.</p>
+            <a class="btn rippleable" href="https://esports-soubiya.com" target="_blank" rel="noopener noreferrer">公式サイトへ</a>
+          </div>
+        </div>
+        <div class="card tone-fk tilt"><a class="card-link" href="https://furrykids.co.jp" target="_blank" rel="noopener noreferrer"></a>
+          <div class="content"><div class="media"><img src="assets/furrykids.png" alt="Furry Kids"></div>
+            <h3>Furry Kids</h3>
+            <p class="jp">品質と安全を第一に。売上の1％を寄付。</p><p class="en">Quality & safety first. 1% of sales donated.</p>
+            <a class="btn rippleable" href="https://furrykids.co.jp" target="_blank" rel="noopener noreferrer">公式サイトへ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container cols">
+      <div class="statement">
+        <div class="in">
+          <div class="stagger">
+            <div class="quote">“</div>
+            <h2 class="accent jp">代表挨拶</h2><h2 class="accent en">Message from the President</h2>
+            <p class="jp">世紀港湾株式会社は、2006年に中国・天津で貿易・海運貨物取扱業として創業し、2009年に日本法人を設立いたしました。創業以来、国や文化の垣根を越え、「信頼」「誠実」「確実性」を基盤に事業を展開してまいりました。</p><p class="jp">私自身、外国人として日本に暮らし、この国の文化や秩序、人々の温かさに深く魅了されてきました。同時に、中国と日本という二つの国をつなぎ、相互理解と信頼を育む架け橋となることを使命と考えています。</p><p class="jp">現在は、eスポーツ体験施設「ESPORTSCAFE 5G」、ゲーミング機器販売・修理専門店「eスポーツ装備屋」、そしてペット用品ブランド「Furry Kids」を展開しております。特に「Furry Kids」では、売上の1％を動物保護や福祉活動に寄付し、人と動物が共に幸せに暮らせる社会づくりに取り組んでいます。</p><p class="jp">世紀港湾株式会社は、これからも日本と世界をつなぎ、人と人、人と動物がより良く共生できる未来の実現に向け、挑戦を続けてまいります。</p>
+            <p class="en">Century Bay Co., Ltd. was founded in 2006 in Tianjin, China, as a trading and maritime freight handling business, and established its Japanese subsidiary in 2009. Since its inception, we have operated across national and cultural boundaries on the pillars of trust, integrity, and reliability.</p><p class="en">Living in Japan as a foreigner, I have been deeply impressed by the country’s culture, order, and the warmth of its people. At the same time, I see it as my mission to serve as a bridge connecting China and Japan, fostering mutual understanding and trust.</p><p class="en">Today, we operate the e-sports experience facility “ESPORTSCAFE 5G,” the specialized gaming equipment sales and repair store “eスポーツ装備屋,” and the pet-supply brand “Furry Kids.” In particular, through Furry Kids we donate 1% of sales to animal protection and welfare activities, striving to build a society where people and animals can live together in happiness.</p><p class="en">Going forward, Century Bay Co., Ltd. will continue connecting Japan with the world, taking on new challenges to help realize a future in which people and animals coexist in harmony.</p>
+          </div>
+        </div>
+      </div>
+      <div class="kpi card">
+        <h2 class="section-title">Corporate KPIs</h2>
+        <div class="kpis" id="kpis">
+          <div class="kpi"><div class="num" data-target="3">0</div><div class="cap jp">運営ブランド</div><div class="cap en">Brands</div></div>
+          <div class="kpi"><div class="num" data-target="2009">0</div><div class="cap jp">日本法人設立年</div><div class="cap en">JP Entity Established</div></div>
+          <div class="kpi"><div class="num" data-target="100">0</div><div class="cap jp">年間イベント（例）</div><div class="cap en">Events / year (ex.)</div></div>
+          <div class="kpi"><div class="num" data-target="1">0</div><div class="cap jp">社会貢献：売上1％寄付</div><div class="cap en">1% Sales Donation</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="news">
+    <div class="container">
+      <h2 class="section-title jp">ニュース</h2><h2 class="section-title en">Latest News</h2>
+      <div class="list">
+        <div class="item"><span class="badge">2025.07.15</span><div class="jp">「Furry Kids」ブランドローンチ準備開始</div><div class="en">Launch preparation for “Furry Kids” begins</div></div>
+        <div class="item"><span class="badge">2025.06.01</span><div class="jp">ESPORTSCAFE 5G 夏季キャンペーン開始</div><div class="en">Summer campaign starts at ESPORTSCAFE 5G</div></div>
+        <div class="item"><span class="badge">2025.04.10</span><div class="jp">eスポーツ装備屋 池袋本店リニューアルオープン</div><div class="en">eSports Equipment Store Ikebukuro reopens after renovation</div></div>
+      </div>
+    </div>
+  </section>
+
+  
+  
+  <section id="careers">
+    <div class="container">
+      <h2 class="section-title jp">採用情報</h2><h2 class="section-title en">Careers</h2>
+
+      <div class="card" style="margin-bottom:18px">
+        <h3 class="jp">私たちが大切にすること</h3><h3 class="en">What we value</h3>
+        <p class="jp">誠実さ・品質・チームワーク。国や文化を越えて挑戦する仲間を歓迎します。</p>
+        <p class="en">Integrity, quality, teamwork. We welcome those eager to cross borders and take on challenges.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3 class="jp">店舗運営（ESPORTSCAFE 5G）</h3><h3 class="en">Store Operations (ESPORTSCAFE 5G)</h3>
+          <p class="jp">接客・イベント運営・設備管理</p>
+          <p class="en">Customer service, event ops, facility management</p>
+        </div>
+
+        <div class="card">
+          <h3 class="jp">テクニカルサポート（装備屋）</h3><h3 class="en">Technical Support (Equipment Store)</h3>
+          <p class="jp">PC診断・修理・カスタム提案</p>
+          <p class="en">Diagnostics, repairs, custom builds</p>
+        </div>
+
+        <div class="card">
+          <h3 class="jp">プロダクト企画（Furry Kids）</h3><h3 class="en">Product Planning (Furry Kids)</h3>
+          <p class="jp">素材選定・品質管理・表示管理</p>
+          <p class="en">Materials, quality control, labeling</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:18px">
+        <h3 class="jp">応募方法 / 選考フロー</h3><h3 class="en">How to apply / Screening</h3>
+        <p class="jp">履歴書（写真付）・職務経歴書をメール送付／応募フォームよりご応募ください。</p>
+        <p class="en">Send your resume/CV via email or apply through the application form.</p>
+        <p class="jp">選考：書類→面接（オンライン可）→最終</p>
+        <p class="en">Screening: Docs → Interview (online OK) → Final</p>
+        <div class="cta">
+          <a class="btn primary rippleable" href="mailto:info@centurybay.jp?subject=%E6%8E%A1%E7%94%A8%E5%BF%9C%E5%8B%9F%20%7C%20Century%20Bay&body=%E3%80%90%E6%B1%82%E4%BA%BA%E8%81%B7%E7%A8%AE%E3%80%91%0D%0A%E3%80%90%E6%B1%82%E4%BA%BA%E5%85%AC%E7%94%B3%E7%90%86%E7%94%B1%E3%80%91%0D%0A%E3%80%90%E7%B7%8F%E5%90%88%E8%82%AF%E5%AE%9A%E6%97%A5%E5%AD%90%E3%80%91%0D%0A">メールで応募</a>
+          <a class="btn rippleable" href="#contact"><span class="jp">応募フォームへ</span><span class="en">Go to Form</span></a>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:18px">
+        <h3 class="jp">ダイバーシティ</h3><h3 class="en">Diversity & Inclusion</h3>
+        <p class="jp">国籍・性別等を問わず、公平な機会を提供します。</p>
+        <p class="en">We provide equal opportunities regardless of nationality, gender, etc.</p>
+      </div>
+    </div>
+  </section>
+
+<section id="contact">
+    <div class="container cols">
+      <div class="card">
+        <h2 class="section-title jp">お問い合わせ</h2><h2 class="section-title en">Contact</h2>
+        <form data-contact>
+          <div style="display:grid;gap:12px">
+            <input required name="name" placeholder="Name / お名前" style="padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink)" />
+            <input type="email" name="email" required placeholder="Email / メール" style="padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink)" />
+            <input name="phone" placeholder="Phone / 電話（任意）" style="padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink)" />
+            <select name="topic" style="padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink)">
+              <option>General / お問い合わせ</option><option>Media / メディア</option><option>Business / 法人</option>
+            </select>
+            <textarea name="message" required rows="5" placeholder="Message / 内容" style="padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink)"></textarea>
+            <label style="display:flex;gap:8px;align-items:center;color:var(--muted)"><input type="checkbox" required /> <span class="jp">送信前にプライバシーポリシーに同意します</span><span class="en">I agree to the Privacy Policy</span></label>
+            <button class="btn primary rippleable" type="submit"><span class="jp">送信する</span><span class="en">Send</span></button>
+          </div>
+        </form>
+      </div>
+      <div class="card">
+        <h3 class="jp">連絡先</h3><h3 class="en">Direct Contact</h3>
+        <p>〒169-0073 東京都新宿区百人町2-4-2</p>
+        <p class="muted jp">受付時間：平日10:00–17:00（JST）</p>
+        <p class="muted en">Hours: Mon–Fri 10:00–17:00 (JST)</p>
+        <p>メール: <a href="mailto:info@centurybay.jp">info@centurybay.jp</a></p>
+        <p><a href="privacy.html">プライバシーポリシー / Privacy</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:grid;gap:8px">
+      <div>© <span class="jp">世紀港湾株式会社</span><span class="en">Century Bay Co., Ltd.</span>. All rights reserved.</div>
+<div class="policy-links">
+  <a href="privacy-policy.html">プライバシーポリシー</a> ／
+  <a href="cookie-policy.html">Cookieポリシー</a> ／
+  <a href="antisocial-exclusion.html">反社会的勢力排除に関する方針</a> ／
+  <a href="information-security.html">情報セキュリティポリシー</a>
+</div>
+
+  </footer>
+
+  <button class="fab" id="totop" aria-label="Back to top">↑</button>
+
+  <script>
+    if('serviceWorker' in navigator){ window.addEventListener('load', ()=> navigator.serviceWorker.register('./sw.js')); }
+    const langBtns = document.querySelectorAll('[data-lang]');
+    const setLang = lang => { document.body.dataset.lang = lang; langBtns.forEach(b=> b.classList.toggle('active', b.dataset.lang===lang)); try{localStorage.setItem('site-lang', lang);}catch(e){} };
+    langBtns.forEach(b=> b.addEventListener('click', ()=> setLang(b.dataset.lang)));
+    try{ const saved = localStorage.getItem('site-lang'); if(saved) setLang(saved);}catch(e){}
+
+    const progress = document.getElementById('progress');
+    const onScroll = () => {
+      const h = document.documentElement;
+      const sc = h.scrollTop || document.body.scrollTop;
+      const max = (h.scrollHeight - h.clientHeight) || 1;
+      progress.style.transform = 'scaleX(' + (sc / max) + ')';
+    };
+    window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+    const stars = document.getElementById('stars');
+    const rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(stars && !rm){
+      const ctx = stars.getContext('2d');
+      let w,h; const DPR = Math.min(2, window.devicePixelRatio || 1);
+      const nodes = Array.from({length:60}, ()=>({x:Math.random(), y:Math.random(), vx:(Math.random()-.5)*0.0006, vy:(Math.random()-.5)*0.0006, r:Math.random()*1.5+0.3}));
+      const resize = ()=>{ w = stars.clientWidth; h = stars.clientHeight; stars.width = w*DPR; stars.height = h*DPR; ctx.setTransform(DPR,0,0,DPR,0,0); };
+      const step = ()=>{
+        ctx.clearRect(0,0,w,h);
+        ctx.fillStyle = 'rgba(255,255,255,0.6)';
+        for(const p of nodes){ p.x += p.vx; p.y += p.vy; if(p.x<0||p.x>1) p.vx*=-1; if(p.y<0||p.y>1) p.vy*=-1; ctx.beginPath(); ctx.arc(p.x*w, p.y*h, p.r, 0, Math.PI*2); ctx.fill(); }
+        requestAnimationFrame(step);
+      };
+      const obs = new ResizeObserver(resize); obs.observe(stars); resize(); step();
+    }
+
+    const io = new IntersectionObserver((entries)=> entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }}), {threshold:.12});
+    document.querySelectorAll('.item').forEach(el=> io.observe(el));
+
+    const counters = document.querySelectorAll('.kpi .num');
+    let counted=false;
+    const kpiIo = new IntersectionObserver((entries)=>{
+      if(counted) return;
+      if(entries.some(e=>e.isIntersecting)){
+        counters.forEach(el=>{
+          const tgt = +el.dataset.target; let cur = 0;
+          const step = Math.max(1, Math.round(tgt/60));
+          const t = setInterval(()=>{ cur += step; if(cur >= tgt){ cur = tgt; clearInterval(t);} el.textContent = cur; }, 16);
+        });
+        counted = true; kpiIo.disconnect();
+      }
+    },{threshold:.3});
+    kpiIo.observe(document.getElementById('kpis'));
+
+    const ripple = (e)=>{const b=e.currentTarget, r=document.createElement('span'); r.className='ripple'; const rect=b.getBoundingClientRect(); r.style.left=(e.clientX-rect.left)+'px'; r.style.top=(e.clientY-rect.top)+'px'; b.appendChild(r); setTimeout(()=>r.remove(),600)};
+    document.querySelectorAll('.rippleable,.btn').forEach(b=> b.addEventListener('click', ripple));
+
+    document.querySelectorAll('.tilt').forEach(card=>{
+      const maxDeg = 6;
+      const leave = ()=> card.style.transform = '';
+      card.addEventListener('mousemove', e=>{
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+        const rx = (py - .5) * -2 * maxDeg, ry = (px - .5) * 2 * maxDeg;
+        card.style.transform = `rotateX(${'{'}rx{'}'}deg) rotateY(${'{'}ry{'}'}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', leave);
+    });
+
+    const fab = document.getElementById('totop');
+    const toggleFab = ()=> fab.classList.toggle('show', window.scrollY > 420);
+    fab.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+    window.addEventListener('scroll', toggleFab, {passive:true}); toggleFab();
+
+    const links = [...document.querySelectorAll('#navlinks a')];
+    const secs = links.map(a=> document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const setActiveLink = ()=>{ let idx = secs.findIndex(sec=> sec.getBoundingClientRect().top - 100 > 0) - 1; if(idx < 0) idx = secs.length - 1; links.forEach(l=> l.removeAttribute('aria-current')); if(links[idx]) links[idx].setAttribute('aria-current','page'); };
+    window.addEventListener('scroll', setActiveLink, {passive:true}); setActiveLink();
+  </script>
+  <script src="email.js"></script>
+  <script src="email.js"></script>
+  <script src="contact.js"></script>
+  <script src="gas.js"></script>
+  <script src="email.js"></script>
+  <script src="contact.js"></script>
+
+<button onclick="if(document.referrer){history.back();}else{window.location.href='index.html';}" 
+        style="padding:10px 20px; background:#007bff; color:#fff; border:none; border-radius:5px; cursor:pointer; position:fixed; bottom:20px; left:20px; z-index:999;">
+  ← 戻る
+</button>
+<script>
+// Mobile-friendly adjustments
+document.addEventListener('DOMContentLoaded', function() {
+    const meta = document.createElement('meta');
+    meta.name = "viewport";
+    meta.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0";
+    document.head.appendChild(meta);
+});
+</script>
+
+</body>
+</html>

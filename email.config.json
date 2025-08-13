@@ -1,0 +1,7 @@
+{
+  "useEmailJS": true,
+  "service_id": "YOUR_EMAILJS_SERVICE_ID",
+  "template_id": "YOUR_EMAILJS_TEMPLATE_ID",
+  "public_key": "YOUR_EMAILJS_PUBLIC_KEY",
+  "to_email": "info@centurybay.jp"
+}
