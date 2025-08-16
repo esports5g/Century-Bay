@@ -3,7 +3,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
 <title>世紀港湾株式会社｜Century Bay Co., Ltd.</title>
 <meta content="世紀港湾株式会社（Century Bay Co., Ltd.）公式サイト。ESPORTSCAFE 5G／eスポーツ装備屋／Furry Kids を展開。" name="description"/>
 <meta content="世紀港湾株式会社｜Century Bay" property="og:title"/>
@@ -110,22 +110,35 @@
 :root[data-lang="en"] .jp{display:none;}
 :root[data-lang="en"] .en{display:block;}
 </style>
-
-
-
 <style>
 .big-hero-title{margin:0;font-weight:800;line-height:1.08;
   font-size:clamp(32px,6vw,68px);letter-spacing:.2px;color:var(--ink);}
 .section.hero{background:none}
 </style>
-</head>
+<style>
+/* === Mobile menu additions === */
+:root{ --header-h: 64px; --safe-top: env(safe-area-inset-top); }
+.menu-btn{ display:inline-flex; margin-left:8px; width:40px; height:40px; border:none; background:transparent;
+  flex-direction:column; justify-content:center; align-items:center; gap:4px; }
+.menu-btn span{ width:22px; height:2px; background:#0b1220; border-radius:1px; transition:.25s; }
+@media (max-width: 980px){
+  .nav-links{ display:none; }
+  html.menu-open .nav-links{ display:grid; position:fixed; left:0; right:0;
+    top: calc(var(--safe-top) + var(--header-h)); z-index: 999;
+    padding: 12px; gap: 2px;
+    background:#fff; border-bottom:1px solid var(--line);
+    box-shadow: 0 20px 40px rgba(2,6,23,.12); }
+  .nav-links a{ padding:14px 10px; border-radius:10px; color:inherit; }
+  .lang{ margin-left:auto; }
+  html.menu-open, html.menu-open body{ overflow:hidden; } /* prevent body scroll */
+}
+</style></head>
 <body data-lang="jp" id="top">
-
 <div class="progress" id="progress"></div>
 <header>
 <div class="container nav">
 <div class="brand"><img alt="Century Bay ロゴ" class="cb" src="assets/century-bay-logo.jpg"/><span class="title">世紀港湾株式会社 <span class="muted">/ Century Bay</span></span></div>
-<nav class="nav-links" id="navlinks"><a href="page-1-about.html">会社情報</a><a href="#brands">事業紹介</a><a href="page-2-news.html">ニュース</a><a href="page-3-careers.html">採用</a><a href="page-4-contact.html">お問い合わせ</a></nav>
+<button aria-controls="navlinks" aria-expanded="false" aria-label="メニュー" class="menu-btn"><span></span><span></span><span></span></button><nav class="nav-links" id="navlinks"><a href="page-1-about.html">会社情報</a><a href="#brands">事業紹介</a><a href="page-2-news.html">ニュース</a><a href="page-3-careers.html">採用</a><a href="page-4-contact.html">お問い合わせ</a></nav>
 <div class="lang" role="group"><button class="pill active" data-lang="jp" data-set-lang="jp">日本語</button><button class="pill" data-lang="en" data-set-lang="en">EN</button></div>
 </div>
 </header>
@@ -175,6 +188,23 @@
       setLang(t.getAttribute('data-set-lang'));
     }
   }, {passive:true});
+})();
+</script>
+
+<script>
+(function(){
+  var btn = document.querySelector('header .menu-btn');
+  var links = document.querySelector('nav.nav-links');
+  if(!btn || !links) return;
+  function close(){ document.documentElement.classList.remove('menu-open'); btn.setAttribute('aria-expanded','false'); }
+  function open(){ document.documentElement.classList.add('menu-open'); btn.setAttribute('aria-expanded','true'); }
+  btn.addEventListener('click', function(){
+    (document.documentElement.classList.contains('menu-open')? close : open)();
+  });
+  links.addEventListener('click', function(e){
+    var a = e.target.closest('a'); if(a) close();
+  });
+  window.addEventListener('resize', function(){ if(window.innerWidth >= 980) close(); }, {passive:true});
 })();
 </script>
 </body>
