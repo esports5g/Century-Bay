@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>ポリシー｜世紀港湾株式会社</title>
 <style>
 :root{--bg:#0f1424;--fg:#e8edf6;--muted:#a8b2c3;--line:#22304a;--brand:#0b66c3;--brand2:#0aa5a2}
@@ -20,15 +21,20 @@ code,pre{background:rgba(255,255,255,.06);padding:.2em .4em;border-radius:6px}
 ul{padding-left:1.2em}
 strong{color:var(--fg)}
 </style>
+
+<style>
+/* Language visibility */
+.jp{display: block;}
+.en{display: none;}
+:root[data-lang="en"] .jp{display:none;}
+:root[data-lang="en"] .en{display:block;}
+</style>
 </head>
 <body>
 <div class="container">
-
 <h1>反社会的勢力排除に関する方針</h1>
 <div class="update">最終更新日：2025-08-13</div>
-
 <p>当社は、社会の秩序や安全に脅威を与える反社会的勢力に対し、断固たる姿勢で臨みます。取引や関係を一切持ちません。</p>
-
 <section>
 <h2>1. 基本方針</h2>
 <ul>
@@ -37,7 +43,6 @@ strong{color:var(--fg)}
 <li>外部専門機関（警察、暴力追放運動推進センター、弁護士等）と連携する。</li>
 </ul>
 </section>
-
 <section>
 <h2>2. 具体的対応</h2>
 <ul>
@@ -46,10 +51,9 @@ strong{color:var(--fg)}
 <li>従業員に対する教育・周知を継続的に実施する。</li>
 </ul>
 </section>
-
 <footer>© 世紀港湾株式会社 / Century Bay Co., Ltd.
 <div style="margin-top:20px;">
-  <button onclick="history.back()" style="
+<button onclick="history.back()" style="
     background-color:#0b66c3;
     color:#fff;
     padding:10px 18px;
@@ -63,8 +67,27 @@ strong{color:var(--fg)}
     ← 戻る
   </button>
 </div>
-
 </footer>
 </div>
+
+<script>
+(function(){
+  function getLang(){ try { return localStorage.getItem('site.lang') || 'jp'; } catch(e){ return 'jp'; } }
+  function setLang(l){
+    document.documentElement.setAttribute('data-lang', l);
+    try { localStorage.setItem('site.lang', l); } catch(e){}
+  }
+  // Initialize once DOM is interactive
+  setLang(getLang());
+  // Click handlers for any element with data-set-lang
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('[data-set-lang]');
+    if(t){
+      e.preventDefault();
+      setLang(t.getAttribute('data-set-lang'));
+    }
+  }, {passive:true});
+})();
+</script>
 </body>
 </html>

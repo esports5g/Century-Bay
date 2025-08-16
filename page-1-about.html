@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="ja">
-<head>
+<html><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>世紀港湾株式会社｜Century Bay Co., Ltd.</title>
@@ -110,51 +109,101 @@
 :root[data-lang="en"] .jp{display:none;}
 :root[data-lang="en"] .en{display:block;}
 </style>
-
-
-
 <style>
-.big-hero-title{margin:0;font-weight:800;line-height:1.08;
-  font-size:clamp(32px,6vw,68px);letter-spacing:.2px;color:var(--ink);}
-.section.hero{background:none}
+  .aboutfacts-card{
+    background:#fff;border:1px solid rgba(0,0,0,.06);
+    border-radius:16px;padding:18px;box-shadow:0 8px 24px rgba(2,6,23,.06)
+  }
+  .aboutfacts-title{margin:0 0 10px;text-align:center;font-size:20px;font-weight:700}
+  .aboutfacts-grid{display:grid;grid-template-columns:1fr;gap:10px}
+  .aboutfacts-item{
+    background:#f8fbff;border:1px solid rgba(0,0,0,.06);
+    border-radius:12px;padding:10px 12px;color:#0f172a;font-size:14px
+  }
+  .aboutfacts-label{display:block;font-size:12px;color:#64748b;margin-bottom:2px}
+  .aboutfacts-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .aboutfacts-chip{
+    background:#fff;border:1px solid rgba(0,0,0,.08);
+    border-radius:999px;padding:4px 10px;font-size:12px
+  }
+  .aboutfacts-cta{margin-top:12px;text-align:center}
+  .aboutfacts-cta a{
+    text-decoration:none;border:1px solid rgba(0,0,0,.1);
+    border-radius:10px;padding:8px 12px;font-size:13px;display:inline-block
+  }
 </style>
-</head>
-<body data-lang="jp" id="top">
+</head><body>
+<div style="position:sticky;top:0;padding:16px;z-index:1000;background:rgba(255,255,255,0.8);backdrop-filter:saturate(180%) blur(10px)">
+<a href="index.html#top" style="display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:9999px;border:1px solid rgba(0,0,0,0.1);text-decoration:none;">
+<span>←</span><span>戻る / 返回上一页 / Back</span>
+</a>
+</div>
+<section id="about">
+<div class="container cols">
+<div class="statement">
+<div class="in">
+<div class="stagger">
+<div class="quote">“</div>
+<h2 class="accent jp">代表挨拶</h2><h2 class="accent en">Message from the President</h2>
+<p class="jp">世紀港湾株式会社は、2006年に中国・天津で貿易・海運貨物取扱業として創業し、2009年に日本法人を設立いたしました。創業以来、国や文化の垣根を越え、「信頼」「誠実」「確実性」を基盤に事業を展開してまいりました。</p><p class="jp">私自身、外国人として日本に暮らし、この国の文化や秩序、人々の温かさに深く魅了されてきました。同時に、中国と日本という二つの国をつなぎ、相互理解と信頼を育む架け橋となることを使命と考えています。</p><p class="jp">現在は、eスポーツ体験施設「ESPORTSCAFE 5G」、ゲーミング機器販売・修理専門店「eスポーツ装備屋」、そしてペット用品ブランド「Furry Kids」を展開しております。特に「Furry Kids」では、売上の1％を動物保護や福祉活動に寄付し、人と動物が共に幸せに暮らせる社会づくりに取り組んでいます。</p><p class="jp">世紀港湾株式会社は、これからも日本と世界をつなぎ、人と人、人と動物がより良く共生できる未来の実現に向け、挑戦を続けてまいります。</p>
+<p class="en">Century Bay Co., Ltd. was founded in 2006 in Tianjin, China, as a trading and maritime freight handling business, and established its Japanese subsidiary in 2009. Since its inception, we have operated across national and cultural boundaries on the pillars of trust, integrity, and reliability.</p><p class="en">Living in Japan as a foreigner, I have been deeply impressed by the country’s culture, order, and the warmth of its people. At the same time, I see it as my mission to serve as a bridge connecting China and Japan, fostering mutual understanding and trust.</p><p class="en">Today, we operate the e-sports experience facility “ESPORTSCAFE 5G,” the specialized gaming equipment sales and repair store “eスポーツ装備屋,” and the pet-supply brand “Furry Kids.” In particular, through Furry Kids we donate 1% of sales to animal protection and welfare activities, striving to build a society where people and animals can live together in happiness.</p><p class="en">Going forward, Century Bay Co., Ltd. will continue connecting Japan with the world, taking on new challenges to help realize a future in which people and animals coexist in harmony.</p>
+</div>
+</div>
+</div>
+<div class="kpi card">
+<section class="aboutfacts-card">
+<h3 class="aboutfacts-title">
+<span class="jp">会社概要</span>
+<span class="en">Company Facts</span>
+</h3>
+<div class="aboutfacts-grid">
+<div class="aboutfacts-item">
+<span class="aboutfacts-label">
+<span class="jp">設立・沿革</span><span class="en">Established / History</span>
+</span>
+<span class="jp">2006年 グループ創業（中国・天津）／ 2009年 日本法人設立</span>
+<span class="en">Group founded in 2006 (Tianjin, China) / Japan entity incorporated in 2009</span>
+</div>
+<div class="aboutfacts-item">
+<span class="aboutfacts-label">
+<span class="jp">事業領域</span><span class="en">Business Domains</span>
+</span>
+<div class="aboutfacts-chips">
+<span class="aboutfacts-chip"><span class="jp">エンターテインメント・エクスペリエンス</span><span class="en">Immersive Entertainment</span></span>
+<span class="aboutfacts-chip"><span class="jp">eスポーツ・インフラ</span><span class="en">Esports Infrastructure</span></span>
+<span class="aboutfacts-chip"><span class="jp">プレミアム・ペットケア</span><span class="en">Premium Pet Care</span></span>
+</div>
+</div>
+<div class="aboutfacts-item">
+<span class="aboutfacts-label">
+<span class="jp">運営ブランド</span><span class="en">Brands</span>
+</span>
+<div class="aboutfacts-chips">
+<span class="aboutfacts-chip">ESPORTSCAFE 5G</span>
+<span class="aboutfacts-chip"><span class="jp">eスポーツ装備屋</span><span class="en">eSports Gear Shop</span></span>
+<span class="aboutfacts-chip">Furry Kids</span>
+</div>
+</div>
+<div class="aboutfacts-item">
+<span class="aboutfacts-label">
+<span class="jp">所在地・営業時間</span><span class="en">Address / Hours</span>
+</span>
 
-<div class="progress" id="progress"></div>
-<header>
-<div class="container nav">
-<div class="brand"><img alt="Century Bay ロゴ" class="cb" src="assets/century-bay-logo.jpg"/><span class="title">世紀港湾株式会社 <span class="muted">/ Century Bay</span></span></div>
-<nav class="nav-links" id="navlinks"><a href="page-1-about.html">会社情報</a><a href="#brands">事業紹介</a><a href="page-2-news.html">ニュース</a><a href="page-3-careers.html">採用</a><a href="page-4-contact.html">お問い合わせ</a></nav>
-<div class="lang" role="group"><button class="pill active" data-lang="jp" data-set-lang="jp">日本語</button><button class="pill" data-lang="en" data-set-lang="en">EN</button></div>
-</div>
-</header>
-<section class="hero"><div class="container" style="padding:72px 0 56px"><h1 class="big-hero-title"><span class="jp">信頼でつなぐ。<br/>未来を創る。<br/>世紀港湾株式会社</span><span class="en">Connecting with Trust.<br/>Creating the Future.<br/>Century Harbor Co., Ltd.</span></h1></div></section>
-<section id="brands">
-<div class="container">
-<h2 class="section-title jp">事業紹介</h2><h2 class="section-title en">Brands</h2>
-<div class="grid3">
-<div class="card tone-5g tilt"><a class="card-link" href="https://esportscafe5g.com" rel="noopener noreferrer" target="_blank"></a>
-<div class="content"><div class="media"><img alt="ESPORTSCAFE 5G" src="assets/esportscafe5g.png"/></div>
-<h3>ESPORTSCAFE 5G</h3>
-<p class="jp">高性能設備×安定ネットワーク。イベント・貸切に対応。</p><p class="en">High-spec rigs and reliable network. Events &amp; private bookings.</p>
-<a class="btn rippleable" href="https://esportscafe5g.com" rel="noopener noreferrer" target="_blank">公式サイトへ</a>
+
+<span class="jp">東京都新宿区百人町2-4-2 ／ 9:00–19:00（定休：土・日・祝・年末年始）</span><span class="en">Hyakunin-cho 2-4-2, Shinjuku, Tokyo / 9:00–19:00 (Closed: Sat, Sun, National Holidays, Year‑end &amp; New Year)</span></div>
+<div class="aboutfacts-item">
+<span class="aboutfacts-label">
+<span class="jp">連絡先</span><span class="en">Contact</span>
+</span>
+<span>info@centurybay.jp</span>
 </div>
 </div>
-<div class="card tone-sb tilt"><a class="card-link" href="https://esports-soubiya.com" rel="noopener noreferrer" target="_blank"></a>
-<div class="content"><div class="media"><img alt="eスポーツ装備屋" src="assets/esports-soubiya.jpg"/></div>
-<h3>eスポーツ装備屋</h3>
-<p class="jp">販売・修理・カスタム。用途別に最適な1台をご提案。</p><p class="en">Sales, repairs, and custom builds—tailored to your use case.</p>
-<a class="btn rippleable" href="https://esports-soubiya.com" rel="noopener noreferrer" target="_blank">公式サイトへ</a>
+<div class="aboutfacts-cta">
+<a href="page-4-contact.html">
+<span class="jp">お問い合わせへ</span><span class="en">Go to Contact</span>
+</a>
 </div>
-</div>
-<div class="card tone-fk tilt"><a class="card-link" href="https://furrykids.co.jp" rel="noopener noreferrer" target="_blank"></a>
-<div class="content"><div class="media"><img alt="Furry Kids" src="assets/furrykids.png"/></div>
-<h3>Furry Kids</h3>
-<p class="jp">品質と安全を第一に。売上の1％を寄付。</p><p class="en">Quality &amp; safety first. 1% of sales donated.</p>
-<a class="btn rippleable" href="https://furrykids.co.jp" rel="noopener noreferrer" target="_blank">公式サイトへ</a>
-</div>
-</div>
+</section>
 </div>
 </div>
 </section>
@@ -177,5 +226,4 @@
   }, {passive:true});
 })();
 </script>
-</body>
-</html>
+</body></html>

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="ja">
-<head>
+<html><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>世紀港湾株式会社｜Century Bay Co., Ltd.</title>
@@ -110,51 +109,37 @@
 :root[data-lang="en"] .jp{display:none;}
 :root[data-lang="en"] .en{display:block;}
 </style>
-
-
-
-<style>
-.big-hero-title{margin:0;font-weight:800;line-height:1.08;
-  font-size:clamp(32px,6vw,68px);letter-spacing:.2px;color:var(--ink);}
-.section.hero{background:none}
-</style>
-</head>
-<body data-lang="jp" id="top">
-
-<div class="progress" id="progress"></div>
-<header>
-<div class="container nav">
-<div class="brand"><img alt="Century Bay ロゴ" class="cb" src="assets/century-bay-logo.jpg"/><span class="title">世紀港湾株式会社 <span class="muted">/ Century Bay</span></span></div>
-<nav class="nav-links" id="navlinks"><a href="page-1-about.html">会社情報</a><a href="#brands">事業紹介</a><a href="page-2-news.html">ニュース</a><a href="page-3-careers.html">採用</a><a href="page-4-contact.html">お問い合わせ</a></nav>
-<div class="lang" role="group"><button class="pill active" data-lang="jp" data-set-lang="jp">日本語</button><button class="pill" data-lang="en" data-set-lang="en">EN</button></div>
+</head><body>
+<div style="position:sticky;top:0;padding:16px;z-index:1000;background:rgba(255,255,255,0.8);backdrop-filter:saturate(180%) blur(10px)">
+<a href="index.html#top" style="display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:9999px;border:1px solid rgba(0,0,0,0.1);text-decoration:none;">
+<span>←</span><span>戻る / 返回上一页 / Back</span>
+</a>
 </div>
-</header>
-<section class="hero"><div class="container" style="padding:72px 0 56px"><h1 class="big-hero-title"><span class="jp">信頼でつなぐ。<br/>未来を創る。<br/>世紀港湾株式会社</span><span class="en">Connecting with Trust.<br/>Creating the Future.<br/>Century Harbor Co., Ltd.</span></h1></div></section>
-<section id="brands">
-<div class="container">
-<h2 class="section-title jp">事業紹介</h2><h2 class="section-title en">Brands</h2>
-<div class="grid3">
-<div class="card tone-5g tilt"><a class="card-link" href="https://esportscafe5g.com" rel="noopener noreferrer" target="_blank"></a>
-<div class="content"><div class="media"><img alt="ESPORTSCAFE 5G" src="assets/esportscafe5g.png"/></div>
-<h3>ESPORTSCAFE 5G</h3>
-<p class="jp">高性能設備×安定ネットワーク。イベント・貸切に対応。</p><p class="en">High-spec rigs and reliable network. Events &amp; private bookings.</p>
-<a class="btn rippleable" href="https://esportscafe5g.com" rel="noopener noreferrer" target="_blank">公式サイトへ</a>
+<section id="contact">
+<div class="container cols">
+<div class="card">
+<h2 class="section-title jp">お問い合わせ</h2><h2 class="section-title en">Contact</h2>
+<form data-contact="">
+<div style="display:grid;gap:12px">
+<input name="name" placeholder="Name / お名前" required="" style="padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink)"/>
+<input name="email" placeholder="Email / メール" required="" style="padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink)" type="email"/>
+<input name="phone" placeholder="Phone / 電話（任意）" style="padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink)"/>
+<select name="topic" style="padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink)">
+<option>General / お問い合わせ</option><option>Media / メディア</option><option>Business / 法人</option>
+</select>
+<textarea name="message" placeholder="Message / 内容" required="" rows="5" style="padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink)"></textarea>
+<label style="display:flex;gap:8px;align-items:center;color:var(--muted)"><input required="" type="checkbox"/> <span class="jp">送信前にプライバシーポリシーに同意します</span><span class="en">I agree to the Privacy Policy</span></label>
+<button class="btn primary rippleable" type="submit"><span class="jp">送信する</span><span class="en">Send</span></button>
 </div>
+</form>
 </div>
-<div class="card tone-sb tilt"><a class="card-link" href="https://esports-soubiya.com" rel="noopener noreferrer" target="_blank"></a>
-<div class="content"><div class="media"><img alt="eスポーツ装備屋" src="assets/esports-soubiya.jpg"/></div>
-<h3>eスポーツ装備屋</h3>
-<p class="jp">販売・修理・カスタム。用途別に最適な1台をご提案。</p><p class="en">Sales, repairs, and custom builds—tailored to your use case.</p>
-<a class="btn rippleable" href="https://esports-soubiya.com" rel="noopener noreferrer" target="_blank">公式サイトへ</a>
-</div>
-</div>
-<div class="card tone-fk tilt"><a class="card-link" href="https://furrykids.co.jp" rel="noopener noreferrer" target="_blank"></a>
-<div class="content"><div class="media"><img alt="Furry Kids" src="assets/furrykids.png"/></div>
-<h3>Furry Kids</h3>
-<p class="jp">品質と安全を第一に。売上の1％を寄付。</p><p class="en">Quality &amp; safety first. 1% of sales donated.</p>
-<a class="btn rippleable" href="https://furrykids.co.jp" rel="noopener noreferrer" target="_blank">公式サイトへ</a>
-</div>
-</div>
+<div class="card">
+<h3 class="jp">連絡先</h3><h3 class="en">Direct Contact</h3>
+<p>〒169-0073 東京都新宿区百人町2-4-2</p>
+<p class="muted jp">受付時間：平日10:00–17:00（JST）</p>
+<p class="muted en">Hours: Mon–Fri 10:00–17:00 (JST)</p>
+<p>メール: <a href="mailto:info@centurybay.jp">info@centurybay.jp</a></p>
+<p><a href="privacy-policy.html">プライバシーポリシー / Privacy</a></p>
 </div>
 </div>
 </section>
@@ -177,5 +162,4 @@
   }, {passive:true});
 })();
 </script>
-</body>
-</html>
+</body></html>

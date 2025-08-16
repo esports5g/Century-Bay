@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>ポリシー｜世紀港湾株式会社</title>
 <style>
 :root{--bg:#0f1424;--fg:#e8edf6;--muted:#a8b2c3;--line:#22304a;--brand:#0b66c3;--brand2:#0aa5a2}
@@ -20,25 +21,28 @@ code,pre{background:rgba(255,255,255,.06);padding:.2em .4em;border-radius:6px}
 ul{padding-left:1.2em}
 strong{color:var(--fg)}
 </style>
+
+<style>
+/* Language visibility */
+.jp{display: block;}
+.en{display: none;}
+:root[data-lang="en"] .jp{display:none;}
+:root[data-lang="en"] .en{display:block;}
+</style>
 </head>
 <body>
 <div class="container">
-
 <h1>情報セキュリティポリシー</h1>
 <div class="update">最終更新日：2025-08-13</div>
-
 <p>当社は、取り扱う情報資産を保護し、事業の継続性とお客様の信頼を確保するため、以下の方針に基づき情報セキュリティを推進します。</p>
-
 <section>
 <h2>1. 目的と適用範囲</h2>
 <p>本ポリシーは、当社が保有・管理するすべての情報資産（個人情報、機密情報、システム、設備等）に適用します。</p>
 </section>
-
 <section>
 <h2>2. 体制と責任</h2>
 <p>経営層を責任者として情報セキュリティ管理体制を整備し、役割と責任を明確にします。</p>
 </section>
-
 <section>
 <h2>3. 安全管理措置</h2>
 <ul>
@@ -47,20 +51,17 @@ strong{color:var(--fg)}
 <li>クラウドサービス利用時のリスク評価と契約上の安全管理</li>
 </ul>
 </section>
-
 <section>
 <h2>4. 事故対応・BCP</h2>
 <p>インシデント発生時は迅速に原因究明・被害拡大防止・再発防止を行い、必要に応じて関係各所へ報告します。事業継続計画（BCP）を整備し、定期的に見直します。</p>
 </section>
-
 <section>
 <h2>5. 法令遵守と継続的改善</h2>
 <p>関連法令・ガイドライン・社内規程を遵守し、監査・レビューにより継続的改善を実施します。</p>
 </section>
-
 <footer>© 世紀港湾株式会社 / Century Bay Co., Ltd.
 <div style="margin-top:20px;">
-  <button onclick="history.back()" style="
+<button onclick="history.back()" style="
     background-color:#0b66c3;
     color:#fff;
     padding:10px 18px;
@@ -74,8 +75,27 @@ strong{color:var(--fg)}
     ← 戻る
   </button>
 </div>
-
 </footer>
 </div>
+
+<script>
+(function(){
+  function getLang(){ try { return localStorage.getItem('site.lang') || 'jp'; } catch(e){ return 'jp'; } }
+  function setLang(l){
+    document.documentElement.setAttribute('data-lang', l);
+    try { localStorage.setItem('site.lang', l); } catch(e){}
+  }
+  // Initialize once DOM is interactive
+  setLang(getLang());
+  // Click handlers for any element with data-set-lang
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('[data-set-lang]');
+    if(t){
+      e.preventDefault();
+      setLang(t.getAttribute('data-set-lang'));
+    }
+  }, {passive:true});
+})();
+</script>
 </body>
 </html>

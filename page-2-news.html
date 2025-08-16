@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ニュース / News</title>
+  <style>
+    :root{
+      --ink:#0b1220; --muted:#64748b; --line:rgba(0,0,0,.08); --bg:#f4f7fb;
+      --brand:#2563eb; --brand2:#0ea5e9; --card:#ffffff;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+         color:var(--ink); background:var(--bg);}
+    .container{max-width:1100px;margin:24px auto 56px;padding:0 18px}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .back{display:inline-block;margin:8px 0 16px;padding:8px 12px;border:1px solid var(--line);
+          border-radius:999px;background:#fff;color:var(--ink)}
+    h1{margin:.2rem 0 .8rem;font-size:clamp(24px,3.8vw,36px);line-height:1.2}
+    .sub{color:var(--muted);margin:-.4rem 0 1.2rem}
+    /* lang toggle */
+    .en{display:none}
+    [data-lang="en"] .jp{display:none}
+    [data-lang="en"] .en{display:inline}
+    /* grid & card */
+    .news-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    @media (max-width:860px){.news-list{grid-template-columns:1fr}}
+    .news-item{background:var(--card);border:1px solid var(--line);border-radius:16px;
+               padding:16px;box-shadow:0 10px 24px rgba(2,6,23,.06)}
+    .news-top{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+    .news-date,.news-badge{font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid var(--line)}
+    .news-date{background:#f1f5f9;color:#475569}
+    .news-badge{background:linear-gradient(90deg,#e8f3ff,#f2faff);color:#1e293b}
+    .news-title{margin:.25rem 0 .5rem;font-size:18px;line-height:1.5;font-weight:700}
+    .news-title a{color:var(--ink);text-decoration:none}
+    .news-title a:hover{color:var(--brand)}
+    .news-desc{color:#475569;line-height:1.75;margin:.2rem 0 1.1rem}
+    .news-cta a{display:inline-block;padding:8px 12px;border-radius:10px;
+                border:1px solid var(--line);background:#fff;color:var(--ink)}
+    .news-cta a:hover{background:linear-gradient(90deg,var(--brand2),var(--brand));color:#fff;border-color:transparent;text-decoration:none}
+  </style>
+</head>
+<body>
+  <main>
+    <div class="container">
+      <p><a class="back" href="index.html">← <span class="jp">戻る</span><span class="en">Back</span></a></p>
+      <h1><span class="jp">ニュース</span><span class="en">Latest News</span></h1>
+      <p class="sub"><span class="jp">最新情報・開店情報などをお知らせします。</span><span class="en">Our latest announcements and opening updates.</span></p>
+
+      <div class="news-list">
+
+        <!-- 1) ESPORTSCAFE 5G：2024/07/16(火) オープン -->
+        <article class="news-item">
+          <div class="news-top">
+            <span class="news-date">2024-07-16 (火)</span>
+            <span class="news-badge">開店</span>
+          </div>
+          <h3 class="news-title">
+            <a href="https://esportscafe5g.com" target="_blank" rel="noopener">
+              <span class="jp">ESPORTSCAFE 5G 新大久保店｜2024年7月16日(火) 営業開始</span>
+              <span class="en">ESPORTSCAFE 5G Shin-Okubo — Grand Opening on Tue, Jul 16, 2024</span>
+            </a>
+          </h3>
+          <p class="news-desc">
+            <span class="jp">高速ネットワークとハイエンド環境を備えた eスポーツカフェがオープンしました。プレイ体験・イベントに対応。</span>
+            <span class="en">Our eSports café with high-speed network and high-end rigs is now open. Supports play experiences and events.</span>
+          </p>
+          <div class="news-cta">
+            <a href="https://esportscafe5g.com" target="_blank" rel="noopener">
+              <span class="jp">店舗ページへ</span><span class="en">Store page</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- 2) eスポーツ装備屋：2025年7月より営業開始 -->
+        <article class="news-item">
+          <div class="news-top">
+            <span class="news-date">2025-07</span>
+            <span class="news-badge">開店</span>
+          </div>
+          <h3 class="news-title">
+            <a href="https://esports-soubiya.com" target="_blank" rel="noopener">
+              <span class="jp">eスポーツ装備屋｜2025年7月より営業開始</span>
+              <span class="en">eSports Gear Shop — Opening from July 2025</span>
+            </a>
+          </h3>
+          <p class="news-desc">
+            <span class="jp">販売・修理・カスタムに対応するハードウェア専門店。用途に最適な 1 台をご提案します。</span>
+            <span class="en">A hardware specialty shop for sales, repairs, and custom builds. We propose the optimal build for your needs.</span>
+          </p>
+          <div class="news-cta">
+            <a href="https://esports-soubiya.com" target="_blank" rel="noopener">
+              <span class="jp">店舗ページへ</span><span class="en">Learn more</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- 3) Furry Kids：準備中（近日オープン） -->
+        <article class="news-item">
+          <div class="news-top">
+            <span class="news-date">準備中</span>
+            <span class="news-badge">近日オープン</span>
+          </div>
+          <h3 class="news-title">
+            <a href="#">
+              <span class="jp">Furry Kids｜準備中（近日オープン）</span>
+              <span class="en">Furry Kids — Preparing (Opening Soon)</span>
+            </a>
+          </h3>
+          <p class="news-desc">
+            <span class="jp">ペット用品・ケアブランドを準備中です。オープン時期は決まり次第お知らせします。</span>
+            <span class="en">We’re preparing our pet goods & care brand. Opening schedule will be announced soon.</span>
+          </p>
+          <div class="news-cta">
+            <a href="#"><span class="jp">続報をお待ちください</span><span class="en">Stay tuned</span></a>
+          </div>
+        </article>
+
+        <!-- 4) 企業ニュース：導入事例集（方案C） -->
+        <article class="news-item">
+          <div class="news-top">
+            <span class="news-date">2025-08-01</span>
+            <span class="news-badge">お知らせ</span>
+          </div>
+          <h3 class="news-title">
+            <a href="#">
+              <span class="jp">導入事例集を公開｜競技環境・店舗DX・制作ワークステーション</span>
+              <span class="en">Case Study Book Released — eSports, Retail DX, Creator Workstations</span>
+            </a>
+          </h3>
+          <p class="news-desc">
+            <span class="jp">複数業種での導入成果をまとめた事例集を公開。要件定義〜設計〜検証〜運用までのプロセスと効果をレポート化しました。</span>
+            <span class="en">We published a compilation of deployments across industries, detailing requirements, design, validation and operations with measurable outcomes.</span>
+          </p>
+
+        </article>
+
+      </div>
+    </div>
+  </main>
+</body>
+</html>
