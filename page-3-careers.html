@@ -8,7 +8,6 @@
 <meta content="世紀港湾株式会社｜Century Bay" property="og:title"/>
 <meta content="エンタメ×ライフスタイルのコーポレートサイト。" property="og:description"/>
 <meta content="assets/og.svg" property="og:image"/>
-<link href="assets/favicon.svg" rel="icon"/>
 <meta content="#0b66c3" name="theme-color"/>
 <style>
     :root{--bg:#0b1020;--surface:#0f1424;--ink:#e8edf6;--muted:#a8b2c3;--line:#1b2338;--brand:#0b66c3;--brand2:#0aa5a2;--radius:18px;--shadow:0 16px 48px rgba(0,0,0,.35)}
@@ -21,7 +20,7 @@
     @media (prefers-color-scheme: light){header{background:rgba(255,255,255,.75)}}
     .nav{display:flex;justify-content:space-between;align-items:center;padding:10px 2px}
     .brand{display:flex;gap:12px;align-items:center}
-    .brand img.cb{width:40px;height:40px;border-radius:10px;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+    .brand img.cb{width:40px;height:40px;border-radius:0;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,.2)}
     .title{font-weight:800;color:var(--ink);letter-spacing:.2px}
     .nav-links{display:flex;gap:22px}
     .nav-links a{position:relative;color:var(--muted);padding:6px 2px;transition:color .2s}
@@ -47,7 +46,7 @@
     .cta{display:flex;gap:12px;flex-wrap:wrap}
     .btn{position:relative;display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);box-shadow:var(--shadow);overflow:hidden;will-change:transform}
     .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border:0;font-weight:700}
-    .btn .ripple{position:absolute;border-radius:50%;transform:scale(0);opacity:.22;pointer-events:none;background:#fff;animation:ripple .6s ease-out}
+    .btn .ripple{position:absolute;border-radius:50%;transform:scale(0);opacity:.22;pointer-events:none;background:transparent;animation:ripple .6s ease-out}
     @keyframes ripple{to{transform:scale(12);opacity:0}}
     .hero-card{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
 
@@ -126,59 +125,223 @@
   .lang{ margin-left:auto; }
   html.menu-open, html.menu-open body{ overflow:hidden; } /* prevent body scroll */
 }
-</style></head><body>
-<div style="position:sticky;top:0;padding:16px;z-index:1000;background:rgba(255,255,255,0.8);backdrop-filter:saturate(180%) blur(10px)">
-<a href="index.html#top" style="display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:9999px;border:1px solid rgba(0,0,0,0.1);text-decoration:none;">
-<span>←</span><span>戻る / 返回上一页 / Back</span>
-</a>
+</style><style>
+/* Language toggle visibility */
+.jp{display:block;}
+.en{display:none;}
+:root[data-lang="en"] .jp{display:none;}
+:root[data-lang="en"] .en{display:block;}
+/* Lang pill minimal styles */
+.lang{display:flex;gap:8px;align-items:center}
+.pill{border:1px solid #e6eaf0;border-radius:999px;padding:6px 12px;font-weight:600;background:transparent;color:#475569;cursor:pointer}
+.pill.active{background:linear-gradient(135deg, rgba(11,102,195,.16), rgba(10,165,162,.18));color:#0f172a;border-color:transparent}
+</style><style>
+/* One-language visibility (reinforced) */
+.jp{display:block;}
+.en{display:none;}
+:root[data-lang="en"] .jp{display:none;}
+:root[data-lang="en"] .en{display:block;}
+/* Back button style to match pills */
+.lang{display:flex;gap:8px;align-items:center}
+.pill{border:1px solid #e6eaf0;border-radius:999px;padding:6px 12px;font-weight:600;background:transparent;color:#475569;cursor:pointer}
+.pill.active{background:linear-gradient(135deg, rgba(11,102,195,.16), rgba(10,165,162,.18));color:#0f172a;border-color:transparent}
+.back-btn{order:-1}
+</style><style>
+/* === Global Professional Footer === */
+.site-footer.pro{margin-top:72px;border-top:1px solid #e6eaf0;background:#fafbfc}
+.site-footer .footer-wrap{display:grid;grid-template-columns:2fr 1.2fr 1.6fr;gap:32px;padding:28px 0}
+.site-footer .f-h{font-weight:700;color:#0b1220;margin:0 0 10px;font-size:14px;letter-spacing:.3px}
+.site-footer .f-col{color:#0f172a}
+.site-footer .f-list{list-style:none;margin:0;padding:0;color:#0f172a}
+.site-footer .f-list li{margin:6px 0}
+.site-footer .f-list.two-col{columns:1}
+.site-footer .f-links{display:flex;flex-direction:column;gap:8px;list-style:none;margin:0;padding:0}
+.site-footer .f-links a{text-decoration:none;color:#2563eb}
+.site-footer .f-links a:hover{text-decoration:underline}
+.site-footer .footer-copy{padding:10px 0 28px;color:#64748b;border-top:1px solid #eef2f6}
+@media (max-width:980px){
+  .site-footer .footer-wrap{grid-template-columns:1fr;gap:18px;padding:20px 0}
+  .site-footer .f-list.two-col{columns:1}
+}
+/* Ensure single-language visibility */
+.jp{display:block}
+.en{display:none}
+:root[data-lang="en"] .jp{display:none}
+:root[data-lang="en"] .en{display:block}
+</style><style id="pro-theme">
+/* ===== Century Bay Business Pro Theme (Overrides) ===== */
+/* Typography */
+:root{
+  --ink:#0b1220; --muted:#475569; --line:#e6eaf0; --bg:#f6f8fb;
+  --brand:#0b66c3; --brand2:#0aa5a2; --card:#ffffff; --radius:16px;
+  --shadow:0 8px 24px rgba(2,6,23,.06);
+}
+html,body{font-family: "Segoe UI","Inter","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif}
+h1,h2,h3{color:var(--ink);letter-spacing:.2px}
+.section-title,.aboutfacts-title{font-weight:800}
+/* Layout containers */
+.container{max-width:1200px;margin-inline:auto}
+/* Cards */
+.card,.news-item,.aboutfacts-card,.tone-5g,.tone-sb,.tone-fk{
+  background:var(--card)!important;border:1px solid var(--line)!important;
+  border-radius:var(--radius)!important;box-shadow:var(--shadow)!important;transform:none!important
+}
+.card .media img{border-radius:12px}
+/* Buttons */
+.btn,.pill,button[type=submit]{
+  border-radius:999px;border:1px solid var(--line);background:linear-gradient(90deg,#0b66c3,#0aa5a2);
+  color:#fff;font-weight:700;letter-spacing:.2px;box-shadow:none
+}
+.btn:hover{opacity:.92}
+/* Pill (language/back) neutrals */
+.pill{background:transparent;border:1px solid var(--line);color:#334155}
+.pill.active{background:linear-gradient(135deg, rgba(11,102,195,.14), rgba(10,165,162,.16));color:#0b1220}
+/* Links */
+a{color:#0b66c3}
+a:hover{text-decoration:underline}
+/* Header */
+header{background:rgba(255,255,255,.82)!important;border-bottom:1px solid var(--line)!important;backdrop-filter:saturate(180%) blur(12px)}
+.brand img.cb{width:40px;height:40px;border-radius:0;object-fit:cover;box-shadow:none}
+.nav-links a{color:#475569}
+.nav-links a:hover{color:#0b1220}
+/* Footer */
+.site-footer.pro{background:transparent}
+.footer-copy{color:#64748b}
+/* Reduce special effects */
+.mesh,#stars,.stagger>*,.tilt,[data-tilt],.rippleable{animation:none!important;transform:none!important;transition:none!important}
+.hero,.section.hero{background:none}
+/* News grid spacing */
+.news-list{gap:20px}
+/* About facts grid tidy */
+.aboutfacts-grid{gap:14px}
+.aboutfacts-item{padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:transparent}
+.aboutfacts-label{font-weight:700;color:#0b1220}
+/* Forms */
+form input,form textarea,form select{
+  border:1px solid #dbe3ec;border-radius:12px;padding:10px 12px;outline:none
+}
+form input:focus,form textarea:focus,form select:focus{border-color:#0b66c3;box-shadow:0 0 0 3px rgba(11,102,195,.12)}
+.form-consent{margin:12px 0 10px;color:#334155;font-size:14px}
+/* Single-language visibility (reinforce) */
+.jp{display:block}.en{display:none}
+:root[data-lang="en"] .jp{display:none}
+:root[data-lang="en"] .en{display:block}
+/* Remove any rotating/hover tilt on cards */
+.card:hover{transform:none}
+</style><style>
+/* Unified Careers */
+.careers-unified{background:#fff;border:1px solid #e6eaf0;border-radius:18px;box-shadow:0 8px 24px rgba(2,6,23,.06);padding:18px 18px 10px;max-width:1100px;margin:0 auto}
+.careers-unified .lead{color:#475569;margin:.2rem 0 1rem}
+.cu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:8px 0 10px}
+.cu-col{border:1px solid #eef2f7;border-radius:12px;padding:12px;background:#fafcff}
+.cu-col h3{margin:.1rem 0 .25rem;font-size:1.05rem}
+.cu-col ul{margin:.2rem 0 .6rem;padding-left:1.1rem}
+.cu-full{border-top:1px dashed #e6eaf0;margin-top:10px;padding-top:10px}
+@media (max-width:980px){.cu-grid{grid-template-columns:1fr}.careers-unified{max-width:92%}}
+/* Language visibility (JP default) */
+:root:not([data-lang="en"]) .en{display:none!important}
+:root[data-lang="en"] .jp{display:none!important}
+</style><style>
+/* Careers unified, aligned with Company Profile look */
+.careers-unified{max-width:1100px;margin:0 auto}
+.card-like{background:#fff;border:1px solid #e6eaf0;border-radius:18px;box-shadow:0 8px 24px rgba(2,6,23,.06);padding:18px;margin:14px 0}
+.card-like h3,.card-like h4{margin:.2rem 0 .5rem}
+.cu-values ul{margin:.2rem 0 .4rem;padding-left:1.2rem}
+.cu-roles .cu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.cu-roles .cu-col{border:1px solid #eef2f7;border-radius:12px;padding:12px;background:#fafcff}
+.cu-col ul{margin:.2rem 0 .4rem;padding-left:1.1rem}
+@media (max-width:980px){.cu-roles .cu-grid{grid-template-columns:1fr}.careers-unified{max-width:92%}}
+
+/* Language visibility: JP default */
+:root:not([data-lang="en"]) .en{display:none!important}
+:root[data-lang="en"] .jp{display:none!important}
+</style><style>
+/* Remove bullets in Careers lists */
+.cu-values ul,
+.cu-col ul { list-style: none !important; padding-left: 0 !important; margin-left: 0 !important; }
+.cu-values li,
+.cu-col li { padding-left: 0 !important; margin: .35rem 0 !important; }
+</style><style>
+/* Single unified careers card */
+.careers-card{max-width:1100px;margin:0 auto;background:#fff;border:1px solid #e6eaf0;
+  border-radius:18px;box-shadow:0 10px 28px rgba(2,6,23,.08);padding:18px 18px}
+.careers-card > *:first-child{margin-top:0}
+.cu-divider{border:0;border-top:1px dashed #e6eaf0;margin:12px 0}
+
+/* Inner blocks */
+.cu-values h3,.cu-roles h4,#apply-flow h3,#diversity h3{margin:.2rem 0 .5rem}
+.cu-values ul,.cu-roles .cu-col ul{list-style:none;padding-left:0;margin:.35rem 0}
+.cu-roles .cu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.cu-roles .cu-col{background:#fafcff;border:1px solid #eef2f7;border-radius:12px;padding:12px}
+@media (max-width:980px){.cu-roles .cu-grid{grid-template-columns:1fr}.careers-card{max-width:92%}}
+
+/* Language visibility (JP default) */
+:root:not([data-lang="en"]) .en{display:none!important}
+:root[data-lang="en"] .jp{display:none!important}
+</style><link href="assets/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="assets/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="assets/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link color="#0ea5b7" href="assets/favicon.svg" rel="mask-icon"/>
+<meta content="#0ea5b7" name="theme-color"/><link href="assets/site.css" rel="stylesheet"/></head><body><div class="progress" id="progress"></div><header>
+<div class="container nav">
+<div class="brand"><img alt="Century Bay ロゴ" class="cb" src="assets/cb-logo-plain.png"/><span class="title">世紀港湾株式会社 <span class="muted">/ Century Bay</span></span></div>
+<nav class="nav-links" id="navlinks"><a aria-current="page" href="index.html"><span class="jp">ホーム</span><span class="en">Home</span></a><a href="page-1-about.html">会社情報</a><a href="page-2-news.html">ニュース</a><a href="page-3-careers.html">採用</a><a href="page-4-contact.html">お問い合わせ</a></nav>
+<div class="lang" role="group"><a class="pill back-btn" href="index.html" onclick='return (history.length&gt;1 ? (history.back(), false) : (location.href="index.html", false));' role="button">戻る</a><button class="pill active" data-lang="jp" data-set-lang="jp">日本語</button><button class="pill" data-lang="en" data-set-lang="en">EN</button></div>
 </div>
-<section id="careers">
-<div class="container">
-<h2 class="section-title jp">採用情報</h2>
-<div style="font-size:14px;color:#475569;margin:20px 0">
-<span class="jp">現在、定常的な募集は行っておりません。</span>
-<span class="en">We’re not hiring regularly at the moment.</span>
+<style id="lang-visibility-fix">
+  /* Default=JP。英文仅当 data-lang="en" 才显示 */
+  :root:not([data-lang="en"]) .en { display: none !important; }
+  :root:not([data-lang="en"]) .jp { display: initial !important; }
+
+  :root[data-lang="en"] .jp { display: none !important; }
+  :root[data-lang="en"] .en { display: initial !important; }
+
+  /* 防止空元素占位 */
+  .jp:empty, .en:empty { display: none !important; }
+</style>
+</header><main><section class="careers-card"><div class="cu-values"><h3><span class="jp">私たちが大切にすること</span><span class="en">What We Value</span></h3><ul class="jp"><li>誠実さ・品質・チームワーク</li><li>国や文化を越えて挑戦を楽しむ</li></ul><ul class="en"><li>Integrity, quality, teamwork</li><li>Enjoy tackling challenges across cultures</li></ul></div><hr class="cu-divider"/><div class="cu-roles"><div class="cu-grid"><div class="cu-col"><h4><span class="jp">店舗運営（ESPORTSCAFE 5G）</span><span class="en">Store Operations (ESPORTSCAFE 5G)</span></h4><ul class="jp"><li>接客・イベント運営・設備管理</li><li>現在募集停止中・参考職種</li></ul><ul class="en"><li>Customer service, events, facilities</li><li>Currently not hiring; sample roles</li></ul></div><div class="cu-col"><h4><span class="jp">テクニカルサポート（装備屋）</span><span class="en">Technical Support (Soubiya)</span></h4><ul class="jp"><li>PC診断・修理・カスタム提案</li><li>現在募集停止中・参考職種</li></ul><ul class="en"><li>PC diagnostics, repairs, custom builds</li><li>Currently not hiring; sample roles</li></ul></div><div class="cu-col"><h4><span class="jp">プロダクト企画（Furry Kids）</span><span class="en">Product Planning (Furry Kids)</span></h4><ul class="jp"><li>素材選定・品質管理・表示管理</li><li>現在募集停止中・参考職種</li></ul><ul class="en"><li>Materials selection, quality, labeling</li><li>Currently not hiring; sample roles</li></ul></div></div></div><hr class="cu-divider"/><div class="" id="apply-flow"><h3><span class="jp">応募方法・選考フロー</span><span class="en">How to Apply / Selection Process</span></h3><p class="jp">履歴書（写真付）・職務経歴書をメール送付／応募フォームよりご応募ください。選考：書類→面接（オンライン可）→最終。</p><p class="en">Send your resume (with photo) and work history via email or the form. Process: screening → interview (online) → final.</p></div><hr class="cu-divider"/><div class="" id="diversity"><h3><span class="jp">ダイバーシティ</span><span class="en">Diversity &amp; Inclusion</span></h3><p class="jp">国籍・性別等を問わず、公平な機会を提供します。</p><p class="en">We offer equal opportunities regardless of nationality, gender, or background.</p></div></section></main><footer class="site-footer pro">
+<div class="container footer-wrap">
+<div class="f-col company">
+<div class="f-h"> <span class="jp">会社情報</span><span class="en">Company</span> </div>
+<ul class="f-list">
+<li><span class="jp">世紀港湾株式会社</span><span class="en">Century Bay Co., Ltd.</span></li>
+<li><span class="jp">〒169-0073 東京都新宿区百人町2-4-2</span><span class="en">2-4-2 Hyakunincho, Shinjuku-ku, Tokyo 169-0073, Japan</span></li>
+<li><span class="jp">適格請求書発行事業者登録番号：T8011101058365</span><span class="en">Invoice Registration No.: T8011101058365</span></li>
+</ul>
 </div>
-<h2 class="section-title en">Careers</h2>
-<div class="card" style="margin-bottom:18px">
-<h3 class="jp">私たちが大切にすること</h3><h3 class="en">What we value</h3>
-<p class="jp">誠実さ・品質・チームワーク。国や文化を越えて挑戦する仲間を歓迎します。</p>
-<p class="en">Integrity, quality, teamwork. We welcome those eager to cross borders and take on challenges.</p>
+<div class="f-col brands">
+<div class="f-h"> <span class="jp">ブランド</span><span class="en">Brands</span> </div>
+<ul class="f-list">
+<li>ESPORTSCAFE 5G</li>
+<li>eスポーツ装備屋</li>
+<li>Furry Kids</li>
+</ul>
 </div>
-<div class="grid3">
-<div class="card">
-<h3 class="jp">店舗運営（ESPORTSCAFE 5G）</h3><div class="role-status" style="font-size:12px;color:#64748b;margin-top:4px;"><span class="jp">（現在募集停止中・参考職種）</span><span class="en">(Not currently hiring • sample role)</span></div><h3 class="en">Store Operations (ESPORTSCAFE 5G)</h3>
-<p class="jp">接客・イベント運営・設備管理</p>
-<p class="en">Customer service, event ops, facility management</p>
-</div>
-<div class="card">
-<h3 class="jp">テクニカルサポート（装備屋）</h3><div class="role-status" style="font-size:12px;color:#64748b;margin-top:4px;"><span class="jp">（現在募集停止中・参考職種）</span><span class="en">(Not currently hiring • sample role)</span></div><h3 class="en">Technical Support (Equipment Store)</h3>
-<p class="jp">PC診断・修理・カスタム提案</p>
-<p class="en">Diagnostics, repairs, custom builds</p>
-</div>
-<div class="card">
-<h3 class="jp">プロダクト企画（Furry Kids）</h3><div class="role-status" style="font-size:12px;color:#64748b;margin-top:4px;"><span class="jp">（現在募集停止中・参考職種）</span><span class="en">(Not currently hiring • sample role)</span></div><h3 class="en">Product Planning (Furry Kids)</h3>
-<p class="jp">素材選定・品質管理・表示管理</p>
-<p class="en">Materials, quality control, labeling</p>
-</div>
-</div>
-<div class="card" style="margin-top:18px">
-<h3 class="jp">応募方法 / 選考フロー</h3><h3 class="en">How to apply / Screening</h3>
-<p class="jp">履歴書（写真付）・職務経歴書をメール送付／応募フォームよりご応募ください。</p>
-<p class="en">Send your resume/CV via email or apply through the application form.</p>
-<p class="jp">選考：書類→面接（オンライン可）→最終</p>
-<p class="en">Screening: Docs → Interview (online OK) → Final</p>
-<div class="cta">
-</div>
-</div>
-<div class="card" style="margin-top:18px">
-<h3 class="jp">ダイバーシティ</h3><h3 class="en">Diversity &amp; Inclusion</h3>
-<p class="jp">国籍・性別等を問わず、公平な機会を提供します。</p>
-<p class="en">We provide equal opportunities regardless of nationality, gender, etc.</p>
+<div class="f-col policies">
+<div class="f-h"> <span class="jp">ポリシー</span><span class="en">Policies</span> </div>
+<ul class="f-links">
+<li><a href="privacy-policy.html"><span class="jp">プライバシーポリシー</span><span class="en">Privacy Policy</span></a></li>
+<li><a href="cookie-policy.html"><span class="jp">Cookieポリシー</span><span class="en">Cookie Policy</span></a></li>
+<li><a href="antisocial-exclusion.html"><span class="jp">反社会的勢力排除</span><span class="en">Elimination of Anti‑social Forces</span></a></li>
+<li><a href="information-security.html"><span class="jp">情報セキュリティ</span><span class="en">Information Security</span></a></li>
+</ul>
 </div>
 </div>
-</section>
-<script>
+<div class="container footer-copy">
+<small>© Century Bay Co.Ltd. All rights reserved.</small>
+</div>
+</footer><script>
+(function(){
+  function goBack(e){
+    e.preventDefault();
+    if (window.history.length > 1) { window.history.back(); }
+    else { window.location.href = "index.html"; }
+  }
+  var btns = document.querySelectorAll('.back-btn, a[aria-label="Back"]');
+  btns.forEach(function(n){
+    n.addEventListener('click', goBack, {passive:false});
+  });
+})();</script><script>
 (function(){
   function getLang(){ try { return localStorage.getItem('site.lang') || 'jp'; } catch(e){ return 'jp'; } }
   function setLang(l){
@@ -196,22 +359,4 @@
     }
   }, {passive:true});
 })();
-</script>
-
-<script>
-(function(){
-  var btn = document.querySelector('header .menu-btn');
-  var links = document.querySelector('nav.nav-links');
-  if(!btn || !links) return;
-  function close(){ document.documentElement.classList.remove('menu-open'); btn.setAttribute('aria-expanded','false'); }
-  function open(){ document.documentElement.classList.add('menu-open'); btn.setAttribute('aria-expanded','true'); }
-  btn.addEventListener('click', function(){
-    (document.documentElement.classList.contains('menu-open')? close : open)();
-  });
-  links.addEventListener('click', function(e){
-    var a = e.target.closest('a'); if(a) close();
-  });
-  window.addEventListener('resize', function(){ if(window.innerWidth >= 980) close(); }, {passive:true});
-})();
-</script>
-</body></html>
+</script></body></html>

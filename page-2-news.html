@@ -1,47 +1,118 @@
 <!DOCTYPE html>
 
-<html lang="ja">
-<head>
+<html lang="ja"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
 <title>ニュース / News</title>
+<meta content="世紀港湾株式会社（Century Bay Co.Ltd.）公式サイト。ESPORTSCAFE 5G／eスポーツ装備屋／Furry Kids を展開。" name="description"/>
+<meta content="世紀港湾株式会社｜Century Bay" property="og:title"/>
+<meta content="エンタメ×ライフスタイルのコーポレートサイト。" property="og:description"/>
+<meta content="assets/og.svg" property="og:image"/>
+<meta content="#0b66c3" name="theme-color"/>
 <style>
-    :root{
-      --ink:#0b1220; --muted:#64748b; --line:rgba(0,0,0,.08); --bg:#f4f7fb;
-      --brand:#2563eb; --brand2:#0ea5e9; --card:#ffffff;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0}
-    body{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-         color:var(--ink); background:var(--bg);}
-    .container{max-width:1100px;margin:24px auto 56px;padding:0 18px}
-    a{color:var(--brand);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .back{display:inline-block;margin:8px 0 16px;padding:8px 12px;border:1px solid var(--line);
-          border-radius:999px;background:#fff;color:var(--ink)}
-    h1{margin:.2rem 0 .8rem;font-size:clamp(24px,3.8vw,36px);line-height:1.2}
-    .sub{color:var(--muted);margin:-.4rem 0 1.2rem}
-    /* lang toggle */
-    .en{display:none}
-    [data-lang="en"] .jp{display:none}
-    [data-lang="en"] .en{display:inline}
-    /* grid & card */
-    .news-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    @media (max-width:860px){.news-list{grid-template-columns:1fr}}
-    .news-item{background:var(--card);border:1px solid var(--line);border-radius:16px;
-               padding:16px;box-shadow:0 10px 24px rgba(2,6,23,.06)}
-    .news-top{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-    .news-date,.news-badge{font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid var(--line)}
-    .news-date{background:#f1f5f9;color:#475569}
-    .news-badge{background:linear-gradient(90deg,#e8f3ff,#f2faff);color:#1e293b}
-    .news-title{margin:.25rem 0 .5rem;font-size:18px;line-height:1.5;font-weight:700}
-    .news-title a{color:var(--ink);text-decoration:none}
-    .news-title a:hover{color:var(--brand)}
-    .news-desc{color:#475569;line-height:1.75;margin:.2rem 0 1.1rem}
-    .news-cta a{display:inline-block;padding:8px 12px;border-radius:10px;
-                border:1px solid var(--line);background:#fff;color:var(--ink)}
-    .news-cta a:hover{background:linear-gradient(90deg,var(--brand2),var(--brand));color:#fff;border-color:transparent;text-decoration:none}
+    :root{--bg:#0b1020;--surface:#0f1424;--ink:#e8edf6;--muted:#a8b2c3;--line:#1b2338;--brand:#0b66c3;--brand2:#0aa5a2;--radius:18px;--shadow:0 16px 48px rgba(0,0,0,.35)}
+    @media (prefers-color-scheme: light){:root{--bg:#f6f8fb;--surface:#ffffff;--ink:#0f172a;--muted:#475569;--line:#e6eaf0;--shadow:0 12px 36px rgba(2,6,23,.08)}}
+    *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--muted);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;line-height:1.65}
+    h1,h2,h3{color:var(--ink)} a{color:var(--ink);text-decoration:none}
+    .container{width:min(1200px,92%);margin-inline:auto}
+    .progress{position:fixed;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,var(--brand),var(--brand2));transform-origin:left;transform:scaleX(0);z-index:120}
+    header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.04);backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+    @media (prefers-color-scheme: light){header{background:rgba(255,255,255,.75)}}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:10px 2px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img.cb{width:40px;height:40px;border-radius:0;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+    .title{font-weight:800;color:var(--ink);letter-spacing:.2px}
+    .nav-links{display:flex;gap:22px}
+    .nav-links a{position:relative;color:var(--muted);padding:6px 2px;transition:color .2s}
+    .nav-links a:hover{color:var(--ink)}
+    .nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:linear-gradient(90deg,var(--brand),var(--brand2));transform:scaleX(0);transform-origin:left;transition:transform .25s}
+    .nav-links a:hover::after,.nav-links a[aria-current="page"]::after{transform:scaleX(1)}
+    .lang{display:flex;gap:8px}
+    .pill{border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:transparent;color:var(--muted);cursor:pointer;transition:transform .12s, color .2s}
+    .pill:active{transform:scale(.96)} .pill.active{background:linear-gradient(135deg,rgba(11,102,195,.18),rgba(10,165,162,.18));color:var(--ink);border-color:transparent}
+
+    .hero{position:relative;overflow:hidden}
+    .mesh{position:absolute;inset:0;background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(11,102,195,.25), transparent 60%),
+      radial-gradient(900px 480px at 90% 10%, rgba(10,165,162,.22), transparent 60%),
+      radial-gradient(700px 380px at 50% 110%, rgba(147,197,253,.20), transparent 60%);
+      filter:blur(20px);animation:meshMove 16s linear infinite;pointer-events:none}
+    @keyframes meshMove{0%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-20px,0)}100%{transform:translate3d(0,0,0)}}
+    #stars{position:absolute;inset:0;opacity:.35;mix-blend-mode:screen;pointer-events:none}
+    .hero-inner{position:relative;padding:90px 0 56px}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+    .headline{font-size:clamp(30px,4.6vw,54px);line-height:1.1;margin:0 0 14px}
+    .lead{font-size:clamp(16px,2vw,18px);margin:0 0 26px;color:var(--muted)}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{position:relative;display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);box-shadow:var(--shadow);overflow:hidden;will-change:transform}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border:0;font-weight:700}
+    .btn .ripple{position:absolute;border-radius:50%;transform:scale(0);opacity:.22;pointer-events:none;background:transparent;animation:ripple .6s ease-out}
+    @keyframes ripple{to{transform:scale(12);opacity:0}}
+    .hero-card{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+
+    section{padding:60px 0}
+    .section-title{font-size:22px;margin:0 0 12px;color:var(--ink)}
+
+    .quick{display:flex;gap:12px;flex-wrap:wrap;margin:8px 0 18px}
+    .chip{position:relative;display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);transition:transform .15s, box-shadow .15s}
+    .chip::after{content:"↗";transition:transform .2s}
+    .chip:hover{transform:translateY(-1px);box-shadow:var(--shadow)} .chip:hover::after{transform:translateX(2px) translateY(-2px)}
+
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{position:relative;border:1px solid var(--line);border-radius:18px;background:var(--surface);box-shadow:var(--shadow);padding:16px;transform-style:preserve-3d;transition:transform .2s ease}
+    .card:hover{transform:translateY(-4px)}
+    .card a.card-link{position:absolute;inset:0;border-radius:18px;z-index:1}
+    .content{position:relative;z-index:2}
+    .media{position:relative;border-radius:14px;overflow:hidden;background:#0d1222}
+    .media img{display:block;width:100%;height:220px;object-fit:contain;background:transparent;padding:12px}
+    .media::before{content:"";position:absolute;inset:0;opacity:.35;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.12) 1px, transparent 1px);background-size:18px 18px}
+    .tone-5g .media{background:linear-gradient(135deg,#1a1a1a,#3a0d0d)} .tone-5g h3{color:#e11d2e}
+    .tone-sb .media{background:linear-gradient(135deg,#0b1a3a,#2b1059)} .tone-sb h3{background:linear-gradient(90deg,#60a5fa,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .tone-fk .media{background:linear-gradient(135deg,#0f2d20,#16423c)} .tone-fk h3{color:#34d399}
+
+    .statement{position:relative;border-radius:22px;padding:1px;background:conic-gradient(from 180deg,var(--brand),var(--brand2),var(--brand));box-shadow:var(--shadow);overflow:hidden}
+    .statement .in{background:var(--surface);border-radius:21px;padding:22px 20px;position:relative}
+    .statement .in::after{content:"";position:absolute;inset:-2px;background:conic-gradient(from 0deg,var(--brand),transparent 40%);filter:blur(18px);opacity:.12;animation:spin 10s linear infinite;pointer-events:none}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .accent{display:inline-block;position:relative;padding-bottom:2px}
+    .accent::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:100%;background:linear-gradient(90deg,var(--brand),var(--brand2));transform:scaleX(0);transform-origin:left;animation:underline .9s .2s ease forwards}
+    @keyframes underline{to{transform:scaleX(1)}}
+    .stagger>*{opacity:0;transform:translateY(8px);animation:rise .6s ease forwards}
+    .stagger>*:nth-child(1){animation-delay:.05s} .stagger>*:nth-child(2){animation-delay:.1s} .stagger>*:nth-child(3){animation-delay:.15s} .stagger>*:nth-child(4){animation-delay:.2s} .stagger>*:nth-child(5){animation-delay:.25s} .stagger>*:nth-child(6){animation-delay:.3s}
+    @keyframes rise{to{opacity:1;transform:translateY(0)}}
+    .quote{font-size:64px;line-height:.6;background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 20px rgba(11,102,195,.25))}
+
+    .cols{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+    .list{display:grid;gap:10px}
+    .item{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid var(--line);padding:12px;border-radius:12px;opacity:0;transform:translateY(10px);transition:opacity .5s, transform .5s}
+    .item.in{opacity:1;transform:translateY(0)}
+    .badge{font-size:12px;color:#fff;background:linear-gradient(135deg,var(--brand),var(--brand2));border-radius:999px;padding:2px 10px;font-weight:700}
+
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .kpi{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow);text-align:center}
+    .kpi .num{font-size:28px;font-weight:800;color:var(--ink)}
+    .kpi .cap{color:var(--muted)}
+
+    footer{padding:36px 0;border-top:1px solid var(--line)}
+    .fab{position:fixed;right:16px;bottom:16px;width:52px;height:52px;border-radius:999px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;box-shadow:var(--shadow);border:0;cursor:pointer;opacity:0;transform:translateY(10px);transition:opacity .3s, transform .3s}
+    .fab.show{opacity:1;transform:translateY(0)}
+
+    .en{display:none} body[data-lang="en"] .jp{display:none} body[data-lang="en"] .en{display:initial}
+    @media (prefers-reduced-motion: reduce){.mesh,#stars,.stagger>*{animation:none} .nav-links a::after{display:none}}
+    @media (max-width:980px){.grid3{grid-template-columns:1fr}.cols,.hero-grid{grid-template-columns:1fr}.nav-links{display:none}}
   </style>
+<style>
+/* Language visibility */
+.jp{display: block;}
+.en{display: none;}
+:root[data-lang="en"] .jp{display:none;}
+:root[data-lang="en"] .en{display:block;}
+</style>
+<style>
+.big-hero-title{margin:0;font-weight:800;line-height:1.08;
+  font-size:clamp(32px,6vw,68px);letter-spacing:.2px;color:var(--ink);}
+.section.hero{background:none}
+</style>
 <style>
 /* === Mobile menu additions === */
 :root{ --header-h: 64px; --safe-top: env(safe-area-inset-top); }
@@ -59,114 +130,251 @@
   .lang{ margin-left:auto; }
   html.menu-open, html.menu-open body{ overflow:hidden; } /* prevent body scroll */
 }
-</style></head>
-<body>
-<main>
-<div class="container">
-<p><a class="back" href="index.html">← <span class="jp">戻る</span><span class="en">Back</span></a></p>
-<h1><span class="jp">ニュース</span><span class="en">Latest News</span></h1>
-<p class="sub"><span class="jp">最新情報・開店情報などをお知らせします。</span><span class="en">Our latest announcements and opening updates.</span></p>
-<div class="news-list">
-<!-- 1) ESPORTSCAFE 5G：2024/07/16(火) オープン -->
-<article class="news-item">
-<div class="news-top">
-<span class="news-date">2024-07-16 (火)</span>
-<span class="news-badge">開店</span>
+</style><style>
+/* Language toggle visibility */
+.jp{display:block;}
+.en{display:none;}
+:root[data-lang="en"] .jp{display:none;}
+:root[data-lang="en"] .en{display:block;}
+/* Lang pill minimal styles */
+.lang{display:flex;gap:8px;align-items:center}
+.pill{border:1px solid #e6eaf0;border-radius:999px;padding:6px 12px;font-weight:600;background:transparent;color:#475569;cursor:pointer}
+.pill.active{background:linear-gradient(135deg, rgba(11,102,195,.16), rgba(10,165,162,.18));color:#0f172a;border-color:transparent}
+</style><style>
+/* One-language visibility (reinforced) */
+.jp{display:block;}
+.en{display:none;}
+:root[data-lang="en"] .jp{display:none;}
+:root[data-lang="en"] .en{display:block;}
+/* Back button style to match pills */
+.lang{display:flex;gap:8px;align-items:center}
+.pill{border:1px solid #e6eaf0;border-radius:999px;padding:6px 12px;font-weight:600;background:transparent;color:#475569;cursor:pointer}
+.pill.active{background:linear-gradient(135deg, rgba(11,102,195,.16), rgba(10,165,162,.18));color:#0f172a;border-color:transparent}
+.back-btn{order:-1}
+</style><style>
+/* === Global Professional Footer === */
+.site-footer.pro{margin-top:72px;border-top:1px solid #e6eaf0;background:#fafbfc}
+.site-footer .footer-wrap{display:grid;grid-template-columns:2fr 1.2fr 1.6fr;gap:32px;padding:28px 0}
+.site-footer .f-h{font-weight:700;color:#0b1220;margin:0 0 10px;font-size:14px;letter-spacing:.3px}
+.site-footer .f-col{color:#0f172a}
+.site-footer .f-list{list-style:none;margin:0;padding:0;color:#0f172a}
+.site-footer .f-list li{margin:6px 0}
+.site-footer .f-list.two-col{columns:1}
+.site-footer .f-links{display:flex;flex-direction:column;gap:8px;list-style:none;margin:0;padding:0}
+.site-footer .f-links a{text-decoration:none;color:#2563eb}
+.site-footer .f-links a:hover{text-decoration:underline}
+.site-footer .footer-copy{padding:10px 0 28px;color:#64748b;border-top:1px solid #eef2f6}
+@media (max-width:980px){
+  .site-footer .footer-wrap{grid-template-columns:1fr;gap:18px;padding:20px 0}
+  .site-footer .f-list.two-col{columns:1}
+}
+/* Ensure single-language visibility */
+.jp{display:block}
+.en{display:none}
+:root[data-lang="en"] .jp{display:none}
+:root[data-lang="en"] .en{display:block}
+</style><style id="pro-theme">
+/* ===== Century Bay Business Pro Theme (Overrides) ===== */
+/* Typography */
+:root{
+  --ink:#0b1220; --muted:#475569; --line:#e6eaf0; --bg:#f6f8fb;
+  --brand:#0b66c3; --brand2:#0aa5a2; --card:#ffffff; --radius:16px;
+  --shadow:0 8px 24px rgba(2,6,23,.06);
+}
+html,body{font-family: "Segoe UI","Inter","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif}
+h1,h2,h3{color:var(--ink);letter-spacing:.2px}
+.section-title,.aboutfacts-title{font-weight:800}
+/* Layout containers */
+.container{max-width:1200px;margin-inline:auto}
+/* Cards */
+.card,.news-item,.aboutfacts-card,.tone-5g,.tone-sb,.tone-fk{
+  background:var(--card)!important;border:1px solid var(--line)!important;
+  border-radius:var(--radius)!important;box-shadow:var(--shadow)!important;transform:none!important
+}
+.card .media img{border-radius:12px}
+/* Buttons */
+.btn,.pill,button[type=submit]{
+  border-radius:999px;border:1px solid var(--line);background:linear-gradient(90deg,#0b66c3,#0aa5a2);
+  color:#fff;font-weight:700;letter-spacing:.2px;box-shadow:none
+}
+.btn:hover{opacity:.92}
+/* Pill (language/back) neutrals */
+.pill{background:transparent;border:1px solid var(--line);color:#334155}
+.pill.active{background:linear-gradient(135deg, rgba(11,102,195,.14), rgba(10,165,162,.16));color:#0b1220}
+/* Links */
+a{color:#0b66c3}
+a:hover{text-decoration:underline}
+/* Header */
+header{background:rgba(255,255,255,.82)!important;border-bottom:1px solid var(--line)!important;backdrop-filter:saturate(180%) blur(12px)}
+.brand img.cb{width:40px;height:40px;border-radius:0;object-fit:cover;box-shadow:none}
+.nav-links a{color:#475569}
+.nav-links a:hover{color:#0b1220}
+/* Footer */
+.site-footer.pro{background:transparent}
+.footer-copy{color:#64748b}
+/* Reduce special effects */
+.mesh,#stars,.stagger>*,.tilt,[data-tilt],.rippleable{animation:none!important;transform:none!important;transition:none!important}
+.hero,.section.hero{background:none}
+/* News grid spacing */
+.news-list{gap:20px}
+/* About facts grid tidy */
+.aboutfacts-grid{gap:14px}
+.aboutfacts-item{padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:transparent}
+.aboutfacts-label{font-weight:700;color:#0b1220}
+/* Forms */
+form input,form textarea,form select{
+  border:1px solid #dbe3ec;border-radius:12px;padding:10px 12px;outline:none
+}
+form input:focus,form textarea:focus,form select:focus{border-color:#0b66c3;box-shadow:0 0 0 3px rgba(11,102,195,.12)}
+.form-consent{margin:12px 0 10px;color:#334155;font-size:14px}
+/* Single-language visibility (reinforce) */
+.jp{display:block}.en{display:none}
+:root[data-lang="en"] .jp{display:none}
+:root[data-lang="en"] .en{display:block}
+/* Remove any rotating/hover tilt on cards */
+.card:hover{transform:none}
+</style><style>
+/* Hero with right-side large logo */
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:28px;padding:24px 0}
+.hero-left{min-width:0}
+.hero-right{display:flex;justify-content:flex-end}
+.hero-right img[data-role="hero-logo"]{
+  max-width:420px;width:100%;height:auto;image-rendering:auto;
+  -ms-interpolation-mode: bicubic; /* IE */
+}
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-right{justify-content:center;margin-top:10px}
+  .hero-right img[data-role="hero-logo"]{max-width:320px}
+}
+</style><style>
+/* Centered hero + subtle entrance animation */
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:28px;padding:36px 0;max-width:1200px;margin:0 auto}
+.hero-left{min-width:0}
+.hero-right{display:flex;justify-content:flex-end}
+.hero-right img[data-role="hero-logo"]{max-width:420px;width:100%;height:auto;image-rendering:auto}
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr;text-align:center}
+  .hero-right{justify-content:center;margin-top:10px}
+  .hero-right img[data-role="hero-logo"]{max-width:320px}
+}
+/* Subtle entrance animation */
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.fade-in-up{animation:fadeSlideUp 260ms cubic-bezier(.2,.6,.2,1) both}
+.fade-in-up.delay-1{animation-delay:80ms}
+@media (prefers-reduced-motion: reduce){
+  .fade-in-up{animation:none}
+}
+</style><style>
+/* Business cards rich content */
+.biz-bullets{margin:8px 0 0;padding:0;list-style:none}
+.biz-bullets ul{margin:0;padding-left:18px}
+.biz-bullets li{margin:.25rem 0}
+.card h3{margin-top:.6rem;margin-bottom:.2rem}
+.card p{margin:.2rem 0 .5rem}
+</style><style>
+.biz-bullets{margin:.4rem 0 .2rem}
+.biz-bullets ul{margin:.1rem 0;padding-left:18px}
+.biz-bullets li{margin:.22rem 0}
+.card p{margin:.35rem 0 .4rem}
+</style><style>
+.biz-bullets{margin:8px 0 0}
+.biz-bullets .jp, .biz-bullets .en{display:block}
+.biz-bullets ul{margin:.2rem 0;padding-left:18px}
+.biz-bullets li{margin:.2rem 0}
+</style><style>
+/* Remove bullets in business cards on homepage */
+.biz-bullets, .biz-bullets ul { list-style: none !important; margin: 0 !important; padding-left: 0 !important; }
+.biz-bullets li { margin: .35rem 0 !important; padding-left: 0 !important; position: relative; }
+</style><style>
+/* News page local adjustments */
+.news-section{max-width:1100px;margin:0 auto}
+.news-desc{color:#475569;margin:.25rem 0 .5rem}
+.news-scroll{max-height:560px;overflow-y:auto;scroll-behavior:smooth;padding-right:6px}
+.news-list{display:flex;flex-direction:column;gap:12px}
+.news-card{background:#fff;border:1px solid #e6eaf0;border-radius:14px;padding:14px;box-shadow:0 6px 18px rgba(2,6,23,.06)}
+.news-card h3{margin:.15rem 0 .35rem;font-size:1.05rem}
+.news-card time{color:#64748b;font-size:.9rem}
+.news-card p{margin:.2rem 0 0;color:#334155}
+@media (max-width:980px){.news-scroll{max-height:70vh}}
+</style><link href="assets/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="assets/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="assets/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link color="#0ea5b7" href="assets/favicon.svg" rel="mask-icon"/>
+<meta content="#0ea5b7" name="theme-color"/><style>.btn-back.small{margin-right:.5rem;padding:.35rem .6rem;border-radius:12px;border:1px solid rgba(2,6,23,.1);
+background:linear-gradient(135deg,#0f66ff1a,#00b3a41a);font-size:.85rem}</style></head><body><div class="progress" id="progress"></div><header>
+<div class="container nav">
+<div class="brand"><img alt="Century Bay ロゴ" class="cb" src="assets/cb-logo-plain.png"/><span class="title">世紀港湾株式会社 <span class="muted">/ Century Bay</span></span></div>
+<nav class="nav-links" id="navlinks"><a aria-current="page" href="index.html"><span class="jp">ホーム</span><span class="en">Home</span></a><a href="page-1-about.html">会社情報</a><a href="page-2-news.html">ニュース</a><a href="page-3-careers.html">採用</a><a href="page-4-contact.html">お問い合わせ</a></nav>
+<div class="lang" role="group"><button aria-label="戻る" class="pill back-btn" data-role="back" type="button">戻る</button><button class="pill active" data-lang="jp" data-set-lang="jp">日本語</button><button class="pill" data-lang="en" data-set-lang="en">EN</button></div>
 </div>
-<h3 class="news-title">
-<a href="https://esportscafe5g.com" rel="noopener" target="_blank">
-<span class="jp">ESPORTSCAFE 5G 新大久保店｜2024年7月16日(火) 営業開始</span>
-<span class="en">ESPORTSCAFE 5G Shin-Okubo — Grand Opening on Tue, Jul 16, 2024</span>
-</a>
-</h3>
-<p class="news-desc">
-<span class="jp">高速ネットワークとハイエンド環境を備えた eスポーツカフェがオープンしました。プレイ体験・イベントに対応。</span>
-<span class="en">Our eSports café with high-speed network and high-end rigs is now open. Supports play experiences and events.</span>
-</p>
-<div class="news-cta">
-<a href="https://esportscafe5g.com" rel="noopener" target="_blank">
-<span class="jp">店舗ページへ</span><span class="en">Store page</span>
-</a>
-</div>
-</article>
-<!-- 2) eスポーツ装備屋：2025年7月より営業開始 -->
-<article class="news-item">
-<div class="news-top">
-<span class="news-date">2025-07</span>
-<span class="news-badge">開店</span>
-</div>
-<h3 class="news-title">
-<a href="https://esports-soubiya.com" rel="noopener" target="_blank">
-<span class="jp">eスポーツ装備屋｜2025年7月より営業開始</span>
-<span class="en">eSports Gear Shop — Opening from July 2025</span>
-</a>
-</h3>
-<p class="news-desc">
-<span class="jp">販売・修理・カスタムに対応するハードウェア専門店。用途に最適な 1 台をご提案します。</span>
-<span class="en">A hardware specialty shop for sales, repairs, and custom builds. We propose the optimal build for your needs.</span>
-</p>
-<div class="news-cta">
-<a href="https://esports-soubiya.com" rel="noopener" target="_blank">
-<span class="jp">店舗ページへ</span><span class="en">Learn more</span>
-</a>
-</div>
-</article>
-<!-- 3) Furry Kids：準備中（近日オープン） -->
-<article class="news-item">
-<div class="news-top">
-<span class="news-date">準備中</span>
-<span class="news-badge">近日オープン</span>
-</div>
-<h3 class="news-title">
-<a href="#">
-<span class="jp">Furry Kids｜準備中（近日オープン）</span>
-<span class="en">Furry Kids — Preparing (Opening Soon)</span>
-</a>
-</h3>
-<p class="news-desc">
-<span class="jp">ペット用品・ケアブランドを準備中です。オープン時期は決まり次第お知らせします。</span>
-<span class="en">We’re preparing our pet goods &amp; care brand. Opening schedule will be announced soon.</span>
-</p>
-<div class="news-cta">
-<a href="#"><span class="jp">続報をお待ちください</span><span class="en">Stay tuned</span></a>
-</div>
-</article>
-<!-- 4) 企業ニュース：導入事例集（方案C） -->
-<article class="news-item">
-<div class="news-top">
-<span class="news-date">2025-08-01</span>
-<span class="news-badge">お知らせ</span>
-</div>
-<h3 class="news-title">
-<a href="#">
-<span class="jp">導入事例集を公開｜競技環境・店舗DX・制作ワークステーション</span>
-<span class="en">Case Study Book Released — eSports, Retail DX, Creator Workstations</span>
-</a>
-</h3>
-<p class="news-desc">
-<span class="jp">複数業種での導入成果をまとめた事例集を公開。要件定義〜設計〜検証〜運用までのプロセスと効果をレポート化しました。</span>
-<span class="en">We published a compilation of deployments across industries, detailing requirements, design, validation and operations with measurable outcomes.</span>
-</p>
-</article>
-</div>
-</div>
-</main>
+<style id="lang-visibility-fix">
+  /* Default=JP。英文仅当 data-lang="en" 才显示 */
+  :root:not([data-lang="en"]) .en { display: none !important; }
+  :root:not([data-lang="en"]) .jp { display: initial !important; }
 
-<script>
+  :root[data-lang="en"] .jp { display: none !important; }
+  :root[data-lang="en"] .en { display: initial !important; }
+
+  /* 防止空元素占位 */
+  .jp:empty, .en:empty { display: none !important; }
+</style>
+</header><div class="progress" id="progress"></div><main><section class="news-section"><h2 class="section-title jp">ニュース</h2><h2 class="section-title en">News</h2><p class="news-desc"><span class="jp">最新情報・開店情報などをお知らせします。</span><span class="en">We share the latest updates, opening news and more.</span></p><div class="news-scroll"><div class="news-list"><article class="news-card"><time datetime="2025-09-10">2025.09.10</time><h3><span class="jp">ESPORTSCAFE 5G：GPUアップグレード＆席拡充</span><span class="en">ESPORTSCAFE 5G: GPU Upgrades &amp; More Seats</span></h3><p><span class="jp">最新世代GPUへ更新し、快適性をさらに向上。イベント対応の増席も実施しました。</span><span class="en">Upgraded to the latest‑gen GPUs and increased available seats, improving comfort for events.</span></p></article><article class="news-card"><time datetime="2025-07-12">2025.07.12</time><h3><span class="jp">eスポーツ装備屋：即日修理カウンターを開始</span><span class="en">Esports Equipment Store: Same‑day Repair Counter Launch</span></h3><p><span class="jp">軽微な不具合は最短当日での返却に対応。診断→部品交換→テストをワンストップで提供します。</span><span class="en">Minor issues can now be fixed same‑day. One‑stop flow: diagnostics, parts replacement, and testing.</span></p></article><article class="news-card"><time datetime="2025-03-01">2025.03.01</time><h3><span class="jp">Furry Kids：パッケージ回収＆リサイクルを試験導入</span><span class="en">Furry Kids: Pilot Package‑Return &amp; Recycling Program</span></h3><p><span class="jp">対象商品で回収プログラムを試験運用。環境配慮と資源循環の取り組みを強化します。</span><span class="en">Launched a pilot package‑return program on select products to reinforce sustainability and recycling.</span></p></article><article class="news-card"><time datetime="2025-01-15">2025.01.15</time><h3><span class="jp">公式サイトを全面リニューアル</span><span class="en">Official Website Fully Refreshed</span></h3><p><span class="jp">ブランド情報・会社概要・お問い合わせ導線を再設計し、日英切替にも対応しました。</span><span class="en">We redesigned brand pages, company profile and contact flows, now with a seamless JP/EN toggle.</span></p></article><article class="news-card"><time datetime="2024-11-20">2024.11.20</time><h3><span class="jp">年末チャリティーイベントを開催、寄付先を発表</span><span class="en">Year‑end Charity Event Held, Recipients Announced</span></h3><p><span class="jp">Furry Kidsの寄付活動に連動し、動物保護団体への支援先を公開しました。</span><span class="en">In tandem with Furry Kids donations, announced recipient animal‑welfare organizations.</span></p></article><article class="news-card"><time datetime="2024-07-01">2024.07.01</time><h3><span class="jp">Furry Kids：売上の1％寄付の取り組みで支援先を拡大</span><span class="en">Furry Kids: 1% Donation Program Expands Its Support</span></h3><p><span class="jp">動物保護・福祉活動への寄付枠を拡大し、継続的な支援体制を強化しました。</span><span class="en">We broadened our animal‑welfare donation program (1% of sales) to strengthen ongoing support.</span></p></article><article class="news-card"><time datetime="2023-05-20">2023.05.20</time><h3><span class="jp">ペット用品ブランド「Furry Kids」をローンチ</span><span class="en">Launched Pet‑care Brand “Furry Kids”</span></h3><p><span class="jp">デザイン・品質・安全性にこだわった製品を展開。売上の1％を動物保護活動へ寄付します。</span><span class="en">Introducing products built for design, quality and safety. 1% of sales is donated to animal welfare.</span></p></article><article class="news-card"><time datetime="2022-04-25">2022.04.25</time><h3><span class="jp">情報セキュリティ基本方針を公開</span><span class="en">Published Our Information Security Policy</span></h3><p><span class="jp">お客様データを守るための管理体制とポリシーを整備・公開しました。</span><span class="en">Established and published our governance and policies to protect customer data.</span></p></article><article class="news-card"><time datetime="2021-11-10">2021.11.10</time><h3><span class="jp">「eスポーツ装備屋」販売・修理サービスを拡充</span><span class="en">Expanded ‘Esports Equipment Store’ Sales &amp; Repair Services</span></h3><p><span class="jp">オンラインと店頭の両方で、PC診断・修理・カスタム提案を一気通貫で提供開始。</span><span class="en">We now offer end‑to‑end diagnostics, repairs, and custom PC builds both online and in‑store.</span></p></article><article class="news-card"><time datetime="2019-09-05">2019.09.05</time><h3><span class="jp">体験型施設「ESPORTSCAFE 5G」を開設</span><span class="en">Opened Experience Space “ESPORTSCAFE 5G”</span></h3><p><span class="jp">高性能PCと安定したネットワーク環境を備え、イベントや貸切にも対応します。</span><span class="en">Equipped with high‑spec PCs and a stable network, also available for events and private bookings.</span></p></article><article class="news-card"><time datetime="2018-11-30">2018.11.30</time><h3><span class="jp">eスポーツ体験イベントを共同開催（東京）</span><span class="en">Co‑hosted eSports Experience Event in Tokyo</span></h3><p><span class="jp">常設施設オープンに向けた実証として、週末ポップアップイベントを実施。来場者の満足度と運営ノウハウを蓄積しました。</span><span class="en">As a pilot toward a permanent space, we ran weekend pop‑up events, gathering feedback and operations know‑how.</span></p></article><article class="news-card"><time datetime="2016-08-20">2016.08.20</time><h3><span class="jp">エンタメ事業の本格検討を開始</span><span class="en">Began Full‑scale Study into Entertainment Business</span></h3><p><span class="jp">物流・貿易の経験を活かし、eスポーツ/リテール領域への参入調査をスタート。市場性と設備要件を整理しました。</span><span class="en">Leveraging logistics/trade experience, we explored entry into eSports/retail, outlining market fit and facility needs.</span></p></article><article class="news-card"><time datetime="2014-04-10">2014.04.10</time><h3><span class="jp">ライフスタイル領域での試験販売を開始</span><span class="en">Launched Trial Sales in Lifestyle Category</span></h3><p><span class="jp">小規模ECでゲーミング関連アクセサリーの取り扱いを開始。顧客ニーズと供給体制を検証しました。</span><span class="en">Started small‑scale e‑commerce for gaming accessories to test demand and supply readiness.</span></p></article><article class="news-card"><time datetime="2012-09-15">2012.09.15</time><h3><span class="jp">日中間の物流ソリューションを強化</span><span class="en">Enhanced Cross‑border Logistics Solutions (China–Japan)</span></h3><p><span class="jp">通関・海運フォワーディング体制を拡充し、定温/小口貨物にも対応。品質とリードタイムを改善しました。</span><span class="en">Expanded customs and ocean‑forwarding capabilities, adding cold‑chain and small‑lot handling to improve quality and lead time.</span></p></article><article class="news-card"><time datetime="2010-06-01">2010.06.01</time><h3><span class="jp">日本法人の本格稼働を開始</span><span class="en">Japan Entity Commences Full Operations</span></h3><p><span class="jp">2009年の設立後、東京拠点の業務体制を整備。顧客サポート・パートナー連携を本格化しました。</span><span class="en">Following the 2009 establishment, the Tokyo office scaled up operations and partner support.</span></p></article></div></div></section></main><script>
 (function(){
-  var btn = document.querySelector('header .menu-btn');
-  var links = document.querySelector('nav.nav-links');
-  if(!btn || !links) return;
-  function close(){ document.documentElement.classList.remove('menu-open'); btn.setAttribute('aria-expanded','false'); }
-  function open(){ document.documentElement.classList.add('menu-open'); btn.setAttribute('aria-expanded','true'); }
-  btn.addEventListener('click', function(){
-    (document.documentElement.classList.contains('menu-open')? close : open)();
-  });
-  links.addEventListener('click', function(e){
-    var a = e.target.closest('a'); if(a) close();
-  });
-  window.addEventListener('resize', function(){ if(window.innerWidth >= 980) close(); }, {passive:true});
+  function getLang(){ try { return localStorage.getItem('site.lang') || 'jp'; } catch(e){ return 'jp'; } }
+  function setLang(l){
+    document.documentElement.setAttribute('data-lang', l);
+    try { localStorage.setItem('site.lang', l); } catch(e){}
+  }
+  // Initialize once DOM is interactive
+  setLang(getLang());
+  // Click handlers for any element with data-set-lang
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('[data-set-lang]');
+    if(t){
+      e.preventDefault();
+      setLang(t.getAttribute('data-set-lang'));
+    }
+  }, {passive:true});
 })();
-</script>
-</body>
-</html>
+</script><footer class="site-footer pro">
+<div class="container footer-wrap">
+<div class="f-col company">
+<div class="f-h"> <span class="jp">会社情報</span><span class="en">Company</span> </div>
+<ul class="f-list">
+<li><span class="jp">世紀港湾株式会社</span><span class="en">Century Bay Co., Ltd.</span></li>
+<li><span class="jp">〒169-0073 東京都新宿区百人町2-4-2</span><span class="en">2-4-2 Hyakunincho, Shinjuku-ku, Tokyo 169-0073, Japan</span></li>
+<li><span class="jp">適格請求書発行事業者登録番号：T8011101058365</span><span class="en">Invoice Registration No.: T8011101058365</span></li>
+</ul>
+</div>
+<div class="f-col brands">
+<div class="f-h"> <span class="jp">ブランド</span><span class="en">Brands</span> </div>
+<ul class="f-list">
+<li>ESPORTSCAFE 5G</li>
+<li>eスポーツ装備屋</li>
+<li>Furry Kids</li>
+</ul>
+</div>
+<div class="f-col policies">
+<div class="f-h"> <span class="jp">ポリシー</span><span class="en">Policies</span> </div>
+<ul class="f-links">
+<li><a href="privacy-policy.html"><span class="jp">プライバシーポリシー</span><span class="en">Privacy Policy</span></a></li>
+<li><a href="cookie-policy.html"><span class="jp">Cookieポリシー</span><span class="en">Cookie Policy</span></a></li>
+<li><a href="antisocial-exclusion.html"><span class="jp">反社会的勢力排除</span><span class="en">Elimination of Anti‑social Forces</span></a></li>
+<li><a href="information-security.html"><span class="jp">情報セキュリティ</span><span class="en">Information Security</span></a></li>
+</ul>
+</div>
+</div>
+<div class="container footer-copy">
+<small>© Century Bay Co., Ltd. All rights reserved.</small>
+</div>
+</footer><script>
+    (function(){
+      function goBack(){
+        if (window.history && history.length > 1) { history.back(); }
+        else { window.location.href = 'index.html'; }
+      }
+      var bts = document.querySelectorAll('.btn-back, .back-btn, .btn-go-back');
+      bts.forEach(function(b){ b.onclick = goBack; b.setAttribute('type','button'); });
+    })();
+    </script></body></html>

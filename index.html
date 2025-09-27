@@ -4,12 +4,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
-<title>世紀港湾株式会社｜Century Bay Co., Ltd.</title>
-<meta content="世紀港湾株式会社（Century Bay Co., Ltd.）公式サイト。ESPORTSCAFE 5G／eスポーツ装備屋／Furry Kids を展開。" name="description"/>
+<title>世紀港湾株式会社｜Century Bay Co.Ltd.</title>
+<meta content="世紀港湾株式会社（Century Bay Co.Ltd.）公式サイト。ESPORTSCAFE 5G／eスポーツ装備屋／Furry Kids を展開。" name="description"/>
 <meta content="世紀港湾株式会社｜Century Bay" property="og:title"/>
 <meta content="エンタメ×ライフスタイルのコーポレートサイト。" property="og:description"/>
 <meta content="assets/og.svg" property="og:image"/>
-<link href="assets/favicon.svg" rel="icon"/>
 <meta content="#0b66c3" name="theme-color"/>
 <style>
     :root{--bg:#0b1020;--surface:#0f1424;--ink:#e8edf6;--muted:#a8b2c3;--line:#1b2338;--brand:#0b66c3;--brand2:#0aa5a2;--radius:18px;--shadow:0 16px 48px rgba(0,0,0,.35)}
@@ -22,7 +21,7 @@
     @media (prefers-color-scheme: light){header{background:rgba(255,255,255,.75)}}
     .nav{display:flex;justify-content:space-between;align-items:center;padding:10px 2px}
     .brand{display:flex;gap:12px;align-items:center}
-    .brand img.cb{width:40px;height:40px;border-radius:10px;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+    .brand img.cb{width:40px;height:40px;border-radius:0;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,.2)}
     .title{font-weight:800;color:var(--ink);letter-spacing:.2px}
     .nav-links{display:flex;gap:22px}
     .nav-links a{position:relative;color:var(--muted);padding:6px 2px;transition:color .2s}
@@ -48,7 +47,7 @@
     .cta{display:flex;gap:12px;flex-wrap:wrap}
     .btn{position:relative;display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);box-shadow:var(--shadow);overflow:hidden;will-change:transform}
     .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border:0;font-weight:700}
-    .btn .ripple{position:absolute;border-radius:50%;transform:scale(0);opacity:.22;pointer-events:none;background:#fff;animation:ripple .6s ease-out}
+    .btn .ripple{position:absolute;border-radius:50%;transform:scale(0);opacity:.22;pointer-events:none;background:transparent;animation:ripple .6s ease-out}
     @keyframes ripple{to{transform:scale(12);opacity:0}}
     .hero-card{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
 
@@ -132,45 +131,300 @@
   .lang{ margin-left:auto; }
   html.menu-open, html.menu-open body{ overflow:hidden; } /* prevent body scroll */
 }
-</style></head>
+</style><style>
+/* Language toggle visibility */
+.jp{display:block;}
+.en{display:none;}
+:root[data-lang="en"] .jp{display:none;}
+:root[data-lang="en"] .en{display:block;}
+/* Lang pill minimal styles */
+.lang{display:flex;gap:8px;align-items:center}
+.pill{border:1px solid #e6eaf0;border-radius:999px;padding:6px 12px;font-weight:600;background:transparent;color:#475569;cursor:pointer}
+.pill.active{background:linear-gradient(135deg, rgba(11,102,195,.16), rgba(10,165,162,.18));color:#0f172a;border-color:transparent}
+</style><style>
+/* One-language visibility (reinforced) */
+.jp{display:block;}
+.en{display:none;}
+:root[data-lang="en"] .jp{display:none;}
+:root[data-lang="en"] .en{display:block;}
+/* Back button style to match pills */
+.lang{display:flex;gap:8px;align-items:center}
+.pill{border:1px solid #e6eaf0;border-radius:999px;padding:6px 12px;font-weight:600;background:transparent;color:#475569;cursor:pointer}
+.pill.active{background:linear-gradient(135deg, rgba(11,102,195,.16), rgba(10,165,162,.18));color:#0f172a;border-color:transparent}
+.back-btn{order:-1}
+</style><style>
+/* === Global Professional Footer === */
+.site-footer.pro{margin-top:72px;border-top:1px solid #e6eaf0;background:#fafbfc}
+.site-footer .footer-wrap{display:grid;grid-template-columns:2fr 1.2fr 1.6fr;gap:32px;padding:28px 0}
+.site-footer .f-h{font-weight:700;color:#0b1220;margin:0 0 10px;font-size:14px;letter-spacing:.3px}
+.site-footer .f-col{color:#0f172a}
+.site-footer .f-list{list-style:none;margin:0;padding:0;color:#0f172a}
+.site-footer .f-list li{margin:6px 0}
+.site-footer .f-list.two-col{columns:1}
+.site-footer .f-links{display:flex;flex-direction:column;gap:8px;list-style:none;margin:0;padding:0}
+.site-footer .f-links a{text-decoration:none;color:#2563eb}
+.site-footer .f-links a:hover{text-decoration:underline}
+.site-footer .footer-copy{padding:10px 0 28px;color:#64748b;border-top:1px solid #eef2f6}
+@media (max-width:980px){
+  .site-footer .footer-wrap{grid-template-columns:1fr;gap:18px;padding:20px 0}
+  .site-footer .f-list.two-col{columns:1}
+}
+/* Ensure single-language visibility */
+.jp{display:block}
+.en{display:none}
+:root[data-lang="en"] .jp{display:none}
+:root[data-lang="en"] .en{display:block}
+</style><style id="pro-theme">
+/* ===== Century Bay Business Pro Theme (Overrides) ===== */
+/* Typography */
+:root{
+  --ink:#0b1220; --muted:#475569; --line:#e6eaf0; --bg:#f6f8fb;
+  --brand:#0b66c3; --brand2:#0aa5a2; --card:#ffffff; --radius:16px;
+  --shadow:0 8px 24px rgba(2,6,23,.06);
+}
+html,body{font-family: "Segoe UI","Inter","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif}
+h1,h2,h3{color:var(--ink);letter-spacing:.2px}
+.section-title,.aboutfacts-title{font-weight:800}
+/* Layout containers */
+.container{max-width:1200px;margin-inline:auto}
+/* Cards */
+.card,.news-item,.aboutfacts-card,.tone-5g,.tone-sb,.tone-fk{
+  background:var(--card)!important;border:1px solid var(--line)!important;
+  border-radius:var(--radius)!important;box-shadow:var(--shadow)!important;transform:none!important
+}
+.card .media img{border-radius:12px}
+/* Buttons */
+.btn,.pill,button[type=submit]{
+  border-radius:999px;border:1px solid var(--line);background:linear-gradient(90deg,#0b66c3,#0aa5a2);
+  color:#fff;font-weight:700;letter-spacing:.2px;box-shadow:none
+}
+.btn:hover{opacity:.92}
+/* Pill (language/back) neutrals */
+.pill{background:transparent;border:1px solid var(--line);color:#334155}
+.pill.active{background:linear-gradient(135deg, rgba(11,102,195,.14), rgba(10,165,162,.16));color:#0b1220}
+/* Links */
+a{color:#0b66c3}
+a:hover{text-decoration:underline}
+/* Header */
+header{background:rgba(255,255,255,.82)!important;border-bottom:1px solid var(--line)!important;backdrop-filter:saturate(180%) blur(12px)}
+.brand img.cb{width:40px;height:40px;border-radius:0;object-fit:cover;box-shadow:none}
+.nav-links a{color:#475569}
+.nav-links a:hover{color:#0b1220}
+/* Footer */
+.site-footer.pro{background:transparent}
+.footer-copy{color:#64748b}
+/* Reduce special effects */
+.mesh,#stars,.stagger>*,.tilt,[data-tilt],.rippleable{animation:none!important;transform:none!important;transition:none!important}
+.hero,.section.hero{background:none}
+/* News grid spacing */
+.news-list{gap:20px}
+/* About facts grid tidy */
+.aboutfacts-grid{gap:14px}
+.aboutfacts-item{padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:transparent}
+.aboutfacts-label{font-weight:700;color:#0b1220}
+/* Forms */
+form input,form textarea,form select{
+  border:1px solid #dbe3ec;border-radius:12px;padding:10px 12px;outline:none
+}
+form input:focus,form textarea:focus,form select:focus{border-color:#0b66c3;box-shadow:0 0 0 3px rgba(11,102,195,.12)}
+.form-consent{margin:12px 0 10px;color:#334155;font-size:14px}
+/* Single-language visibility (reinforce) */
+.jp{display:block}.en{display:none}
+:root[data-lang="en"] .jp{display:none}
+:root[data-lang="en"] .en{display:block}
+/* Remove any rotating/hover tilt on cards */
+.card:hover{transform:none}
+</style><style>
+/* Hero with right-side large logo */
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:28px;padding:24px 0}
+.hero-left{min-width:0}
+.hero-right{display:flex;justify-content:flex-end}
+.hero-right img[data-role="hero-logo"]{
+  max-width:420px;width:100%;height:auto;image-rendering:auto;
+  -ms-interpolation-mode: bicubic; /* IE */
+}
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-right{justify-content:center;margin-top:10px}
+  .hero-right img[data-role="hero-logo"]{max-width:320px}
+}
+</style><style>
+/* Centered hero + subtle entrance animation */
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:28px;padding:36px 0;max-width:1200px;margin:0 auto}
+.hero-left{min-width:0}
+.hero-right{display:flex;justify-content:flex-end}
+.hero-right img[data-role="hero-logo"]{max-width:420px;width:100%;height:auto;image-rendering:auto}
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr;text-align:center}
+  .hero-right{justify-content:center;margin-top:10px}
+  .hero-right img[data-role="hero-logo"]{max-width:320px}
+}
+/* Subtle entrance animation */
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.fade-in-up{animation:fadeSlideUp 260ms cubic-bezier(.2,.6,.2,1) both}
+.fade-in-up.delay-1{animation-delay:80ms}
+@media (prefers-reduced-motion: reduce){
+  .fade-in-up{animation:none}
+}
+</style><style>
+/* Business cards rich content */
+.biz-bullets{margin:8px 0 0;padding:0;list-style:none}
+.biz-bullets ul{margin:0;padding-left:18px}
+.biz-bullets li{margin:.25rem 0}
+.card h3{margin-top:.6rem;margin-bottom:.2rem}
+.card p{margin:.2rem 0 .5rem}
+</style><style>
+.biz-bullets{margin:.4rem 0 .2rem}
+.biz-bullets ul{margin:.1rem 0;padding-left:18px}
+.biz-bullets li{margin:.22rem 0}
+.card p{margin:.35rem 0 .4rem}
+</style><style>
+.biz-bullets{margin:8px 0 0}
+.biz-bullets .jp, .biz-bullets .en{display:block}
+.biz-bullets ul{margin:.2rem 0;padding-left:18px}
+.biz-bullets li{margin:.2rem 0}
+</style><style>
+/* Remove bullets in business cards on homepage */
+.biz-bullets, .biz-bullets ul { list-style: none !important; margin: 0 !important; padding-left: 0 !important; }
+.biz-bullets li { margin: .35rem 0 !important; padding-left: 0 !important; position: relative; }
+</style><link href="assets/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="assets/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="assets/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link color="#0ea5b7" href="assets/favicon.svg" rel="mask-icon"/>
+<meta content="#0ea5b7" name="theme-color"/><link href="assets/site.css" rel="stylesheet"/></head>
 <body data-lang="jp" id="top">
 <div class="progress" id="progress"></div>
 <header>
 <div class="container nav">
-<div class="brand"><img alt="Century Bay ロゴ" class="cb" src="assets/century-bay-logo.jpg"/><span class="title">世紀港湾株式会社 <span class="muted">/ Century Bay</span></span></div>
-<button aria-controls="navlinks" aria-expanded="false" aria-label="メニュー" class="menu-btn"><span></span><span></span><span></span></button><nav class="nav-links" id="navlinks"><a href="page-1-about.html">会社情報</a><a href="#brands">事業紹介</a><a href="page-2-news.html">ニュース</a><a href="page-3-careers.html">採用</a><a href="page-4-contact.html">お問い合わせ</a></nav>
-<div class="lang" role="group"><button class="pill active" data-lang="jp" data-set-lang="jp">日本語</button><button class="pill" data-lang="en" data-set-lang="en">EN</button></div>
+<div class="brand"><img alt="Century Bay ロゴ" class="cb" src="assets/cb-logo-plain.png"/><span class="title">世紀港湾株式会社 <span class="muted">/ Century Bay</span></span></div>
+<nav class="nav-links" id="navlinks"><a aria-current="page" href="index.html"><span class="jp">ホーム</span><span class="en">Home</span></a><a href="page-1-about.html">会社情報</a><a href="page-2-news.html">ニュース</a><a href="page-3-careers.html">採用</a><a href="page-4-contact.html">お問い合わせ</a></nav>
+<div class="lang" role="group"><button aria-label="戻る" class="pill back-btn" data-role="back" type="button">戻る</button><button class="pill active" data-lang="jp" data-set-lang="jp">日本語</button><button class="pill" data-lang="en" data-set-lang="en">EN</button></div>
 </div>
+<style id="lang-visibility-fix">
+  /* Default=JP。英文仅当 data-lang="en" 才显示 */
+  :root:not([data-lang="en"]) .en { display: none !important; }
+  :root:not([data-lang="en"]) .jp { display: initial !important; }
+
+  :root[data-lang="en"] .jp { display: none !important; }
+  :root[data-lang="en"] .en { display: initial !important; }
+
+  /* 防止空元素占位 */
+  .jp:empty, .en:empty { display: none !important; }
+</style>
 </header>
-<section class="hero"><div class="container" style="padding:72px 0 56px"><h1 class="big-hero-title"><span class="jp">信頼でつなぐ。<br/>未来を創る。<br/>世紀港湾株式会社</span><span class="en">Connecting with Trust.<br/>Creating the Future.<br/>Century Harbor Co., Ltd.</span></h1></div></section>
+<section class="hero hero-grid"><div class="hero-left fade-in-up"><div class="container" style="padding:72px 0 56px"><h1 class="big-hero-title"><span class="jp">信頼でつなぐ、<br/>未来を創る。</span><span class="en">Connecting with Trust,<br/>Creating the Future.</span></h1></div></div><div class="hero-right fade-in-up delay-1"><img alt="Century Bay Logo" data-role="hero-logo" loading="eager" src="assets/cb-logo-hero.png"/></div></section>
 <section id="brands">
 <div class="container">
-<h2 class="section-title jp">事業紹介</h2><h2 class="section-title en">Brands</h2>
+<h2 class="section-title jp">事業紹介</h2>
+<h2 class="section-title en">Brands</h2>
 <div class="grid3">
-<div class="card tone-5g tilt"><a class="card-link" href="https://esportscafe5g.com" rel="noopener noreferrer" target="_blank"></a>
-<div class="content"><div class="media"><img alt="ESPORTSCAFE 5G" src="assets/esportscafe5g.png"/></div>
-<h3>ESPORTSCAFE 5G</h3>
-<p class="jp">高性能設備×安定ネットワーク。イベント・貸切に対応。</p><p class="en">High-spec rigs and reliable network. Events &amp; private bookings.</p>
-<a class="btn rippleable" href="https://esportscafe5g.com" rel="noopener noreferrer" target="_blank">公式サイトへ</a>
+<!-- ESPORTSCAFE 5G -->
+<div class="card tone-5g tilt">
+<a class="card-link" href="https://esportscafe5g.com" rel="noopener noreferrer" target="_blank"></a>
+<div class="content">
+<div class="media">
+<img alt="ESPORTSCAFE 5G" src="assets/esportscafe5g.png"/>
+</div>
+<h3>
+<span class="jp">ESPORTSCAFE 5G</span>
+<span class="en">ESPORTSCAFE 5G</span>
+</h3>
+<p>
+<span class="jp">最新スペックの設備と快適なネットワーク環境で、誰でも気軽にeスポーツ体験ができるカフェです。</span>
+<span class="en">A state-of-the-art eSports café offering high-spec PCs and a fast, stable network for everyone to enjoy eSports casually.</span>
+</p>
+<div class="biz-bullets">
+<ul class="jp">
+<li>高性能PC</li>
+<li>プロ仕様デバイス</li>
+<li>安定した回線・席数78</li>
+<li>イベント・貸切対応</li>
+</ul>
+<ul class="en">
+<li>High-end PCs</li>
+<li>Pro-grade peripherals</li>
+<li>Stable network &amp; 78 seats</li>
+<li>Events and private bookings</li>
+</ul>
+</div>
+<a class="btn rippleable" href="https://esportscafe5g.com" rel="noopener noreferrer" target="_blank">
+<span class="jp">公式サイトへ</span>
+<span class="en">Official site</span>
+</a>
 </div>
 </div>
-<div class="card tone-sb tilt"><a class="card-link" href="https://esports-soubiya.com" rel="noopener noreferrer" target="_blank"></a>
-<div class="content"><div class="media"><img alt="eスポーツ装備屋" src="assets/esports-soubiya.jpg"/></div>
-<h3>eスポーツ装備屋</h3>
-<p class="jp">販売・修理・カスタム。用途別に最適な1台をご提案。</p><p class="en">Sales, repairs, and custom builds—tailored to your use case.</p>
-<a class="btn rippleable" href="https://esports-soubiya.com" rel="noopener noreferrer" target="_blank">公式サイトへ</a>
+<!-- eスポーツ装備屋（販売・修理） -->
+<div class="card tone-sb tilt">
+<a class="card-link" href="https://esports-soubiya.com" rel="noopener noreferrer" target="_blank"></a>
+<div class="content">
+<div class="media">
+<img alt="eスポーツ装備屋" src="assets/esports-soubiya.jpg"/>
+</div>
+<h3>
+<span class="jp">eスポーツ装備屋（販売・修理）</span>
+<span class="en">Esports Equipment Store (Sales &amp; Repairs)</span>
+</h3>
+<p>
+<span class="jp">ゲーミングPC・周辺機器の販売と修理に特化した専門店。導入相談からメンテナンスまで一気通貫で対応します。</span>
+<span class="en">Specialized in gaming PCs and peripherals—sales, repairs, and end-to-end support from onboarding to maintenance.</span>
+</p>
+<div class="biz-bullets">
+<ul class="jp">
+<li>修理メニューの明朗会計</li>
+<li>カスタムPC提案</li>
+<li>動作保証</li>
+<li>データ保護方針</li>
+</ul>
+<ul class="en">
+<li>Transparent repair pricing</li>
+<li>Custom PC builds</li>
+<li>Performance guarantees</li>
+<li>Data-handling policy</li>
+</ul>
+</div>
+<a class="btn rippleable" href="https://esports-soubiya.com" rel="noopener noreferrer" target="_blank">
+<span class="jp">公式サイトへ</span>
+<span class="en">Official site &amp; repair menu</span>
+</a>
 </div>
 </div>
-<div class="card tone-fk tilt"><a class="card-link" href="https://furrykids.co.jp" rel="noopener noreferrer" target="_blank"></a>
-<div class="content"><div class="media"><img alt="Furry Kids" src="assets/furrykids.png"/></div>
-<h3>Furry Kids</h3>
-<p class="jp">品質と安全を第一に。売上の1％を寄付。</p><p class="en">Quality &amp; safety first. 1% of sales donated.</p>
-<a class="btn rippleable" href="https://furrykids.co.jp" rel="noopener noreferrer" target="_blank">公式サイトへ</a>
+<!-- Furry Kids（ペット用品） -->
+<div class="card tone-fk tilt">
+<a class="card-link" href="https://furrykids.co.jp" rel="noopener noreferrer" target="_blank"></a>
+<div class="content">
+<div class="media">
+<img alt="Furry Kids" src="assets/furrykids.png"/>
+</div>
+<h3>
+<span class="jp">Furry Kids（ペット用品）</span>
+<span class="en">Furry Kids (Pet Products)</span>
+</h3>
+<p>
+<span class="jp">デザイン・品質・安全性にこだわるペット用品ブランド。売上の1％を動物保護活動へ寄付します。</span>
+<span class="en">A pet brand committed to design, quality, and safety. We donate 1% of sales to animal welfare.</span>
+</p>
+<div class="biz-bullets">
+<ul class="jp">
+<li>厳選素材</li>
+<li>安全基準の遵守</li>
+<li>シンプルで心地よいデザイン</li>
+<li>社会貢献</li>
+</ul>
+<ul class="en">
+<li>Carefully selected materials</li>
+<li>Safety compliance</li>
+<li>Simple &amp; comfortable design</li>
+<li>Social impact</li>
+</ul>
+</div>
+<a class="btn rippleable" href="https://furrykids.co.jp" rel="noopener noreferrer" target="_blank">
+<span class="jp">公式サイトへ</span>
+<span class="en">Official site</span>
+</a>
 </div>
 </div>
 </div>
-</div>
-</section>
+</div></section>
 <script>
 (function(){
   function getLang(){ try { return localStorage.getItem('site.lang') || 'jp'; } catch(e){ return 'jp'; } }
@@ -190,7 +444,6 @@
   }, {passive:true});
 })();
 </script>
-
 <script>
 (function(){
   var btn = document.querySelector('header .menu-btn');
@@ -207,5 +460,81 @@
   window.addEventListener('resize', function(){ if(window.innerWidth >= 980) close(); }, {passive:true});
 })();
 </script>
+<script>
+(function(){
+  function getLang(){ try { return localStorage.getItem('site.lang') || 'jp'; } catch(e){ return 'jp'; } }
+  function setLang(l){
+    document.documentElement.setAttribute('data-lang', l);
+    try { localStorage.setItem('site.lang', l); } catch(e){}
+    // active pills
+    document.querySelectorAll('[data-set-lang]').forEach(function(btn){
+      btn.classList.toggle('active', btn.getAttribute('data-set-lang')===l);
+    });
+    // localize back button
+    var back = document.querySelector('[data-role="back"]');
+    if(back){
+      back.textContent = (l === 'en') ? 'Back' : '戻る';
+      back.setAttribute('aria-label', back.textContent);
+    }
+  }
+  // initialize
+  document.addEventListener('DOMContentLoaded', function(){
+    setLang(getLang());
+    var back = document.querySelector('[data-role="back"]');
+    if(back){
+      back.addEventListener('click', function(e){
+        e.preventDefault();
+        if (window.history && history.length > 1) { history.back(); }
+        else { window.location.href = 'index.html'; }
+      });
+    }
+  });
+  // global click delegate for language pills
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('[data-set-lang]');
+    if(t){
+      e.preventDefault();
+      setLang(t.getAttribute('data-set-lang'));
+    }
+  });
+  // expose setLang if already defined elsewhere (no conflict)
+  if(!window.__siteSetLangInjected){
+    window.__siteSetLangInjected = true;
+    window.setLang = setLang;
+  }
+})();
+</script>
+<footer class="site-footer pro">
+<div class="container footer-wrap">
+<div class="f-col company">
+<div class="f-h"> <span class="jp">会社情報</span><span class="en">Company</span> </div>
+<ul class="f-list">
+<li><span class="jp">世紀港湾株式会社</span><span class="en">Century Bay Co., Ltd.</span></li>
+<li><span class="jp">〒169-0073 東京都新宿区百人町2-4-2</span><span class="en">2-4-2 Hyakunincho, Shinjuku-ku, Tokyo 169-0073, Japan</span></li>
+<li><span class="jp">適格請求書発行事業者登録番号：T8011101058365</span><span class="en">Invoice Registration No.: T8011101058365</span></li>
+</ul>
+</div>
+<div class="f-col brands">
+<div class="f-h"> <span class="jp">ブランド</span><span class="en">Brands</span> </div>
+<ul class="f-list">
+<li>ESPORTSCAFE 5G</li>
+<li>eスポーツ装備屋</li>
+<li>Furry Kids</li>
+</ul>
+</div>
+<div class="f-col policies">
+<div class="f-h"> <span class="jp">ポリシー</span><span class="en">Policies</span> </div>
+<ul class="f-links">
+<li><a href="privacy-policy.html"><span class="jp">プライバシーポリシー</span><span class="en">Privacy Policy</span></a></li>
+<li><a href="cookie-policy.html"><span class="jp">Cookieポリシー</span><span class="en">Cookie Policy</span></a></li>
+<li><a href="antisocial-exclusion.html"><span class="jp">反社会的勢力排除</span><span class="en">Elimination of Anti‑social Forces</span></a></li>
+<li><a href="information-security.html"><span class="jp">情報セキュリティ</span><span class="en">Information Security</span></a></li>
+</ul>
+</div>
+</div>
+<div class="container footer-copy">
+<small>© Century Bay Co., Ltd. All rights reserved.</small>
+</div>
+</footer>
 </body>
 </html>

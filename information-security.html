@@ -45,8 +45,138 @@ strong{color:var(--fg)}
   .lang{ margin-left:auto; }
   html.menu-open, html.menu-open body{ overflow:hidden; } /* prevent body scroll */
 }
-</style></head>
-<body>
+</style><style>
+/* Language toggle visibility */
+.jp{display:block;}
+.en{display:none;}
+:root[data-lang="en"] .jp{display:none;}
+:root[data-lang="en"] .en{display:block;}
+/* Lang pill minimal styles */
+.lang{display:flex;gap:8px;align-items:center}
+.pill{border:1px solid #e6eaf0;border-radius:999px;padding:6px 12px;font-weight:600;background:transparent;color:#475569;cursor:pointer}
+.pill.active{background:linear-gradient(135deg, rgba(11,102,195,.16), rgba(10,165,162,.18));color:#0f172a;border-color:transparent}
+</style><style>
+/* One-language visibility (reinforced) */
+.jp{display:block;}
+.en{display:none;}
+:root[data-lang="en"] .jp{display:none;}
+:root[data-lang="en"] .en{display:block;}
+/* Back button style to match pills */
+.lang{display:flex;gap:8px;align-items:center}
+.pill{border:1px solid #e6eaf0;border-radius:999px;padding:6px 12px;font-weight:600;background:transparent;color:#475569;cursor:pointer}
+.pill.active{background:linear-gradient(135deg, rgba(11,102,195,.16), rgba(10,165,162,.18));color:#0f172a;border-color:transparent}
+.back-btn{order:-1}
+</style><style>
+/* === Shared header styles === */
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.75);backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid #e6eaf0}
+.container.nav{display:flex;justify-content:space-between;align-items:center;padding:10px 2px;max-width:1200px;margin-inline:auto}
+.brand{display:flex;gap:12px;align-items:center}
+.brand img.cb{width:40px;height:40px;border-radius:0;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+.title{font-weight:800;color:#0b1220;letter-spacing:.2px}
+.nav-links{display:flex;gap:22px}
+.nav-links a{position:relative;color:#64748b;padding:6px 2px;transition:color .2s;text-decoration:none}
+.nav-links a:hover{color:#0b1220}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:linear-gradient(90deg,#2563eb,#0ea5e9);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav-links a:hover::after,[aria-current="page"]::after{transform:scaleX(1)}
+.lang{display:flex;gap:8px;align-items:center}
+.pill{border:1px solid #e6eaf0;border-radius:999px;padding:6px 12px;font-weight:600;background:transparent;color:#475569;cursor:pointer}
+.pill.active{background:linear-gradient(135deg, rgba(11,102,195,.16), rgba(10,165,162,.18));color:#0f172a;border-color:transparent}
+.back-btn{order:-1}
+@media (max-width:980px){.nav-links{display:none}}
+</style><style>
+/* === Global Professional Footer === */
+.site-footer.pro{margin-top:72px;border-top:1px solid #e6eaf0;background:#fafbfc}
+.site-footer .footer-wrap{display:grid;grid-template-columns:2fr 1.2fr 1.6fr;gap:32px;padding:28px 0}
+.site-footer .f-h{font-weight:700;color:#0b1220;margin:0 0 10px;font-size:14px;letter-spacing:.3px}
+.site-footer .f-col{color:#0f172a}
+.site-footer .f-list{list-style:none;margin:0;padding:0;color:#0f172a}
+.site-footer .f-list li{margin:6px 0}
+.site-footer .f-list.two-col{columns:1}
+.site-footer .f-links{display:flex;flex-direction:column;gap:8px;list-style:none;margin:0;padding:0}
+.site-footer .f-links a{text-decoration:none;color:#2563eb}
+.site-footer .f-links a:hover{text-decoration:underline}
+.site-footer .footer-copy{padding:10px 0 28px;color:#64748b;border-top:1px solid #eef2f6}
+@media (max-width:980px){
+  .site-footer .footer-wrap{grid-template-columns:1fr;gap:18px;padding:20px 0}
+  .site-footer .f-list.two-col{columns:1}
+}
+/* Ensure single-language visibility */
+.jp{display:block}
+.en{display:none}
+:root[data-lang="en"] .jp{display:none}
+:root[data-lang="en"] .en{display:block}
+</style><style id="pro-theme">
+/* ===== Century Bay Business Pro Theme (Overrides) ===== */
+/* Typography */
+:root{
+  --ink:#0b1220; --muted:#475569; --line:#e6eaf0; --bg:#f6f8fb;
+  --brand:#0b66c3; --brand2:#0aa5a2; --card:#ffffff; --radius:16px;
+  --shadow:0 8px 24px rgba(2,6,23,.06);
+}
+html,body{font-family: "Segoe UI","Inter","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif}
+h1,h2,h3{color:var(--ink);letter-spacing:.2px}
+.section-title,.aboutfacts-title{font-weight:800}
+/* Layout containers */
+.container{max-width:1200px;margin-inline:auto}
+/* Cards */
+.card,.news-item,.aboutfacts-card,.tone-5g,.tone-sb,.tone-fk{
+  background:var(--card)!important;border:1px solid var(--line)!important;
+  border-radius:var(--radius)!important;box-shadow:var(--shadow)!important;transform:none!important
+}
+.card .media img{border-radius:12px}
+/* Buttons */
+.btn,.pill,button[type=submit]{
+  border-radius:999px;border:1px solid var(--line);background:linear-gradient(90deg,#0b66c3,#0aa5a2);
+  color:#fff;font-weight:700;letter-spacing:.2px;box-shadow:none
+}
+.btn:hover{opacity:.92}
+/* Pill (language/back) neutrals */
+.pill{background:transparent;border:1px solid var(--line);color:#334155}
+.pill.active{background:linear-gradient(135deg, rgba(11,102,195,.14), rgba(10,165,162,.16));color:#0b1220}
+/* Links */
+a{color:#0b66c3}
+a:hover{text-decoration:underline}
+/* Header */
+header{background:rgba(255,255,255,.82)!important;border-bottom:1px solid var(--line)!important;backdrop-filter:saturate(180%) blur(12px)}
+.brand img.cb{width:40px;height:40px;border-radius:0;object-fit:cover;box-shadow:none}
+.nav-links a{color:#475569}
+.nav-links a:hover{color:#0b1220}
+/* Footer */
+.site-footer.pro{background:transparent}
+.footer-copy{color:#64748b}
+/* Reduce special effects */
+.mesh,#stars,.stagger>*,.tilt,[data-tilt],.rippleable{animation:none!important;transform:none!important;transition:none!important}
+.hero,.section.hero{background:none}
+/* News grid spacing */
+.news-list{gap:20px}
+/* About facts grid tidy */
+.aboutfacts-grid{gap:14px}
+.aboutfacts-item{padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:transparent}
+.aboutfacts-label{font-weight:700;color:#0b1220}
+/* Forms */
+form input,form textarea,form select{
+  border:1px solid #dbe3ec;border-radius:12px;padding:10px 12px;outline:none
+}
+form input:focus,form textarea:focus,form select:focus{border-color:#0b66c3;box-shadow:0 0 0 3px rgba(11,102,195,.12)}
+.form-consent{margin:12px 0 10px;color:#334155;font-size:14px}
+/* Single-language visibility (reinforce) */
+.jp{display:block}.en{display:none}
+:root[data-lang="en"] .jp{display:none}
+:root[data-lang="en"] .en{display:block}
+/* Remove any rotating/hover tilt on cards */
+.card:hover{transform:none}
+</style><link href="assets/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="assets/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="assets/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link color="#0ea5b7" href="assets/favicon.svg" rel="mask-icon"/>
+<meta content="#0ea5b7" name="theme-color"/><link href="assets/site.css" rel="stylesheet"/></head>
+<body><header>
+<div class="container nav">
+<div class="brand"><img alt="Century Bay ロゴ" class="cb" src="assets/cb-logo-plain.png"/><span class="title">世紀港湾株式会社 <span class="muted">/ Century Bay</span></span></div>
+<nav class="nav-links" id="navlinks"><a href="index.html"><span class="jp">ホーム</span><span class="en">Home</span></a><a href="page-1-about.html">会社情報</a><a href="page-2-news.html">ニュース</a><a href="page-3-careers.html">採用</a><a href="page-4-contact.html">お問い合わせ</a></nav>
+<div class="lang" role="group"><button aria-label="戻る" class="pill back-btn" data-role="back" type="button">戻る</button><button class="pill active" data-lang="jp" data-set-lang="jp">日本語</button><button class="pill" data-lang="en" data-set-lang="en">EN</button></div>
+</div>
+</header>
 <div class="container">
 <h1>情報セキュリティポリシー</h1>
 <div class="update">最終更新日：2025-08-13</div>
@@ -75,23 +205,6 @@ strong{color:var(--fg)}
 <h2>5. 法令遵守と継続的改善</h2>
 <p>関連法令・ガイドライン・社内規程を遵守し、監査・レビューにより継続的改善を実施します。</p>
 </section>
-<footer>© 世紀港湾株式会社 / Century Bay Co., Ltd.
-<div style="margin-top:20px;">
-<button onclick="history.back()" style="
-    background-color:#0b66c3;
-    color:#fff;
-    padding:10px 18px;
-    border:none;
-    border-radius:6px;
-    font-size:16px;
-    cursor:pointer;
-    width:100%;
-    max-width:200px;
-  ">
-    ← 戻る
-  </button>
-</div>
-</footer>
 </div>
 <script>
 (function(){
@@ -112,7 +225,6 @@ strong{color:var(--fg)}
   }, {passive:true});
 })();
 </script>
-
 <script>
 (function(){
   var btn = document.querySelector('header .menu-btn');
@@ -129,5 +241,81 @@ strong{color:var(--fg)}
   window.addEventListener('resize', function(){ if(window.innerWidth >= 980) close(); }, {passive:true});
 })();
 </script>
+<script>
+(function(){
+  function getLang(){ try { return localStorage.getItem('site.lang') || 'jp'; } catch(e){ return 'jp'; } }
+  function setLang(l){
+    document.documentElement.setAttribute('data-lang', l);
+    try { localStorage.setItem('site.lang', l); } catch(e){}
+    // active pills
+    document.querySelectorAll('[data-set-lang]').forEach(function(btn){
+      btn.classList.toggle('active', btn.getAttribute('data-set-lang')===l);
+    });
+    // localize back button
+    var back = document.querySelector('[data-role="back"]');
+    if(back){
+      back.textContent = (l === 'en') ? 'Back' : '戻る';
+      back.setAttribute('aria-label', back.textContent);
+    }
+  }
+  // initialize
+  document.addEventListener('DOMContentLoaded', function(){
+    setLang(getLang());
+    var back = document.querySelector('[data-role="back"]');
+    if(back){
+      back.addEventListener('click', function(e){
+        e.preventDefault();
+        if (window.history && history.length > 1) { history.back(); }
+        else { window.location.href = 'index.html'; }
+      });
+    }
+  });
+  // global click delegate for language pills
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('[data-set-lang]');
+    if(t){
+      e.preventDefault();
+      setLang(t.getAttribute('data-set-lang'));
+    }
+  });
+  // expose setLang if already defined elsewhere (no conflict)
+  if(!window.__siteSetLangInjected){
+    window.__siteSetLangInjected = true;
+    window.setLang = setLang;
+  }
+})();
+</script>
+<footer class="site-footer pro">
+<div class="container footer-wrap">
+<div class="f-col company">
+<div class="f-h"> <span class="jp">会社情報</span><span class="en">Company</span> </div>
+<ul class="f-list">
+<li><span class="jp">世紀港湾株式会社</span><span class="en">Century Bay Co., Ltd.</span></li>
+<li><span class="jp">〒169-0073 東京都新宿区百人町2-4-2</span><span class="en">2-4-2 Hyakunincho, Shinjuku-ku, Tokyo 169-0073, Japan</span></li>
+<li><span class="jp">適格請求書発行事業者登録番号：T8011101058365</span><span class="en">Invoice Registration No.: T8011101058365</span></li>
+</ul>
+</div>
+<div class="f-col brands">
+<div class="f-h"> <span class="jp">ブランド</span><span class="en">Brands</span> </div>
+<ul class="f-list">
+<li>ESPORTSCAFE 5G</li>
+<li>eスポーツ装備屋</li>
+<li>Furry Kids</li>
+</ul>
+</div>
+<div class="f-col policies">
+<div class="f-h"> <span class="jp">ポリシー</span><span class="en">Policies</span> </div>
+<ul class="f-links">
+<li><a href="privacy-policy.html"><span class="jp">プライバシーポリシー</span><span class="en">Privacy Policy</span></a></li>
+<li><a href="cookie-policy.html"><span class="jp">Cookieポリシー</span><span class="en">Cookie Policy</span></a></li>
+<li><a href="antisocial-exclusion.html"><span class="jp">反社会的勢力排除</span><span class="en">Elimination of Anti‑social Forces</span></a></li>
+<li><a href="information-security.html"><span class="jp">情報セキュリティ</span><span class="en">Information Security</span></a></li>
+</ul>
+</div>
+</div>
+<div class="container footer-copy">
+<small>© Century Bay Co., Ltd. All rights reserved.</small>
+</div>
+</footer>
 </body>
 </html>
