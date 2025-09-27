@@ -178,13 +178,22 @@ header .title{ margin:0; line-height:1; display:inline-block; }
 header .nav-links{ display:flex; align-items:center; gap:22px; }
 header .nav-links a{ display:inline-block; padding:6px 2px; line-height:1.2; }
 header .nav-links a::after{ left:0; right:0; bottom:-6px; height:2px; }
+</style><style>
+/* --- Unified header alignment --- */
+.nav { display:flex; align-items:center; }
+.nav-right { margin-left:auto; display:flex; align-items:center; gap:10px; }
+.nav-links { display:flex; gap:18px; align-items:center; }
+.pill.back-btn { order:0; } /* appear before menu */
+@media (max-width: 860px) {
+  .nav-links { gap:14px; }
+}
 </style></head>
 <body><header>
 <div class="container nav">
 <div class="brand"><img alt="Century Bay ロゴ" class="cb" src="assets/cb-logo-plain.png"/><span class="title">Century Bay</span></div>
-<nav class="nav-links" id="navlinks"><a href="index.html"><span class="jp">ホーム</span><span class="en">Home</span></a><a href="page-1-about.html">会社情報</a><a href="page-2-news.html">ニュース</a><a href="page-3-careers.html">採用</a><a href="page-4-contact.html">お問い合わせ</a></nav>
-<button aria-controls="navlinks" aria-expanded="false" aria-label="メニュー" class="menu-btn">≡</button><div class="lang" role="group"><button aria-label="戻る" class="pill back-btn" data-role="back" type="button">戻る</button><button class="pill active" data-lang="jp" data-set-lang="jp">日本語</button><button class="pill" data-lang="en" data-set-lang="en">EN</button></div>
-</div>
+<div class="nav-right"><nav class="nav-links" id="navlinks"><a href="index.html"><span class="jp">ホーム</span><span class="en">Home</span></a><a href="page-1-about.html">会社情報</a><a href="page-2-news.html">ニュース</a><a href="page-3-careers.html">採用</a><a href="page-4-contact.html">お問い合わせ</a></nav><button aria-label="戻る" class="pill back-btn" data-role="back" onclick="(function(){try{if(document.referrer &amp;&amp; new URL(document.referrer).origin===location.origin){history.back();}else{location.href='index.html';}}catch(e){location.href='index.html';}})()" type="button">
+  戻る
+</button><div class="lang" role="group"><button class="pill active" data-lang="jp" data-set-lang="jp">日本語</button><button class="pill" data-lang="en" data-set-lang="en">EN</button></div></div></div>
 </header>
 <div class="container">
 <h1><span class="jp">Cookieポリシー</span><span class="en">Cookie Policy</span></h1>
