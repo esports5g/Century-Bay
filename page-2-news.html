@@ -303,11 +303,20 @@ form input:focus,form textarea:focus,form select:focus{border-color:#0b66c3;box-
 <link color="#0ea5b7" href="assets/favicon.svg" rel="mask-icon"/>
 <meta content="#0ea5b7" name="theme-color"/><style>.btn-back.small{margin-right:.5rem;padding:.35rem .6rem;border-radius:12px;border:1px solid rgba(2,6,23,.1);
 background:linear-gradient(135deg,#0f66ff1a,#00b3a41a);font-size:.85rem}</style>
-<link href="assets/site.css"></head><body><div class="progress" id="progress"></div><header>
+<link href="assets/site.css"/><style id="nav-normalize">
+/* Nav Normalize: ensure identical menu position across all pages */
+header .container.nav{ display:flex; justify-content:space-between; align-items:center; padding:10px 2px; }
+header .brand{ display:flex; align-items:center; gap:12px; }
+header .brand img.cb{ width:40px; height:40px; object-fit:cover; border-radius:0; }
+header .title{ margin:0; line-height:1; display:inline-block; }
+header .nav-links{ display:flex; align-items:center; gap:22px; }
+header .nav-links a{ display:inline-block; padding:6px 2px; line-height:1.2; }
+header .nav-links a::after{ left:0; right:0; bottom:-6px; height:2px; }
+</style></head><body><div class="progress" id="progress"></div><header>
 <div class="container nav">
-<div class="brand"><img alt="Century Bay ロゴ" class="cb" src="assets/cb-logo-plain.png"/><span class="title">世紀港湾株式会社 <span class="muted">/ Century Bay</span></span></div>
+<div class="brand"><img alt="Century Bay ロゴ" class="cb" src="assets/cb-logo-plain.png"/><span class="title">Century Bay</span></div>
 <nav class="nav-links" id="navlinks"><a aria-current="page" href="index.html"><span class="jp">ホーム</span><span class="en">Home</span></a><a href="page-1-about.html">会社情報</a><a href="page-2-news.html">ニュース</a><a href="page-3-careers.html">採用</a><a href="page-4-contact.html">お問い合わせ</a></nav>
-<div class="lang" role="group"><button aria-label="戻る" class="pill back-btn" data-role="back" type="button">戻る</button><button class="pill active" data-lang="jp" data-set-lang="jp">日本語</button><button class="pill" data-lang="en" data-set-lang="en">EN</button></div>
+<button aria-controls="navlinks" aria-expanded="false" aria-label="メニュー" class="menu-btn">≡</button><div class="lang" role="group"><button aria-label="戻る" class="pill back-btn" data-role="back" type="button">戻る</button><button class="pill active" data-lang="jp" data-set-lang="jp">日本語</button><button class="pill" data-lang="en" data-set-lang="en">EN</button></div>
 </div>
 <style id="lang-visibility-fix">
   /* Default=JP。英文仅当 data-lang="en" 才显示 */
@@ -378,4 +387,37 @@ background:linear-gradient(135deg,#0f66ff1a,#00b3a41a);font-size:.85rem}</style>
       var bts = document.querySelectorAll('.btn-back, .back-btn, .btn-go-back');
       bts.forEach(function(b){ b.onclick = goBack; b.setAttribute('type','button'); });
     })();
-    </script></body></html>
+    </script><script>
+(function(){
+  var btn = document.querySelector('.menu-btn');
+  var html = document.documentElement;
+  var nav = document.getElementById('navlinks');
+
+  function setHeaderH(){
+    var h = document.querySelector('header')?.getBoundingClientRect().height || 64;
+    html.style.setProperty('--header-h', h + 'px');
+  }
+  setHeaderH();
+  window.addEventListener('resize', setHeaderH);
+
+  if(btn){
+    btn.addEventListener('click', function(e){
+      var open = html.classList.toggle('menu-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      e.stopPropagation();
+    });
+  }
+  // Close when tapping outside menu
+  document.addEventListener('click', function(e){
+    if(!html.classList.contains('menu-open')) return;
+    if(!e.target.closest('#navlinks') && !e.target.closest('.menu-btn')){
+      html.classList.remove('menu-open');
+      if(btn) btn.setAttribute('aria-expanded','false');
+    }
+  });
+  // Close on ESC
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ html.classList.remove('menu-open'); if(btn) btn.setAttribute('aria-expanded','false'); }
+  });
+})();
+</script></body></html>
