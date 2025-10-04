@@ -592,3 +592,61 @@ body{word-break:break-word; overflow-wrap:anywhere}
 .roles .role + .role{border-top:1px solid #e6eaf0}
 .steps .step{padding:12px 6px}
 @media (max-width:900px){ .steps{grid-template-columns:1fr} }
+
+
+
+/* === Mobile Hotfix Suite (2025-10-04) =====================================
+   Targets issues seen on iPhone Safari:
+   - Header nav wraps/overflows
+   - Lang pills & Back button alignment
+   - News cards horizontal overflow & spacing
+   - Safe-area (notch) padding
+============================================================================ */
+
+/* Safe-area for iOS notch */
+@supports (padding: max(0px)) {
+  body { padding-left: max(env(safe-area-inset-left), 0px);
+         padding-right: max(env(safe-area-inset-right), 0px); }
+  header, .site-header { padding-top: max(env(safe-area-inset-top), 0px); }
+  footer { padding-bottom: max(env(safe-area-inset-bottom), 0px); }
+}
+
+/* Header: compact & wrap-friendly */
+header, .site-header { display:block }
+header .nav, .site-header .nav { display:flex; flex-wrap:wrap; align-items:center; gap:8px }
+header .logo, .site-header .logo { flex:0 0 auto }
+
+/* Links block */
+header nav, .site-header nav { display:flex; flex-wrap:wrap; gap:12px; max-width:100% }
+header nav a, .site-header nav a { flex:0 0 auto }
+
+/* Right-side group (Back + Lang) */
+.nav-right { margin-left:auto; display:flex; align-items:center; gap:8px; flex-wrap:wrap }
+.nav-right .pill, .lang .pill, .back-btn { min-height:40px; padding:.42rem .78rem }
+.lang { display:flex; gap:8px; flex-wrap:wrap }
+
+/* Super-small screens: 2-line header with horizontal scroll for links */
+@media (max-width: 420px){
+  header .logo, .site-header .logo { flex:1 0 100% }
+  header nav, .site-header nav { order:1; width:100%;
+    overflow-x:auto; -webkit-overflow-scrolling:touch; white-space:nowrap; scrollbar-width:none }
+  header nav::-webkit-scrollbar, .site-header nav::-webkit-scrollbar { display:none }
+  .nav-right { order:2; width:100%; justify-content:flex-end }
+}
+
+/* News list: force single column, full-bleed within container */
+@media (max-width: 600px){
+  .news, .news-list, .news-cards, .cards { display:grid; grid-template-columns:1fr !important; gap:12px }
+  .news .card, .news-list .card, .news-cards .card, .cards .card { width:100%; margin:0; }
+  .news .card *, .news-list .card *, .news-cards .card * { word-break:break-word; }
+  .section, .block, .panel { margin-left:0; margin-right:0 }
+}
+
+/* Kill any residual colored bands/gradients that may bleed under header/content */
+.careers-band::before, .hero::before, .band::before { content:none !important; display:none !important; background:none !important; }
+
+/* Tighten big gaps on mobile */
+@media (max-width: 600px){
+  .divider{ margin:14px 0 !important }
+  section{ margin-top:16px; margin-bottom:16px }
+}
