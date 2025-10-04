@@ -43,6 +43,10 @@ img, svg, video { max-width: 100%; height: auto; display: block; }
 :root { --safe-top: env(safe-area-inset-top); --safe-bottom: env(safe-area-inset-bottom); }
 .site-footer { padding-bottom: calc(12px + var(--safe-bottom)); }
 
+/* === Footer background unify (2025-10-04) === */
+.site-footer{ background: var(--bg); }
+
+
 /* Tap target */
 a, button, .btn { min-height: 44px; }
 
@@ -650,3 +654,65 @@ header nav a, .site-header nav a { flex:0 0 auto }
   .divider{ margin:14px 0 !important }
   section{ margin-top:16px; margin-bottom:16px }
 }
+
+
+/* === Footer Layout & List reset (contact page fix, 2025-10-04) === */
+.site-footer .footer-wrap{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: clamp(16px, 3vw, 56px);
+  align-items:start;
+  border-top: 1px solid rgba(0,0,0,.06);
+  padding-top: clamp(16px, 2.5vw, 28px);
+}
+@media (max-width: 900px){
+  .site-footer .footer-wrap{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px){
+  .site-footer .footer-wrap{ grid-template-columns: 1fr; }
+}
+.site-footer .f-list,
+.site-footer .f-links{
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+.site-footer .f-list li + li,
+.site-footer .f-links li + li{ margin-top: .35em; }
+.site-footer .footer-copy{
+  border-top: 1px solid rgba(0,0,0,.06);
+  margin-top: clamp(18px, 3vw, 32px);
+  padding-top: clamp(12px, 2vw, 20px);
+}
+
+
+/* === Mobile Comfortable Spacing & Robustness (2025-10-04 FINAL) === */
+@media (max-width: 640px){
+  /* 左右留白更舒适 */
+  .container, .wrap, main > .inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  /* 区块上下留白适中，避免拥挤 */
+  section, .section { padding-top: 24px; padding-bottom: 24px; }
+  /* 卡片内边距加大，避免元素挤压变形 */
+  .card { padding: 16px; }
+  /* 标题行距微调，避免断行尴尬 */
+  h1, .h1, h2, .h2, h3, .h3 { line-height: 1.25; }
+  /* 列表/段落换行策略，杜绝超长英文/URL 挤爆布局 */
+  .section p, .section li, .section a, footer p, footer li, footer a {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  /* 表单更易点按 */
+  input, select, textarea, button { min-height: 44px; }
+  /* 新闻/品牌等统一单列，防止错行 */
+  .grid3, .brand-grid, .careers-grid, .news-list { grid-template-columns: 1fr; }
+  /* 页脚额外留白，避免太挤 */
+  .site-footer .footer-wrap{ gap: 20px; }
+  .site-footer .footer-copy{ padding-top: 16px; }
+}
+
+/* 保底：媒体自适应，避免宽度溢出 */
+img, svg, video, canvas, iframe { max-width:100%; height:auto; }
+iframe.responsive, .map-responsive { width:100%; aspect-ratio:16/9; display:block; }
