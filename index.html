@@ -291,8 +291,8 @@ form input:focus,form textarea:focus,form select:focus{border-color:#0b66c3;box-
 <link href="assets/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="assets/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
 <link color="#0ea5b7" href="assets/favicon.svg" rel="mask-icon"/>
-<meta content="#0ea5b7" name="theme-color"/><link href="assets/site.css" rel="stylesheet"/>
-<link href="assets/site.css"/><style id="nav-normalize">
+<meta content="#0ea5b7" name="theme-color"/><link href="assets/site.clean.css" rel="stylesheet"/>
+<link href="assets/site.clean.css"/><style id="nav-normalize">
 /* Nav Normalize: ensure identical menu position across all pages */
 header .container.nav{ display:flex; justify-content:space-between; align-items:center; padding:10px 2px; }
 header .brand{ display:flex; align-items:center; gap:12px; }
@@ -310,13 +310,279 @@ header .nav-links a::after{ left:0; right:0; bottom:-6px; height:2px; }
 @media (max-width: 860px) {
   .nav-links { gap:14px; }
 }
-</style></head>
-<body data-lang="jp" id="top">
+</style><style>
+/* Minimal styles for injected sections */
+#business-areas .cb-business{list-style:disc;margin:8px 0 0;padding-left:20px}
+#business-areas .cb-business li{margin:.25rem 0}
+#latest-news ol{list-style:decimal;margin:.25rem 0 0;padding-left:20px}
+#latest-news li{margin:.25rem 0}
+#latest-news time{font-variant-numeric: tabular-nums; margin-right:8px; color:#64748b}
+</style><style id="titles-left-align-patch">
+
+/* ===== Left-align all section titles to container edge (patch) ===== */
+:root{
+  --container-max: 1200px;
+  --container-pad: clamp(16px, 4vw, 40px);
+}
+/* Ensure each content wrap follows the same container width & padding */
+.cb-wrap{
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+/* Left-align headings inside sections (including News title) */
+.section-title,
+.cb-wrap > section > h2,
+.cb-news-title{
+  text-align: left !important;
+  margin-left: 0 !important;
+}
+/* Normalize list indentation so bullets don't push text farther in */
+.cb-wrap section ul{
+  margin: .25rem 0 0;
+  padding-left: 1.25em;
+  list-style-position: outside;
+}
+
+</style>
+<style>
+/* --- Home headings unified to decorative Mincho style --- */
+.decor-title{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1rem;
+  font-size: clamp(1.3rem, 1.05rem + 1vw, 1.8rem);
+  line-height:1.3;
+  margin: 1.25rem auto 1rem;
+  text-align:center;
+}
+.decor-title::before,
+.decor-title::after{
+  content:"";
+  flex:1 1 120px;
+  height:8px;
+  border-radius:999px;
+  background:
+    linear-gradient(rgba(0,0,0,.14), rgba(0,0,0,.14)) top left / 100% 1px no-repeat,
+    linear-gradient(rgba(0,0,0,.12), rgba(0,0,0,.12)) bottom left / 100% 1px no-repeat;
+  opacity:.6;
+}
+.decor-title .jp, .decor-title .en{
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", "MS PMincho", serif;
+  letter-spacing:.06em;
+}
+.decor-title .jp{font-weight:800}
+.decor-title .en{font-weight:700;opacity:.9;letter-spacing:.04em}
+</style><style>
+
+/* === Hero Background (auto-generated) === */
+.hero-bg{
+  background-image: radial-gradient(1200px 600px at 15% 20%, rgba(11,102,195,.25), transparent 60%),
+                    radial-gradient(900px 500px at 85% 70%, rgba(10,165,162,.18), transparent 60%),
+                    url('assets/hero-bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 22px;
+  box-shadow: 0 30px 80px rgba(2,6,23,.18);
+}
+@media (max-width: 860px){
+  .hero-bg{ border-radius: 16px; }
+}
+
+</style>
+<style>
+
+/* === Tagline: transparent content on hero background + motion === */
+.cb-tagline{ position: relative; padding: 72px clamp(16px,5vw,48px); }
+.cb-tagline__inner{ max-width: 1200px; margin: 0 auto; }
+.cb-tagline__content{
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+.cb-tagline__text{
+  max-width: 1100px;
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.9;
+  letter-spacing: .01em;
+  color: var(--ink, #0f172a);
+  color: #e8edf6; /* ensure contrast on dark bg */
+  text-shadow: 0 2px 12px rgba(2,6,23,.35);
+  margin: 0;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: tagline-fade-up .9s cubic-bezier(.2,.7,.2,1) .1s forwards;
+}
+/* Accent bar */
+.cb-tagline__inner::before{
+  content: "";
+  position: absolute;
+  left: 0; top: 64px;
+  width: 6px; height: 68px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, rgba(11,102,195,.95), rgba(10,165,162,.9));
+  box-shadow: 0 8px 24px rgba(11,102,195,.35);
+}
+/* Motion keyframes */
+@keyframes tagline-fade-up{
+  to{ opacity: 1; transform: translateY(0); }
+}
+/* Respect motion preferences */
+@media (prefers-reduced-motion: reduce){
+  .cb-tagline__text{ animation: none; opacity: 1; transform: none; }
+}
+
+/* Fine tune on small screens */
+@media (max-width: 860px){
+  .cb-tagline{ padding: 42px 16px; }
+  .cb-tagline__inner::before{ top: 28px; height: 48px; }
+  .cb-tagline__text{ line-height: 1.8; }
+}
+
+</style>
+<style>
+
+/* Remove white card from tagline inner */
+.cb-tagline .cb-tagline__inner{
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: clamp(28px, 5vw, 56px) !important;
+}
+
+</style>
+<style>
+
+/* === Tagline typography tweak: bolder, larger, 3-line layout === */
+.cb-tagline__text{ 
+  font-weight: 700; 
+  font-size: clamp(24px, 3vw, 36px) !important; 
+  line-height: 1.7;
+  letter-spacing: .01em;
+}
+.cb-tagline__text .line{ display:block; }
+@media (max-width: 860px){
+  .cb-tagline__text{ font-size: clamp(18px, 4.5vw, 24px) !important; line-height: 1.8; }
+}
+
+</style>
+<style>
+
+/* === Chairman-grade: per-word fade-in + gentle text shimmer === */
+.cb-tagline__text{ 
+  font-weight: 700;
+  font-size: clamp(24px, 3.1vw, 38px);
+  line-height: 1.7;
+  letter-spacing: .01em;
+  margin: 0;
+  /* Base solid text fill via first layer; second layer is moving shine */
+  background-image:
+    linear-gradient(0deg, #e8edf6, #e8edf6),
+    linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,.85) 50%, rgba(255,255,255,0) 60%, rgba(255,255,255,0) 100%);
+  background-size: 100% 100%, 220% 100%;
+  background-position: 0 0, -120% 0;
+  -webkit-background-clip: text, text;
+  background-clip: text, text;
+  color: transparent;
+}
+.cb-tagline__text.shimmer{
+  animation: shine-sweep 3.4s ease-in-out infinite 1.2s;
+}
+.cb-tagline__text .line{ display:block; }
+.cb-tagline__text .word{
+  display:inline-block;
+  opacity:0;
+  transform: translateY(10px);
+  animation: word-in .7s cubic-bezier(.2,.7,.2,1) var(--d,0s) forwards;
+  will-change: transform, opacity;
+}
+@keyframes word-in{ to{ opacity:1; transform: translateY(0); } }
+@keyframes shine-sweep{
+  0%{ background-position: 0 0, -120% 0; }
+  55%{ background-position: 0 0, 140% 0; }
+  100%{ background-position: 0 0, 140% 0; }
+}
+@media (prefers-reduced-motion: reduce){
+  .cb-tagline__text.shimmer{ animation:none; }
+  .cb-tagline__text .word{ animation:none; opacity:1; transform:none; }
+}
+@media (max-width: 860px){
+  .cb-tagline__text{ font-size: clamp(18px, 5vw, 24px); line-height: 1.8; }
+}
+
+</style>
+<style>
+
+/* === Fix: ensure text visible with fallback color; enable shimmer via text-fill === */
+.cb-tagline__text{
+  color: #e8edf6; /* fallback solid color for all browsers */
+}
+.cb-tagline__text.shimmer{
+  /* apply shimmer only on this class to avoid invisibility */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.cb-tagline{ position: relative; z-index: 0; }
+.cb-tagline__text{ position: relative; z-index: 1; }
+
+</style>
+<style>
+
+/* === Tagline animation toned down & visibility harden === */
+.cb-tagline__text{
+  color:#e8edf6 !important;            /* force visible text */
+  -webkit-text-fill-color: currentColor !important;
+  background:none !important;          /* kill any shimmer bg if remained */
+  text-shadow: 0 1px 8px rgba(2,6,23,.28);
+}
+.cb-tagline__text .word{
+  transform: translateY(6px);          /* smaller motion */
+  animation: word-in-soft .6s ease var(--d,0s) forwards;
+  opacity:0;
+}
+@keyframes word-in-soft { to { opacity:1; transform: translateY(0); } }
+/* Reduce per-word delay by 50% using CSS var multiplier if exists */
+.cb-tagline__text .word{ --d: calc(var(--d, 0s) * .5); }
+
+</style>
+
+<style>
+/* Unify homepage "もっと見る" buttons to small size and left alignment */
+.cb-home .cb-btn--sm{ padding: 10px 16px; border-radius: 18px; font-size: 14px; min-width: 120px; }
+.cb-home .more-row{ display:flex; gap:24px; align-items:center; }
+.cb-home .more-row .cb-btn{ margin-left:0; }
+</style>
+
+
+<style>
+.cb-news .cb-btn.move-in{
+  margin-top:-28px; margin-left:0;
+  display:inline-flex; width:auto; min-width:120px;
+  position:relative; z-index:1;
+}
+</style>
+
+
+<style>
+/* Place 'もっと見る' button inside news list as the last li */
+.cb-news ul{ list-style:none; padding-left:0; }
+.cb-news ul .more-li{ margin-top:16px; }
+.cb-news ul .more-li .cb-btn{ margin-left:0; }
+</style>
+
+</head>
+<body data-lang="jp" id="top" class="cb-home"><section class="hero hero-grid"><div class="hero-right fade-in-up delay-1"><img alt="Century Bay Logo" data-role="hero-logo" loading="eager" src="assets/cb-logo-hero.png"/></div></section>
 <div class="progress" id="progress"></div>
-<header>
+<header class="cb-fixed">
 <div class="container nav">
-<div class="brand"><img alt="Century Bay ロゴ" class="cb" src="assets/cb-logo-plain.png"/><span class="title">Century Bay</span></div>
-<div class="nav-right"><nav class="nav-links" id="navlinks"><a aria-current="page" href="index.html"><span class="jp">ホーム</span><span class="en">Home</span></a><a href="page-1-about.html">会社情報</a><a href="page-2-news.html">ニュース</a><a href="page-3-careers.html">採用</a><a href="page-4-contact.html">お問い合わせ</a></nav><div class="lang" role="group"><button class="pill active" data-lang="jp" data-set-lang="jp">日本語</button><button class="pill" data-lang="en" data-set-lang="en">EN</button></div></div></div>
+<div class="brand"><img alt="Century Bay ロゴ" class="cb" src="assets/cb-logo-plain.png" style="background:transparent; box-shadow:none; padding:0; border-radius:0; height:72px; width:auto; background:transparent; box-shadow:none; padding:0; border-radius:0;"/><span class="title"><span class="jp">世紀港湾株式会社</span><span class="en">Century Bay</span></span></div>
+<div class="nav-right"><nav class="nav-links" id="navlinks"><a aria-current="page" href="index.html"><span class="jp">Home</span><span class="en">Home</span></a><a href="page-1-about.html">About Us</a><a href="page-2-news.html">News</a><a href="page-3-careers.html">Careers</a><a href="page-4-contact.html">Contact</a><a href="brands.html">Brands</a></nav><div class="lang" role="group"><button class="pill active" data-lang="jp" data-set-lang="jp">日本語</button><button class="pill" data-lang="en" data-set-lang="en">EN</button></div></div></div>
 <style id="lang-visibility-fix">
   /* Default=JP。英文仅当 data-lang="en" 才显示 */
   :root:not([data-lang="en"]) .en { display: none !important; }
@@ -328,120 +594,83 @@ header .nav-links a::after{ left:0; right:0; bottom:-6px; height:2px; }
   /* 防止空元素占位 */
   .jp:empty, .en:empty { display: none !important; }
 </style>
-</header>
-<section class="hero hero-grid"><div class="hero-left fade-in-up"><div class="container" style="padding:72px 0 56px"><h1 class="big-hero-title"><span class="jp">信頼でつなぐ、<br/>未来を創る。</span><span class="en">Connecting with Trust,<br/>Creating the Future.</span></h1></div></div><div class="hero-right fade-in-up delay-1"><img alt="Century Bay Logo" data-role="hero-logo" loading="eager" src="assets/cb-logo-hero.png"/></div></section>
+</header><section aria-labelledby="tagline-title" class="cb-tagline hero-bg" data-lang="jp" id="tagline">
+<div class="cb-tagline__inner">
+<div aria-live="polite" class="cb-tagline__content" role="tabpanel">
+<!-- JP -->
+<p class="cb-tagline__text jp">
+<span class="line"><span class="word" style="--d:0.00s">世紀港湾株式会社は</span> <span class="word" style="--d:0.03s">、</span> <span class="word" style="--d:0.06s">エンターテインメントとライフスタイルの分野で</span> <span class="word" style="--d:0.09s">、</span> <span class="word" style="--d:0.12s">多彩なブランドを展開し</span> <span class="word" style="--d:0.15s">、</span> <span class="word" style="--d:0.18s">信頼と感動をお届けします。</span></span>
+<span class="line"><span class="word" style="--d:0.29s">日本と世界</span> <span class="word" style="--d:0.32s">、</span> <span class="word" style="--d:0.35s">人と人</span> <span class="word" style="--d:0.38s">、</span> <span class="word" style="--d:0.41s">人と動物をつなぐ架け橋として</span> <span class="word" style="--d:0.44s">、</span> <span class="word" style="--d:0.47s">新しい価値を創造します。</span></span>
+</p>
+<!-- EN -->
+<p class="cb-tagline__text en">
+<span class="line"><span class="word" style="--d:0.00s">Century</span> <span class="word" style="--d:0.03s">Bay</span> <span class="word" style="--d:0.06s">Co.</span></span>
+<span class="line"><span class="word" style="--d:0.17s">,</span> <span class="word" style="--d:0.20s">Ltd.</span></span>
+<span class="line"><span class="word" style="--d:0.31s">develops</span> <span class="word" style="--d:0.34s">a</span> <span class="word" style="--d:0.37s">diverse</span> <span class="word" style="--d:0.40s">range</span> <span class="word" style="--d:0.43s">of</span> <span class="word" style="--d:0.46s">brands</span> <span class="word" style="--d:0.49s">in</span> <span class="word" style="--d:0.52s">the</span> <span class="word" style="--d:0.55s">entertainment</span> <span class="word" style="--d:0.58s">and</span> <span class="word" style="--d:0.61s">lifestyle</span> <span class="word" style="--d:0.64s">sectors,delivering</span> <span class="word" style="--d:0.67s">trust</span> <span class="word" style="--d:0.70s">and</span> <span class="word" style="--d:0.73s">inspiration.</span></span>
+<span class="line"><span class="word" style="--d:0.84s">As</span> <span class="word" style="--d:0.87s">a</span> <span class="word" style="--d:0.90s">bridge</span> <span class="word" style="--d:0.93s">connecting</span> <span class="word" style="--d:0.96s">Japan</span> <span class="word" style="--d:0.99s">and</span> <span class="word" style="--d:1.02s">the</span> <span class="word" style="--d:1.05s">world,</span> <span class="word" style="--d:1.08s">people</span> <span class="word" style="--d:1.11s">to</span> <span class="word" style="--d:1.14s">people,</span> <span class="word" style="--d:1.17s">and</span> <span class="word" style="--d:1.20s">humans</span> <span class="word" style="--d:1.23s">to</span> <span class="word" style="--d:1.26s">animals,</span> <span class="word" style="--d:1.29s">we</span> <span class="word" style="--d:1.32s">strive</span> <span class="word" style="--d:1.35s">to</span> <span class="word" style="--d:1.38s">create</span> <span class="word" style="--d:1.41s">new</span> <span class="word" style="--d:1.44s">value.</span></span>
+</p>
+</div>
+</div>
+</section>
+<style>
+  :root {
+    /* Brand colors — tweak as needed */
+    --cb-ink: #0f172a;
+    --cb-ink-weak: #334155;
+    --cb-accent: #0b66c3; /* <- change this to your brand color if needed */
+    --cb-surface: #f8fafc;
+    --cb-line: rgba(2,6,23,.08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --cb-ink: #e5e7eb;
+      --cb-ink-weak: #9ca3af;
+      --cb-surface: #0f1424;
+      --cb-line: rgba(255,255,255,.08);
+    }
+  }
+
+  .cb-tagline { 
+    padding: clamp(20px, 3vw, 32px); 
+    margin: clamp(16px, 2.5vw, 28px) auto; 
+  }
+  .cb-tagline__inner {
+    max-width: 1200px; margin: 0 auto; 
+    background: var(--cb-surface);
+    border: 1px solid var(--cb-line);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+    padding: clamp(20px, 3vw, 36px);
+    position: relative;
+    overflow: hidden;
+  }
+  .cb-tagline__inner:before {
+    content: ""; position: absolute; inset: 0 auto 0 0; width: 6px;
+    background: linear-gradient(180deg, var(--cb-accent), transparent);
+    opacity: .9;
+  }
+  .cb-tagline__header {display: flex; align-items: center; justify-content: flex-end; gap: 16px; margin-bottom: 12px;} /* aligned right since title is hidden */
+  .cb-tagline__langswitch { display: inline-flex; background: transparent; border: 1px solid var(--cb-line); border-radius: 999px; padding: 4px; gap: 4px; }
+  .cb-tagline__langbtn {
+    appearance: none; border: 0; cursor: pointer; font: inherit;
+    padding: 8px 14px; border-radius: 999px; 
+    background: transparent; color: var(--cb-ink-weak); font-weight: 600;
+    transition: transform .15s ease, background-color .2s ease, color .2s ease;
+  }
+  .cb-tagline__langbtn:hover { transform: translateY(-1px); }
+  .cb-tagline__langbtn.is-active { background: var(--cb-accent); color: #fff; }
+
+  .cb-tagline__content { margin-top: 8px; }
+  .cb-tagline__text { 
+    font-size: clamp(16px, 1.3vw, 18px); line-height: 1.85; color: var(--cb-ink);
+    margin: 0; 
+  }
+  @media (max-width: 480px) {
+    .cb-tagline__text { font-size: 15px; line-height: 1.75; }
+  }
+</style>
 <section id="brands">
-<div class="container">
-<h2 class="section-title jp">事業紹介</h2>
-<h2 class="section-title en">Brands</h2>
-<div class="grid3">
-<!-- ESPORTSCAFE 5G -->
-<div class="card tone-5g tilt">
-<a class="card-link" href="https://esportscafe5g.com" rel="noopener noreferrer" target="_blank"></a>
-<div class="content">
-<div class="media">
-<img alt="ESPORTSCAFE 5G" src="assets/esportscafe5g.png"/>
-</div>
-<h3>
-<span class="jp">ESPORTSCAFE 5G</span>
-<span class="en">ESPORTSCAFE 5G</span>
-</h3>
-<p>
-<span class="jp">最新スペックの設備と快適なネットワーク環境で、誰でも気軽にeスポーツ体験ができるカフェです。</span>
-<span class="en">A state-of-the-art eSports café offering high-spec PCs and a fast, stable network for everyone to enjoy eSports casually.</span>
-</p>
-<div class="biz-bullets">
-<ul class="jp">
-<li>高性能PC</li>
-<li>プロ仕様デバイス</li>
-<li>安定した回線・席数78</li>
-<li>イベント・貸切対応</li>
-</ul>
-<ul class="en">
-<li>High-end PCs</li>
-<li>Pro-grade peripherals</li>
-<li>Stable network &amp; 78 seats</li>
-<li>Events and private bookings</li>
-</ul>
-</div>
-<a class="btn rippleable" href="https://esportscafe5g.com" rel="noopener noreferrer" target="_blank">
-<span class="jp">公式サイトへ</span>
-<span class="en">Official site</span>
-</a>
-</div>
-</div>
-<!-- eスポーツ装備屋（販売・修理） -->
-<div class="card tone-sb tilt">
-<a class="card-link" href="https://esports-soubiya.com" rel="noopener noreferrer" target="_blank"></a>
-<div class="content">
-<div class="media">
-<img alt="eスポーツ装備屋" src="assets/esports-soubiya.jpg"/>
-</div>
-<h3>
-<span class="jp">eスポーツ装備屋（販売・修理）</span>
-<span class="en">Esports Equipment Store (Sales &amp; Repairs)</span>
-</h3>
-<p>
-<span class="jp">ゲーミングPC・周辺機器の販売と修理に特化した専門店。導入相談からメンテナンスまで一気通貫で対応します。</span>
-<span class="en">Specialized in gaming PCs and peripherals—sales, repairs, and end-to-end support from onboarding to maintenance.</span>
-</p>
-<div class="biz-bullets">
-<ul class="jp">
-<li>修理メニューの明朗会計</li>
-<li>カスタムPC提案</li>
-<li>動作保証</li>
-<li>データ保護方針</li>
-</ul>
-<ul class="en">
-<li>Transparent repair pricing</li>
-<li>Custom PC builds</li>
-<li>Performance guarantees</li>
-<li>Data-handling policy</li>
-</ul>
-</div>
-<a class="btn rippleable" href="https://esports-soubiya.com" rel="noopener noreferrer" target="_blank">
-<span class="jp">公式サイトへ</span>
-<span class="en">Official site &amp; repair menu</span>
-</a>
-</div>
-</div>
-<!-- Furry Kids（ペット用品） -->
-<div class="card tone-fk tilt">
-<a class="card-link" href="https://furrykids.co.jp" rel="noopener noreferrer" target="_blank"></a>
-<div class="content">
-<div class="media">
-<img alt="Furry Kids" src="assets/furrykids.png"/>
-</div>
-<h3>
-<span class="jp">Furry Kids（ペット用品）</span>
-<span class="en">Furry Kids (Pet Products)</span>
-</h3>
-<p>
-<span class="jp">デザイン・品質・安全性にこだわるペット用品ブランド。売上の1％を動物保護活動へ寄付します。</span>
-<span class="en">A pet brand committed to design, quality, and safety. We donate 1% of sales to animal welfare.</span>
-</p>
-<div class="biz-bullets">
-<ul class="jp">
-<li>厳選素材</li>
-<li>安全基準の遵守</li>
-<li>シンプルで心地よいデザイン</li>
-<li>社会貢献</li>
-</ul>
-<ul class="en">
-<li>Carefully selected materials</li>
-<li>Safety compliance</li>
-<li>Simple &amp; comfortable design</li>
-<li>Social impact</li>
-</ul>
-</div>
-<a class="btn rippleable" href="https://furrykids.co.jp" rel="noopener noreferrer" target="_blank">
-<span class="jp">公式サイトへ</span>
-<span class="en">Official site</span>
-</a>
-</div>
-</div>
-</div>
-</div></section>
+</section>
 <script>
 (function(){
   function getLang(){ try { return localStorage.getItem('site.lang') || 'jp'; } catch(e){ return 'jp'; } }
@@ -521,38 +750,6 @@ header .nav-links a::after{ left:0; right:0; bottom:-6px; height:2px; }
   }
 })();
 </script>
-<footer class="site-footer pro">
-<div class="container footer-wrap">
-<div class="f-col company">
-<div class="f-h"> <span class="jp">会社情報</span><span class="en">Company</span> </div>
-<ul class="f-list">
-<li><span class="jp">世紀港湾株式会社</span><span class="en">Century Bay Co., Ltd.</span></li>
-<li><span class="jp">〒169-0073 東京都新宿区百人町2-4-2</span><span class="en">2-4-2 Hyakunincho, Shinjuku-ku, Tokyo 169-0073, Japan</span></li>
-<li><span class="jp">適格請求書発行事業者登録番号：T8011101058365</span><span class="en">Invoice Registration No.: T8011101058365</span></li>
-</ul>
-</div>
-<div class="f-col brands">
-<div class="f-h"> <span class="jp">ブランド</span><span class="en">Brands</span> </div>
-<ul class="f-list">
-<li>ESPORTSCAFE 5G</li>
-<li>eスポーツ装備屋</li>
-<li>Furry Kids</li>
-</ul>
-</div>
-<div class="f-col policies">
-<div class="f-h"> <span class="jp">ポリシー</span><span class="en">Policies</span> </div>
-<ul class="f-links">
-<li><a href="privacy-policy.html"><span class="jp">プライバシーポリシー</span><span class="en">Privacy Policy</span></a></li>
-<li><a href="cookie-policy.html"><span class="jp">Cookieポリシー</span><span class="en">Cookie Policy</span></a></li>
-<li><a href="antisocial-exclusion.html"><span class="jp">反社会的勢力排除</span><span class="en">Elimination of Anti‑social Forces</span></a></li>
-<li><a href="information-security.html"><span class="jp">情報セキュリティ</span><span class="en">Information Security</span></a></li>
-</ul>
-</div>
-</div>
-<div class="container footer-copy">
-<small>© Century Bay Co., Ltd. All rights reserved.</small>
-</div>
-</footer>
 <script>
 (function(){
   var btn = document.querySelector('.menu-btn');
@@ -586,5 +783,51 @@ header .nav-links a::after{ left:0; right:0; bottom:-6px; height:2px; }
     if(e.key === 'Escape'){ html.classList.remove('menu-open'); if(btn) btn.setAttribute('aria-expanded','false'); }
   });
 })();
-</script></body>
+</script><main><div class="cb-wrap"></div><div class="cb-wrap"><section id="business-areas">
+<h2 class="decor-title"><span class="jp">事業分野</span><span class="en">Business Areas</span></h2>
+<ul class="cb-business">
+<li>
+<div class="jp">ESPORTSCAFE 5G – 最新設備を備えたeスポーツ体験カフェ</div>
+<div class="en">ESPORTSCAFE 5G – A state-of-the-art eSports experience café</div>
+</li>
+<li>
+<div class="jp">eスポーツ装備屋 – ゲーミング機器の販売・修理専門店</div>
+<div class="en">eSports Equipment Store – Specialized in sales and repair of gaming devices</div>
+</li>
+<li>
+<div class="jp">Furry Kids – デザイン・品質・安全性にこだわったペット用品ブランド（売上の0.1％を動物保護活動へ寄付）</div>
+<div class="en">Furry Kids – A pet product brand committed to design, quality, and safety (0.1% of sales donated to animal welfare)</div>
+</li>
+</ul>
+</section></div><div class="cb-wrap"><section class="cb-news" id="latest-news"><h2 class="cb-news-title decor-title"><span class="jp">ニュース</span><span class="en">News</span></h2><div class="cb-news-grid"><article class="cb-news-feature"><div class="cb-news-thumb"><img alt="News featured image" src="assets/img/news/featured-1.jpg"/></div><div class="cb-news-meta"><div class="cb-news-date">2025.09.10</div><h3 class="cb-news-heading"><a href="page-2-news.html"><span class="jp">ESPORTSCAFE 5G：GPUアップグレード＆席拡充</span><span class="en">ESPORTSCAFE 5G: GPU Upgrades &amp; More Seats</span></a></h3><p class="cb-news-excerpt"><span class="jp">最新世代GPUへ更新し、快適性をさらに向上。イベント対応の増席も実施しました。</span></p><p></p></div></article><div class="cb-news-list"><ul><li><a href="page-2-news.html"><span class="cb-news-date">2025.07.12</span><span class="cb-news-title-txt">eスポーツ装備屋：即日修理カウンターを開始</span></a></li><li><a href="page-2-news.html"><span class="cb-news-date">2025.03.01</span><span class="cb-news-title-txt">Furry Kids：パッケージ回収＆リサイクルを試験導入</span></a></li><li><a href="page-2-news.html"><span class="cb-news-date">2025.01.15</span><span class="cb-news-title-txt">公式サイトを全面リニューアル</span></a></li><li><a href="page-2-news.html"><span class="cb-news-date">2024.11.20</span><span class="cb-news-title-txt">年末チャリティーイベントを開催、寄付先を発表</span></a></li><li><a href="page-2-news.html"><span class="cb-news-date">2024.07.01</span><span class="cb-news-title-txt">Furry Kids：売上の1％寄付の取り組みで支援先を拡大</span></a></li><li><a href="page-2-news.html"><span class="cb-news-date">2023.05.20</span><span class="cb-news-title-txt">ペット用品ブランド「Furry Kids」をローンチ</span></a></li></ul><p></p></div></div></section></div></main><footer class="site-footer pro">
+<div class="container footer-wrap">
+<div class="f-col company">
+<div class="f-h"> <span class="jp">会社情報</span><span class="en">Company</span> </div>
+<ul class="f-list">
+<li><span class="en">Century Bay Co., Ltd.</span></li>
+<li><span class="jp">〒169-0073 東京都新宿区百人町2-4-2</span><span class="en">2-4-2 Hyakunincho, Shinjuku-ku, Tokyo 169-0073, Japan</span></li>
+</ul>
+</div>
+<div class="f-col brands">
+<div class="f-h"> <span class="jp">ブランド</span><span class="en">Brands</span> </div>
+<ul class="f-list">
+<li>ESPORTSCAFE 5G</li>
+<li>eスポーツ装備屋</li>
+<li>Furry Kids</li>
+</ul>
+</div>
+<div class="f-col policies">
+<div class="f-h"> <span class="jp">ポリシー</span><span class="en">Policies</span> </div>
+<ul class="f-links">
+<li><a href="privacy-policy.html"><span class="jp">プライバシーポリシー</span><span class="en">Privacy Policy</span></a></li>
+<li><a href="cookie-policy.html"><span class="jp">Cookieポリシー</span><span class="en">Cookie Policy</span></a></li>
+<li><a href="antisocial-exclusion.html"><span class="jp">反社会的勢力排除</span><span class="en">Elimination of Anti‑social Forces</span></a></li>
+<li><a href="information-security.html"><span class="jp">情報セキュリティ</span><span class="en">Information Security</span></a></li>
+</ul>
+</div>
+</div>
+<div class="container footer-copy">
+<small>© Century Bay Co., Ltd. All rights reserved.</small>
+</div>
+</footer></body>
 </html>

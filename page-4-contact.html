@@ -115,7 +115,7 @@
 <style>/* === Global Professional Footer === */ /* ... */</style>
 <style>.form-consent{margin:10px 0 14px;color:#334155;font-size:14px} .form-consent a{text-decoration:underline}</style>
 <style id="pro-theme">/* ===== Century Bay Business Pro Theme (Overrides) ===== */ /* ...（保持不变）... */</style>
-<link href="assets/site.css" rel="stylesheet"/>
+<link href="assets/site.clean.css" rel="stylesheet"/>
 <style>
 /* --- Unified header alignment --- */
 .nav { display:flex; align-items:center; }
@@ -125,13 +125,23 @@
 @media (max-width: 860px) {
   .nav-links { gap:14px; }
 }
-</style></head>
+</style>
+<style id="lang-visibility-fix">
+  /* Default JP visible */
+  :root:not([data-lang="en"]) .en { display: none !important; }
+  :root:not([data-lang="en"]) .jp { display: inline !important; }
+  /* EN state */
+  :root[data-lang="en"] .jp { display: none !important; }
+  :root[data-lang="en"] .en { display: inline !important; }
+</style>
+
+</head>
 <body>
-<header class="toolbar">
+<header class="toolbar cb-fixed">
 <div class="container nav"><div class="brand">
-<img alt="Century Bay ロゴ" class="cb" src="assets/cb-logo-plain.png"/>
-<span class="title">Century Bay</span>
-</div><div class="nav-right"><nav class="nav-links" id="navlinks"><a href="index.html"><span class="jp">ホーム</span><span class="en">Home</span></a><a href="page-1-about.html">会社情報</a><a href="page-2-news.html">ニュース</a><a href="page-3-careers.html">採用</a><a href="page-4-contact.html">お問い合わせ</a></nav><button aria-label="戻る" class="pill back-btn" data-role="back" onclick="(function(){try{if(document.referrer &amp;&amp; new URL(document.referrer).origin===location.origin){history.back();}else{location.href='index.html';}}catch(e){location.href='index.html';}})()" type="button">
+<img alt="Century Bay ロゴ" class="cb" src="assets/cb-logo-plain.png" style="background:transparent; box-shadow:none; padding:0; border-radius:0; height:72px; width:auto; background:transparent; box-shadow:none; padding:0; border-radius:0;"/>
+<span class="title"><span class="jp">世紀港湾株式会社</span><span class="en">Century Bay</span></span>
+</div><div class="nav-right"><nav class="nav-links" id="navlinks"><a href="index.html"><span class="jp">Home</span><span class="en">Home</span></a><a href="page-1-about.html">About Us</a><a href="page-2-news.html">News</a><a href="page-3-careers.html">Careers</a><a href="page-4-contact.html">Contact</a><a href="brands.html">Brands</a></nav><button aria-label="戻る" class="pill back-btn" data-role="back" onclick="(function(){try{if(document.referrer &amp;&amp; new URL(document.referrer).origin===location.origin){history.back();}else{location.href='index.html';}}catch(e){location.href='index.html';}})()" type="button">
   戻る
   
 </button><div class="lang" role="group">
@@ -171,6 +181,5 @@
 </div>
 </section>
 <footer class="site-footer pro">
-</footer>
-</body>
+</footer></body>
 </html>

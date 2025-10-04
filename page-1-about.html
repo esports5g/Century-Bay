@@ -281,8 +281,8 @@ form input:focus,form textarea:focus,form select:focus{border-color:#0b66c3;box-
 <link href="assets/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="assets/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
 <link color="#0ea5b7" href="assets/favicon.svg" rel="mask-icon"/>
-<meta content="#0ea5b7" name="theme-color"/><link href="assets/site.css" rel="stylesheet"/>
-<link href="assets/site.css"/><style id="nav-normalize">
+<meta content="#0ea5b7" name="theme-color"/><link href="assets/site.clean.css" rel="stylesheet"/>
+<link href="assets/site.clean.css"/><style id="nav-normalize">
 /* Nav Normalize: ensure identical menu position across all pages */
 header .container.nav{ display:flex; justify-content:space-between; align-items:center; padding:10px 2px; }
 header .brand{ display:flex; align-items:center; gap:12px; }
@@ -300,14 +300,346 @@ header .nav-links a::after{ left:0; right:0; bottom:-6px; height:2px; }
 @media (max-width: 860px) {
   .nav-links { gap:14px; }
 }
-</style></head><body><header class="toolbar">
+</style><style>
+/* --- Added: split 代表挨拶 / 会社概要 vertical layout --- */
+.about-greeting, .about-profile { margin: 2rem auto; max-width: var(--content-w, 1000px); }
+.about-greeting .aboutfacts-title, .about-profile .aboutfacts-title { margin-bottom: 1rem; }
+</style><style>
+/* --- Added: Mission/Vision/Values cards under 代表挨拶 --- */
+.about-mevv{max-width:var(--content-w,1000px);margin:2.5rem auto 2rem;}
+.about-mevv .aboutfacts-title{margin-bottom:1.25rem;}
+.mevv-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;}
+.mevv-card{background:var(--surface,#0f1424);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:1rem;transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;}
+.mevv-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.25);border-color:rgba(255,255,255,.18);}
+.mevv-card header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem;}
+.mevv-card .tag{font-size:.9rem;opacity:.9}
+.mevv-card .tag.en{opacity:.7}
+.mevv-card .body p{margin:.35rem 0;line-height:1.7}
+.mevv-card .body .en{opacity:.9}
+@media (max-width: 980px){ .mevv-grid{grid-template-columns:1fr;gap:.875rem;} .mevv-card{padding:1rem;} }
+</style><style>
+/* --- Added: Greeting opening lines & signature --- */
+.about-greeting .intro{margin:.5rem 0 1rem;line-height:1.9}
+.about-greeting .signature{margin-top:1.25rem;text-align:right}
+.about-greeting .signature .jp{font-weight:600}
+</style><style>
+/* --- Added: High-end styling for 代表挨拶 title & EN signature line --- */
+.about-greeting .aboutfacts-title{font-size:clamp(1.3rem, 1.1rem + 1vw, 1.8rem);line-height:1.3;margin-bottom:1rem}
+.about-greeting .aboutfacts-title .jp{
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", "MS PMincho", serif;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+.about-greeting .aboutfacts-title .en{opacity:.85;font-weight:600;letter-spacing:.03em}
+.about-greeting .signature{margin-top:1.1rem;text-align:right}
+.about-greeting .signature .jp{font-weight:600}
+.about-greeting .signature .en{opacity:.9}
+</style><style>
+/* --- Added: MVV section retitled to 企業理念 with bilingual subtitle --- */
+.about-mevv .mevv-subtitle{margin:-.25rem 0 1.1rem;opacity:.9;font-weight:600;letter-spacing:.02em}
+.about-mevv .mevv-subtitle .en{opacity:.85;font-weight:600}
+</style><style>
+/* --- Unified title styles: 代表挨拶 / 企業理念 / 会社概要 --- */
+.about-greeting .aboutfacts-title,
+.about-mevv .aboutfacts-title,
+.about-profile .aboutfacts-title{
+  font-size: clamp(1.3rem, 1.05rem + 1vw, 1.8rem);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+.about-greeting .aboutfacts-title .jp,
+.about-mevv .aboutfacts-title .jp,
+.about-profile .aboutfacts-title .jp{
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", "MS PMincho", serif;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+.about-greeting .aboutfacts-title .en,
+.about-mevv .aboutfacts-title .en,
+.about-profile .aboutfacts-title .en{
+  opacity: .85;
+  font-weight: 600;
+  letter-spacing: .03em;
+}
+/* Subtitle spacing tweak, no slash */
+.about-mevv .mevv-subtitle{margin:-.15rem 0 1.05rem;opacity:.9;font-weight:600;letter-spacing:.02em}
+.about-mevv .mevv-subtitle .jp{margin-right:.5em}
+</style><style>
+/* --- Decorative title lines + unified Mincho fonts for titles --- */
+.about-greeting .aboutfacts-title,
+.about-mevv .aboutfacts-title,
+.about-profile .aboutfacts-title{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1rem;
+  font-size: clamp(1.3rem, 1.05rem + 1vw, 1.8rem);
+  line-height: 1.3;
+  margin: 1.25rem auto 1rem;
+  text-align:center;
+}
+
+.about-greeting .aboutfacts-title::before,
+.about-greeting .aboutfacts-title::after,
+.about-mevv .aboutfacts-title::before,
+.about-mevv .aboutfacts-title::after,
+.about-profile .aboutfacts-title::before,
+.about-profile .aboutfacts-title::after{
+  content:"";
+  flex:1 1 120px;
+  height:8px;
+  border-radius:999px;
+  /* two ultra-thin lines (top & bottom) with subtle opacity */
+  background:
+    linear-gradient(rgba(0,0,0,.14), rgba(0,0,0,.14)) top left / 100% 1px no-repeat,
+    linear-gradient(rgba(0,0,0,.12), rgba(0,0,0,.12)) bottom left / 100% 1px no-repeat;
+  opacity:.6;
+}
+
+.about-greeting .aboutfacts-title .jp,
+.about-mevv .aboutfacts-title .jp,
+.about-profile .aboutfacts-title .jp,
+.about-greeting .aboutfacts-title .en,
+.about-mevv .aboutfacts-title .en,
+.about-profile .aboutfacts-title .en{
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", "MS PMincho", serif;
+  font-weight: 800;
+  letter-spacing: .06em;
+}
+
+/* keep EN a tad lighter to avoid heaviness with serif forms */
+.about-greeting .aboutfacts-title .en,
+.about-mevv .aboutfacts-title .en,
+.about-profile .aboutfacts-title .en{
+  font-weight: 700;
+  opacity:.9;
+  letter-spacing:.04em;
+}
+</style>
+<style id="lang-visibility-fix">
+  /* Default JP visible */
+  :root:not([data-lang="en"]) .en { display: none !important; }
+  :root:not([data-lang="en"]) .jp { display: inline !important; }
+  /* EN state */
+  :root[data-lang="en"] .jp { display: none !important; }
+  :root[data-lang="en"] .en { display: inline !important; }
+</style>
+
+
+
+
+
+<style>
+/* --- Unified heading decoration to match 代表挨拶 (both sides double hairlines) --- */
+.about-greeting .aboutfacts-title,
+.about-mevv .aboutfacts-title,
+.about-profile .aboutfacts-title,
+.about-access .aboutfacts-title{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .9rem;                 /* space between text and hairlines */
+  font-weight: 800;
+  overflow: visible;
+}
+
+/* left & right stretch bars; auto width to fill row */
+.about-greeting .aboutfacts-title::before,
+.about-greeting .aboutfacts-title::after,
+.about-mevv .aboutfacts-title::before,
+.about-mevv .aboutfacts-title::after,
+.about-profile .aboutfacts-title::before,
+.about-profile .aboutfacts-title::after,
+.about-access .aboutfacts-title::before,
+.about-access .aboutfacts-title::after{
+  content: "";
+  flex: 1 1 120px;           /* stretch with a sensible min width */
+  height: 10px;
+  border-radius: 999px;
+  background:
+    linear-gradient(currentColor, currentColor) top left / 100% 1px no-repeat,
+    linear-gradient(currentColor, currentColor) bottom left / 100% 1px no-repeat;
+  opacity: .28;              /* subtle like your screenshot */
+}
+
+/* very narrow screens: reduce gap and min width to avoid wrap */
+@media (max-width: 520px){
+  .about-greeting .aboutfacts-title,
+  .about-mevv .aboutfacts-title,
+  .about-profile .aboutfacts-title,
+  .about-access .aboutfacts-title{ gap: .6rem; }
+  .about-greeting .aboutfacts-title::before,
+  .about-greeting .aboutfacts-title::after,
+  .about-mevv .aboutfacts-title::before,
+  .about-mevv .aboutfacts-title::after,
+  .about-profile .aboutfacts-title::before,
+  .about-profile .aboutfacts-title::after,
+  .about-access .aboutfacts-title::before,
+  .about-access .aboutfacts-title::after{ flex-basis: 64px; height: 8px; }
+}
+</style>
+
+</head><body><header class="toolbar cb-fixed">
 <div class="container nav">
-<div class="brand"><img alt="Century Bay ロゴ" class="cb" src="assets/cb-logo-plain.png"/><span class="title">Century Bay</span></div>
-<div class="nav-right"><nav class="nav-links" id="navlinks"><a href="index.html"><span class="jp">ホーム</span><span class="en">Home</span></a><a href="page-1-about.html">会社情報</a><a href="page-2-news.html">ニュース</a><a href="page-3-careers.html">採用</a><a href="page-4-contact.html">お問い合わせ</a></nav><button aria-label="戻る" class="pill back-btn" data-role="back" onclick="(function(){try{if(document.referrer &amp;&amp; new URL(document.referrer).origin===location.origin){history.back();}else{location.href='index.html';}}catch(e){location.href='index.html';}})()" type="button">
+<div class="brand"><img alt="Century Bay ロゴ" class="cb" src="assets/cb-logo-plain.png" style="background:transparent; box-shadow:none; padding:0; border-radius:0; height:72px; width:auto; background:transparent; box-shadow:none; padding:0; border-radius:0;"/><span class="title"><span class="jp">世紀港湾株式会社</span><span class="en">Century Bay</span></span></div>
+<div class="nav-right"><nav class="nav-links" id="navlinks"><a href="index.html"><span class="jp">Home</span><span class="en">Home</span></a><a href="page-1-about.html">About Us</a><a href="page-2-news.html">News</a><a href="page-3-careers.html">Careers</a><a href="page-4-contact.html">Contact</a><a href="brands.html">Brands</a></nav><button aria-label="戻る" class="pill back-btn" data-role="back" onclick="(function(){try{if(document.referrer &amp;&amp; new URL(document.referrer).origin===location.origin){history.back();}else{location.href='index.html';}}catch(e){location.href='index.html';}})()" type="button">
   戻る
 </button><div class="lang" role="group"><button class="pill active" data-lang="jp" data-set-lang="jp">日本語</button><button class="pill" data-lang="en" data-set-lang="en">EN</button></div></div></div>
 </header>
-<section class="about-unified"><h3 class="aboutfacts-title"><span class="jp">代表挨拶・会社概要</span><span class="en">Message &amp; Company Profile</span></h3><div class="president-body"><div class="jp"><p>私自身、外国人として日本に暮らし、この国の文化や秩序、人々の温かさに深く魅了されてきました。同時に、中国と日本という二つの国をつなぎ、相互理解と信頼を育む架け橋となることを使命と考えています。</p><p>現在は、eスポーツ体験施設「ESPORTSCAFE 5G」、ゲーミング機器販売・修理専門店「eスポーツ装備屋」、そしてペット用品ブランド「Furry Kids」を展開しております。特に「Furry Kids」では、売上の1％を動物保護や福祉活動に寄付し、人と動物が共に幸せに暮らせる社会づくりに取り組んでいます。</p><p>世紀港湾株式会社は、これからも日本と世界をつなぎ、人と人、人と動物がより良く共生できる未来の実現に向け、挑戦を続けてまいります。</p></div><div class="en"><p>Century Bay Co., Ltd. began in 2006 in Tianjin, China, as a trading and maritime freight forwarding business, and established its Japan entity in 2009. Since our founding, we have built our business on trust, integrity, and reliability, transcending borders and cultural boundaries.</p><p>As a foreigner living in Japan, I have been deeply inspired by the country’s culture, order, and warmth of its people. At the same time, I have embraced the mission of serving as a bridge between China and Japan, fostering mutual understanding and trust.</p><p>Today, we operate the eSports experience facility “ESPORTSCAFE 5G,” the gaming equipment sales and repair store “eSports Equipment Store,” and the pet product brand “Furry Kids.” Notably, Furry Kids donates 1% of its sales to animal welfare initiatives, contributing to a society where people and animals can live together in harmony.</p><p>Moving forward, Century Bay Co., Ltd. will continue to connect Japan and the world, working toward a better future where humans and animals coexist in harmony.</p></div></div><table class="profile-table"><tbody><tr><th><div class="jp">社名</div><div class="en">Company Name</div></th><td class="val"><div class="jp">世紀港湾株式会社</div><div class="en">Century Bay Co., Ltd.</div></td></tr><tr><th><div class="jp">設立</div><div class="en">Established</div></th><td class="val"><div class="jp">日本法人設立：2009年12月8日 / グループ創業：2006年（中国・天津）</div><div class="en">Japan entity established: 2009-12-08 / Group founded: 2006 (Tianjin, China)</div></td></tr><tr><th><div class="jp">本社所在地</div><div class="en">Address</div></th><td class="val"><div class="jp"><span>〒169-0073 東京都新宿区百人町2-4-2</span><br/><a href="https://maps.google.com/?q=2-4-2%20Hyakunincho%20Shinjuku%20Tokyo%20169-0073" rel="noopener noreferrer" target="_blank">地図はこちら</a></div><div class="en"><span>2-4-2 Hyakunincho, Shinjuku-ku, Tokyo 169-0073, Japan</span><br/><a href="https://maps.google.com/?q=2-4-2%20Hyakunincho%20Shinjuku%20Tokyo%20169-0073" rel="noopener noreferrer" target="_blank">View on Map</a></div></td></tr><tr><th><div class="jp">代表者</div><div class="en">Representative</div></th><td class="val"><div class="jp">代表取締役　董 成奎</div><div class="en">President &amp; CEO: Chengkui Dong</div></td></tr><tr><th><div class="jp">資本金</div><div class="en">Capital</div></th><td class="val"><div class="jp">500万円</div><div class="en">JPY 5 million</div></td></tr><tr><th><div class="jp">事業内容</div><div class="en">Business Description</div></th><td class="val"><div class="jp">エンターテインメント事業、ライフスタイル事業の企画・運営</div><div class="en">Planning and operation of entertainment and lifestyle businesses</div></td></tr><tr><th><div class="jp">沿革</div><div class="en">History</div></th><td class="val"><div class="jp"><ul class="bullets"><li>2006年　中国天津にて貿易・海運貨物取扱業を創業</li><li>2009年12月8日　日本法人「世紀港湾株式会社」設立、事業多角化開始</li></ul></div><div class="en"><ul class="bullets"><li>2006 – Founded in Tianjin, China as a trading and maritime freight forwarding business</li><li>2009 – Established Century Bay Co., Ltd. in Japan, beginning business diversification</li></ul></div></td></tr><tr><th><div class="jp">主要ブランド</div><div class="en">Key Brands</div></th><td class="val"><div class="jp">ESPORTSCAFE 5G / eスポーツ装備屋 / Furry Kids</div><div class="en">ESPORTSCAFE 5G / Esports Soubiya / Furry Kids</div></td></tr><tr><th><div class="jp">主要取引銀行</div><div class="en">Main Banks</div></th><td class="val"><div class="jp">三菱UFJ銀行（東京）</div><div class="en">Mitsubishi UFJ Bank (Tokyo)</div></td></tr><tr><th><div class="jp">適格請求書発行事業者登録番号</div><div class="en">Invoice Registration Number</div></th><td class="val"><div class="jp">T8011101058365</div><div class="en">T8011101058365</div></td></tr></tbody></table></section>
+<section class="about-greeting">
+  <h3 class="aboutfacts-title"><span class="jp">代表挨拶</span><span class="en">Message from the Representative</span></h3>
+
+  <p class="jp intro">このたびは、弊社世紀港湾株式会社の会社案内をご覧いただき、誠にありがとうございます。</p>
+  <p class="en intro">We sincerely appreciate your interest in the company profile of Century Bay Co., Ltd.</p>
+  <div class="president-body"><div class="jp"><p>私自身、外国人として日本に暮らし、この国の文化や秩序、人々の温かさに深く魅了されてきました。同時に、中国と日本という二つの国をつなぎ、相互理解と信頼を育む架け橋となることを使命と考えています。</p><p>現在は、eスポーツ体験施設「ESPORTSCAFE 5G」、ゲーミング機器販売・修理専門店「eスポーツ装備屋」、そしてペット用品ブランド「Furry Kids」を展開しております。特に「Furry Kids」では、売上の1％を動物保護や福祉活動に寄付し、人と動物が共に幸せに暮らせる社会づくりに取り組んでいます。</p><p>世紀港湾株式会社は、これからも日本と世界をつなぎ、人と人、人と動物がより良く共生できる未来の実現に向け、挑戦を続けてまいります。</p></div><div class="en"><p>Century Bay Co., Ltd. began in 2006 in Tianjin, China, as a trading and maritime freight forwarding business, and established its Japan entity in 2009. Since our founding, we have built our business on trust, integrity, and reliability, transcending borders and cultural boundaries.</p><p>As a foreigner living in Japan, I have been deeply inspired by the country’s culture, order, and warmth of its people. At the same time, I have embraced the mission of serving as a bridge between China and Japan, fostering mutual understanding and trust.</p><p>Today, we operate the eSports experience facility “ESPORTSCAFE 5G,” the gaming equipment sales and repair store “eSports Equipment Store,” and the pet product brand “Furry Kids.” Notably, Furry Kids donates 1% of its sales to animal welfare initiatives, contributing to a society where people and animals can live together in harmony.</p><p>Moving forward, Century Bay Co., Ltd. will continue to connect Japan and the world, working toward a better future where humans and animals coexist in harmony.</p></div></div>
+
+  <div class="signature">
+    <p class="jp">代表取締役社長：董 成奎</p>
+  <p class="en">Representative Director &amp; President: Dong Chengkui</p></div> 
+</section>
+
+<section class="about-mevv" aria-labelledby="mevv-title">
+  <h3 id="mevv-title" class="aboutfacts-title"><span class="jp">企業理念</span><span class="en">Corporate Philosophy</span></h3><p class="mevv-subtitle"><span class="jp">ミッション・ビジョン・バリュー</span> <span class="en">Mission, Vision &amp; Values</span></p>
+  <div class="mevv-grid">
+    <article class="mevv-card">
+      <header>
+        <div class="tag jp">ミッション</div>
+        <div class="tag en">Mission</div>
+      </header>
+      <div class="body">
+        <p class="jp">日本と世界、人と人、人と動物をつなぎ、信頼と感動を届ける。</p>
+        <p class="en">Connecting Japan and the world, people to people, and humans to animals—delivering trust and inspiration.</p>
+      </div>
+    </article>
+    <article class="mevv-card">
+      <header>
+        <div class="tag jp">ビジョン</div>
+        <div class="tag en">Vision</div>
+      </header>
+      <div class="body">
+        <p class="jp">中日友好の架け橋として、国や文化を越えた持続可能な社会を創造する。</p>
+        <p class="en">To serve as a bridge for Japan–China friendship, creating a sustainable society beyond borders and cultures.</p>
+      </div>
+    </article>
+    <article class="mevv-card">
+      <header>
+        <div class="tag jp">バリュー</div>
+        <div class="tag en">Values</div>
+      </header>
+      <div class="body">
+        <p class="jp">誠実な姿勢、確かな品質、そして社会・地球への貢献を大切にする。</p>
+        <p class="en">We value sincerity, uncompromising quality, and contributions to society and the planet.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="about-profile">
+  <h3 class="aboutfacts-title"><span class="jp">会社概要</span><span class="en">Company Profile</span></h3>
+  <table class="profile-table"><tbody>
+<tr>
+  <th><span class="jp">会社名</span><span class="en">Company Name</span></th>
+  <td>
+    <span class="jp">世紀港湾株式会社</span>
+    <span class="en">Century Bay Co., Ltd.</span>
+  </td>
+</tr>
+<tr>
+  <th><span class="jp">所在地</span><span class="en">Address</span></th>
+  <td>
+    <span class="jp">〒169-0073 東京都新宿区百人町2-4-2（<a href="https://maps.google.com/?q=2-4-2%20Hyakunincho,%20Shinjuku-ku,%20Tokyo%20169-0073%20Japan" target="_blank" rel="noopener">Googleマップ</a>）</span>
+    <span class="en">2-4-2 Hyakunincho, Shinjuku-ku, Tokyo 169-0073, Japan (<a href="https://maps.google.com/?q=2-4-2%20Hyakunincho,%20Shinjuku-ku,%20Tokyo%20169-0073%20Japan" target="_blank" rel="noopener">Google Map</a>)</span>
+  </td>
+</tr>
+<tr>
+  <th><span class="jp">設立</span><span class="en">Established</span></th>
+  <td>
+    <div class="jp">日本法人設立：2009年12月8日<br/>グループ創業：2006年（中国・天津）</div>
+    <div class="en">Japan entity established: December 8, 2009<br/>Group founded: 2006 (Tianjin, China)</div>
+  </td>
+</tr>
+<tr>
+  <th><span class="jp">代表者</span><span class="en">Representative</span></th>
+  <td>
+    <span class="jp">代表取締役　董 成奎</span>
+    <span class="en">President &amp; CEO: Chengkui Dong</span>
+  </td>
+</tr>
+<tr>
+  <th><span class="jp">資本金</span><span class="en">Capital</span></th>
+  <td>
+    <span class="jp">500万円</span>
+    <span class="en">JPY 5 million</span>
+  </td>
+</tr>
+<tr>
+  <th><span class="jp">事業内容</span><span class="en">Business Description</span></th>
+  <td>
+    <span class="jp">エンターテインメント事業、ライフスタイル事業の企画・運営</span>
+    <span class="en">Planning and operation of entertainment and lifestyle businesses</span>
+  </td>
+</tr>
+<tr>
+  <th><span class="jp">沿革</span><span class="en">History</span></th>
+  <td>
+    <div class="jp">2006年　中国天津にて貿易・海運貨物取扱業を創業<br/>2009年12月8日　日本法人「世紀港湾株式会社」設立、事業多角化開始</div>
+    <div class="en">2006 – Founded in Tianjin, China as a trading and maritime freight forwarding business<br/>2009 – Established Century Bay Co., Ltd. in Japan, beginning business diversification</div>
+  </td>
+</tr>
+<tr>
+  <th><span class="jp">主要ブランド</span><span class="en">Key Brands</span></th>
+  <td>ESPORTSCAFE 5G / eスポーツ装備屋 / Furry Kids</td>
+</tr>
+<tr>
+  <th><span class="jp">主要取引銀行</span><span class="en">Main Banks</span></th>
+  <td>
+    <span class="jp">三菱UFJ銀行</span>
+    <span class="en">Mitsubishi UFJ Bank</span>
+  </td>
+</tr>
+<tr>
+  <th><span class="jp">適格請求書発行事業者登録番号</span><span class="en">Invoice Registration Number</span></th>
+  <td>T8011101058365</td>
+</tr>
+</tbody></table>
+</section>
+<section class="about-access" aria-labelledby="access-title">
+  <h3 class="aboutfacts-title" id="access-title">
+    <span class="jp">アクセス</span><span class="en">Access</span>
+  </h3>
+  <div class="access-grid">
+    <div class="access-map">
+      <iframe title="Google Map" src="https://www.google.com/maps?q=2-4-2+Hyakunincho,+Shinjuku-ku,+Tokyo+169-0073,+Japan&output=embed" width="100%" height="360" style="border:0;border-radius:12px" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="access-info">
+      <div class="jp">
+        <h4>交通アクセス</h4>
+        <p><strong>電車の場合</strong><br/>JR山手線・「新大久保」駅から徒歩約1分、JR中央総武線・「大久保」駅から徒歩約3分。</p>
+        <p><strong>お車の場合</strong><br/>明治通り「北新宿一丁目」交差点付近。近隣コインパーキングをご利用ください。</p>
+        <h4>所在地</h4>
+        <p>〒169-0073 東京都新宿区百人町2-4-2（<a href="https://maps.google.com/?q=2-4-2%20Hyakunincho,%20Shinjuku-ku,%20Tokyo%20169-0073%20Japan" target="_blank" rel="noopener">Googleマップ</a>）</p>
+      </div>
+      <div class="en">
+        <h4>Directions</h4>
+        <p><strong>By train</strong><br/>1 min walk from JR Shin-Okubo Station (Yamanote Line), 3 min walk from JR Okubo Station (Chuo-Sobu Line).</p>
+        <p><strong>By car</strong><br/>Near the “Kita‑Shinjuku 1‑chome” intersection on Meiji-dori. Please use nearby coin parking lots.</p>
+        <h4>Address</h4>
+        <p>2-4-2 Hyakunincho, Shinjuku‑ku, Tokyo 169-0073, Japan (<a href="https://maps.google.com/?q=2-4-2%20Hyakunincho,%20Shinjuku-ku,%20Tokyo%20169-0073%20Japan" target="_blank" rel="noopener">Google Map</a>)</p>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+/* Access block layout */
+.about-access{max-width:var(--content-w,1000px);margin:2.5rem auto}
+.access-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:start}
+.access-map iframe{width:100%;height:360px}
+.about-access h4{margin:.25rem 0 .5rem;font-size:1.05rem}
+.about-access p{margin:.25rem 0 1rem;line-height:1.8}
+@media (max-width: 900px){.access-grid{grid-template-columns:1fr;gap:16px}.access-map iframe{height:300px}}
+</style>
+
 <script>
 (function(){
   function getLang(){ try { return localStorage.getItem('site.lang') || 'jp'; } catch(e){ return 'jp'; } }
@@ -387,38 +719,6 @@ header .nav-links a::after{ left:0; right:0; bottom:-6px; height:2px; }
   }
 })();
 </script>
-<footer class="site-footer pro">
-<div class="container footer-wrap">
-<div class="f-col company">
-<div class="f-h"> <span class="jp">会社情報</span><span class="en">Company</span> </div>
-<ul class="f-list">
-<li><span class="jp">世紀港湾株式会社</span><span class="en">Century Bay Co., Ltd.</span></li>
-<li><span class="jp">〒169-0073 東京都新宿区百人町2-4-2</span><span class="en">2-4-2 Hyakunincho, Shinjuku-ku, Tokyo 169-0073, Japan</span></li>
-<li><span class="jp">適格請求書発行事業者登録番号：T8011101058365</span><span class="en">Invoice Registration No.: T8011101058365</span></li>
-</ul>
-</div>
-<div class="f-col brands">
-<div class="f-h"> <span class="jp">ブランド</span><span class="en">Brands</span> </div>
-<ul class="f-list">
-<li>ESPORTSCAFE 5G</li>
-<li>eスポーツ装備屋</li>
-<li>Furry Kids</li>
-</ul>
-</div>
-<div class="f-col policies">
-<div class="f-h"> <span class="jp">ポリシー</span><span class="en">Policies</span> </div>
-<ul class="f-links">
-<li><a href="privacy-policy.html"><span class="jp">プライバシーポリシー</span><span class="en">Privacy Policy</span></a></li>
-<li><a href="cookie-policy.html"><span class="jp">Cookieポリシー</span><span class="en">Cookie Policy</span></a></li>
-<li><a href="antisocial-exclusion.html"><span class="jp">反社会的勢力排除</span><span class="en">Elimination of Anti‑social Forces</span></a></li>
-<li><a href="information-security.html"><span class="jp">情報セキュリティ</span><span class="en">Information Security</span></a></li>
-</ul>
-</div>
-</div>
-<div class="container footer-copy">
-<small>© Century Bay Co., Ltd. All rights reserved.</small>
-</div>
-</footer>
 <script>
 (function(){
   var btn = document.querySelector('.menu-btn');
@@ -452,4 +752,34 @@ header .nav-links a::after{ left:0; right:0; bottom:-6px; height:2px; }
     if(e.key === 'Escape'){ html.classList.remove('menu-open'); if(btn) btn.setAttribute('aria-expanded','false'); }
   });
 })();
-</script></body></html>
+</script><footer class="site-footer pro">
+<div class="container footer-wrap">
+<div class="f-col company">
+<div class="f-h"> <span class="jp">会社情報</span><span class="en">Company</span> </div>
+<ul class="f-list">
+<li><span class="jp">世紀港湾株式会社</span><span class="en">Century Bay Co., Ltd.</span></li>
+<li><span class="jp">〒169-0073 東京都新宿区百人町2-4-2</span><span class="en">2-4-2 Hyakunincho, Shinjuku-ku, Tokyo 169-0073, Japan</span></li>
+</ul>
+</div>
+<div class="f-col brands">
+<div class="f-h"> <span class="jp">ブランド</span><span class="en">Brands</span> </div>
+<ul class="f-list">
+<li>ESPORTSCAFE 5G</li>
+<li>eスポーツ装備屋</li>
+<li>Furry Kids</li>
+</ul>
+</div>
+<div class="f-col policies">
+<div class="f-h"> <span class="jp">ポリシー</span><span class="en">Policies</span> </div>
+<ul class="f-links">
+<li><a href="privacy-policy.html"><span class="jp">プライバシーポリシー</span><span class="en">Privacy Policy</span></a></li>
+<li><a href="cookie-policy.html"><span class="jp">Cookieポリシー</span><span class="en">Cookie Policy</span></a></li>
+<li><a href="antisocial-exclusion.html"><span class="jp">反社会的勢力排除</span><span class="en">Elimination of Anti‑social Forces</span></a></li>
+<li><a href="information-security.html"><span class="jp">情報セキュリティ</span><span class="en">Information Security</span></a></li>
+</ul>
+</div>
+</div>
+<div class="container footer-copy">
+<small>© Century Bay Co., Ltd. All rights reserved.</small>
+</div>
+</footer></body></html>

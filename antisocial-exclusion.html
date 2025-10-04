@@ -169,7 +169,7 @@ form input:focus,form textarea:focus,form select:focus{border-color:#0b66c3;box-
 <link href="assets/favicons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="assets/favicons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
 <link color="#0ea5b7" href="assets/favicon.svg" rel="mask-icon"/>
-<meta content="#0ea5b7" name="theme-color"/><link href="assets/site.css" rel="stylesheet"/><style id="nav-normalize">
+<meta content="#0ea5b7" name="theme-color"/><link href="assets/site.clean.css" rel="stylesheet"/><style id="nav-normalize">
 /* Nav Normalize: ensure identical menu position across all pages */
 header .container.nav{ display:flex; justify-content:space-between; align-items:center; padding:10px 2px; }
 header .brand{ display:flex; align-items:center; gap:12px; }
@@ -188,13 +188,33 @@ header .nav-links a::after{ left:0; right:0; bottom:-6px; height:2px; }
   .nav-links { gap:14px; }
 }
 </style></head>
-<body><header class="toolbar">
+<body><header class="cb-fixed">
 <div class="container nav">
-<div class="brand"><img alt="Century Bay ロゴ" class="cb" src="assets/cb-logo-plain.png"/><span class="title">Century Bay</span></div>
-<div class="nav-right"><nav class="nav-links" id="navlinks"><a href="index.html"><span class="jp">ホーム</span><span class="en">Home</span></a><a href="page-1-about.html">会社情報</a><a href="page-2-news.html">ニュース</a><a href="page-3-careers.html">採用</a><a href="page-4-contact.html">お問い合わせ</a></nav><button aria-label="戻る" class="pill back-btn" data-role="back" onclick="(function(){try{if(document.referrer &amp;&amp; new URL(document.referrer).origin===location.origin){history.back();}else{location.href='index.html';}}catch(e){location.href='index.html';}})()" type="button">
-  戻る
-</button><div class="lang" role="group"><button class="pill active" data-lang="jp" data-set-lang="jp">日本語</button><button class="pill" data-lang="en" data-set-lang="en">EN</button></div></div></div>
+<div class="brand"><img alt="Century Bay ロゴ" class="cb" src="assets/cb-logo-plain.png" style="background:transparent; box-shadow:none; padding:0; border-radius:0; height:72px; width:auto; background:transparent; box-shadow:none; padding:0; border-radius:0;"/><span class="title"><span class="jp">世紀港湾株式会社</span><span class="en">Century Bay</span></span></div>
+<div class="nav-right"><nav class="nav-links" id="navlinks"><a aria-current="page" href="index.html"><span class="jp">Home</span><span class="en">Home</span></a><a href="page-1-about.html">About Us</a><a href="page-2-news.html">News</a><a href="page-3-careers.html">Careers</a><a href="page-4-contact.html">Contact</a><a href="brands.html">Brands</a></nav><div class="lang" role="group"><button class="pill active" data-lang="jp" data-set-lang="jp">日本語</button><button class="pill" data-lang="en" data-set-lang="en">EN</button></div></div></div>
+<style id="lang-visibility-fix">
+  /* Default=JP。英文仅当 data-lang="en" 才显示 */
+  :root:not([data-lang="en"]) .en { display: none !important; }
+  :root:not([data-lang="en"]) .jp { display: initial !important; }
+
+  :root[data-lang="en"] .jp { display: none !important; }
+  :root[data-lang="en"] .en { display: initial !important; }
+
+  /* 防止空元素占位 */
+  .jp:empty, .en:empty { display: none !important; }
+</style>
 </header>
+<style id="lang-visibility-fix">
+  /* Default=JP。英文仅当 data-lang="en" 才显示 */
+  :root:not([data-lang="en"]) .en { display: none !important; }
+  :root:not([data-lang="en"]) .jp { display: initial !important; }
+
+  :root[data-lang="en"] .jp { display: none !important; }
+  :root[data-lang="en"] .en { display: initial !important; }
+
+  /* 防止空元素占位 */
+  .jp:empty, .en:empty { display: none !important; }
+</style>
 <div class="container">
 <h1>反社会的勢力排除に関する方針</h1>
 <div class="update">最終更新日：2025-08-13</div>
@@ -295,38 +315,6 @@ header .nav-links a::after{ left:0; right:0; bottom:-6px; height:2px; }
   }
 })();
 </script>
-<footer class="site-footer pro">
-<div class="container footer-wrap">
-<div class="f-col company">
-<div class="f-h"> <span class="jp">会社情報</span><span class="en">Company</span> </div>
-<ul class="f-list">
-<li><span class="jp">世紀港湾株式会社</span><span class="en">Century Bay Co., Ltd.</span></li>
-<li><span class="jp">〒169-0073 東京都新宿区百人町2-4-2</span><span class="en">2-4-2 Hyakunincho, Shinjuku-ku, Tokyo 169-0073, Japan</span></li>
-<li><span class="jp">適格請求書発行事業者登録番号：T8011101058365</span><span class="en">Invoice Registration No.: T8011101058365</span></li>
-</ul>
-</div>
-<div class="f-col brands">
-<div class="f-h"> <span class="jp">ブランド</span><span class="en">Brands</span> </div>
-<ul class="f-list">
-<li>ESPORTSCAFE 5G</li>
-<li>eスポーツ装備屋</li>
-<li>Furry Kids</li>
-</ul>
-</div>
-<div class="f-col policies">
-<div class="f-h"> <span class="jp">ポリシー</span><span class="en">Policies</span> </div>
-<ul class="f-links">
-<li><a href="privacy-policy.html"><span class="jp">プライバシーポリシー</span><span class="en">Privacy Policy</span></a></li>
-<li><a href="cookie-policy.html"><span class="jp">Cookieポリシー</span><span class="en">Cookie Policy</span></a></li>
-<li><a href="antisocial-exclusion.html"><span class="jp">反社会的勢力排除</span><span class="en">Elimination of Anti‑social Forces</span></a></li>
-<li><a href="information-security.html"><span class="jp">情報セキュリティ</span><span class="en">Information Security</span></a></li>
-</ul>
-</div>
-</div>
-<div class="container footer-copy">
-<small>© Century Bay Co., Ltd. All rights reserved.</small>
-</div>
-</footer>
 <script>
 (function(){
   var btn = document.querySelector('.menu-btn');
@@ -360,5 +348,35 @@ header .nav-links a::after{ left:0; right:0; bottom:-6px; height:2px; }
     if(e.key === 'Escape'){ html.classList.remove('menu-open'); if(btn) btn.setAttribute('aria-expanded','false'); }
   });
 })();
-</script></body>
+</script><footer class="site-footer pro">
+<div class="container footer-wrap">
+<div class="f-col company">
+<div class="f-h"> <span class="jp">会社情報</span><span class="en">Company</span> </div>
+<ul class="f-list">
+<li><span class="jp">世紀港湾株式会社</span><span class="en">Century Bay Co., Ltd.</span></li>
+<li><span class="jp">〒169-0073 東京都新宿区百人町2-4-2</span><span class="en">2-4-2 Hyakunincho, Shinjuku-ku, Tokyo 169-0073, Japan</span></li>
+</ul>
+</div>
+<div class="f-col brands">
+<div class="f-h"> <span class="jp">ブランド</span><span class="en">Brands</span> </div>
+<ul class="f-list">
+<li>ESPORTSCAFE 5G</li>
+<li>eスポーツ装備屋</li>
+<li>Furry Kids</li>
+</ul>
+</div>
+<div class="f-col policies">
+<div class="f-h"> <span class="jp">ポリシー</span><span class="en">Policies</span> </div>
+<ul class="f-links">
+<li><a href="privacy-policy.html"><span class="jp">プライバシーポリシー</span><span class="en">Privacy Policy</span></a></li>
+<li><a href="cookie-policy.html"><span class="jp">Cookieポリシー</span><span class="en">Cookie Policy</span></a></li>
+<li><a href="antisocial-exclusion.html"><span class="jp">反社会的勢力排除</span><span class="en">Elimination of Anti‑social Forces</span></a></li>
+<li><a href="information-security.html"><span class="jp">情報セキュリティ</span><span class="en">Information Security</span></a></li>
+</ul>
+</div>
+</div>
+<div class="container footer-copy">
+<small>© Century Bay Co., Ltd. All rights reserved.</small>
+</div>
+</footer></body>
 </html>
