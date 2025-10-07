@@ -1,0 +1,114 @@
+
+/* === Mobile/Tablet-only responsive & anti-deformation stylesheet ===
+   IMPORTANT: These rules apply ONLY at widths <= 1024px.
+   Desktop ( >1024px ) remains 100% unchanged.
+*/
+
+@media (max-width: 1024px){
+
+  :root{
+    --page-max: 980px;
+    --gap-sm: clamp(12px, 2.5vw, 18px);
+    --gap-md: clamp(16px, 3.5vw, 28px);
+    --gap-lg: clamp(24px, 5vw, 48px);
+  }
+
+  html, body{ min-height: 100%; }
+
+  /* Add breathing room on small screens only */
+  body{
+    padding-left:  min(5vw, 20px);
+    padding-right: min(5vw, 20px);
+    padding-top:    min(4vh, 28px);
+    padding-bottom: min(6vh, 36px);
+    box-sizing: border-box;
+  }
+
+  /* Clamp typical containers only on small screens */
+  main, .main, .container, .wrap, .wrapper, .content, .page, .section{
+    max-width: var(--page-max);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:  var(--gap-md);
+    margin-bottom: var(--gap-md);
+    padding-left:  min(3vw, 16px);
+    padding-right: min(3vw, 16px);
+    box-sizing: border-box;
+  }
+
+  /* Headers/footers light side padding */
+  header, .header, footer, .footer{
+    max-width: calc(var(--page-max) + 40px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left:  min(3vw, 16px);
+    padding-right: min(3vw, 16px);
+    box-sizing: border-box;
+  }
+
+  /* Media protection to avoid deformation on small screens */
+  img, video, canvas, svg{
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Avoid text overflow causing layout breakage */
+  h1, h2, h3, h4, h5, h6, p, li, dt, dd, button, a, span{
+    overflow-wrap: anywhere;
+  }
+
+  /* Grids & cards: auto-wrap to avoid squishing */
+  .grid, .cards, .card-grid, .columns, .row, .rows{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--gap-sm);
+  }
+
+  /* Buttons & inputs: prevent odd wrapping */
+  button, .btn, input[type="submit"], .pill{
+    white-space: nowrap;
+    inline-size: fit-content;
+    max-width: 100%;
+  }
+
+  /* Tables: allow horizontal scroll instead of breaking layout */
+  .table, table{
+    width: 100%;
+    border-collapse: collapse;
+    display: block;
+    overflow-x: auto;
+  }
+
+  /* Utility: opt-out of clamping when truly full-bleed is desired */
+  .full-bleed{
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+@media (max-width: 768px){
+  :root{ --page-max: 720px; }
+  body{
+    padding-left:  min(4vw, 18px);
+    padding-right: min(4vw, 18px);
+    padding-top:    min(5vh, 32px);
+    padding-bottom: min(6vh, 40px);
+  }
+  main, .main, .container, .wrap, .wrapper, .content, .page, .section{
+    padding-left:  min(4vw, 18px);
+    padding-right: min(4vw, 18px);
+    margin-top: var(--gap-sm);
+    margin-bottom: var(--gap-sm);
+  }
+}
+
+@media (max-width: 480px){
+  :root{ --page-max: 440px; }
+  /* Slightly reduce oversized headings to avoid wrapping deformation */
+  h1{ font-size: clamp(20px, 6vw, 28px); }
+  h2{ font-size: clamp(18px, 5.2vw, 24px); }
+  h3{ font-size: clamp(16px, 4.8vw, 20px); }
+}
